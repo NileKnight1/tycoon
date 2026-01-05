@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://0ecmsyxubasp"]
+[gd_scene load_steps=11 format=4 uid="uid://cmlhhf4qn1t5e"]
 
-[ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="1_lnu2h"]
+[ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://assets/Tilesets/TilesetField.png" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dgog2vrhk2fyd" path="res://objects/player_1.tscn" id="1_uwrxv"]
-[ext_resource type="Texture2D" uid="uid://bpcg7ewgml4ko" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_lbhrr"]
-[ext_resource type="Texture2D" uid="uid://rut8u2g4jlcq" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png" id="3_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://bpcg7ewgml4ko" path="res://assets/Tilesets/TilesetFloor.png" id="2_lbhrr"]
+[ext_resource type="Texture2D" uid="uid://rut8u2g4jlcq" path="res://assets/Tilesets/TilesetWater.png" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dythr5capmpbt" path="res://objects/player2.tscn" id="5_iywne"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -59,13 +60,7 @@ sources/0 = SubResource("TileSetAtlasSource_iywne")
 sources/1 = SubResource("TileSetAtlasSource_p57ef")
 sources/2 = SubResource("TileSetAtlasSource_u5sy4")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbhrr"]
-radius = 3.645832
-height = 13.541664
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iywne"]
-radius = 0.5208473
-height = 8.333336
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbhrr"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -81,22 +76,18 @@ position = Vector2(39, 76)
 scale = Vector2(1.9200001, 1.9200001)
 SPEED = 100
 
-[node name="Camera2D" type="Camera2D" parent="player1"]
-zoom = Vector2(4, 4)
-position_smoothing_enabled = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
-position = Vector2(0, 0.5208333)
-shape = SubResource("CapsuleShape2D_lbhrr")
-
-[node name="player2" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(39, 76)
-scale = Vector2(1.9200001, 1.9200001)
+[node name="Area2D" type="Area2D" parent="player1"]
 collision_layer = 64
 collision_mask = 64
-SPEED = 100
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
-position = Vector2(0, 6.5)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_iywne")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player1/Area2D"]
+shape = SubResource("RectangleShape2D_lbhrr")
+
+[node name="ch" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(-25, 81)
+
+[node name="Camera2D" type="Camera2D" parent="ch"]
+position = Vector2(64, -5)
+scale = Vector2(1.9200001, 1.9200001)
+zoom = Vector2(4, 4)
+position_smoothing_enabled = true
