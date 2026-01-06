@@ -4,8 +4,10 @@ extends CharacterBody2D
 @export var SPEED = global.player_speed
 @export var boost = global.player_boost
 
-
 @onready var player = $ch
+#@onready var tiles = $tiles
+#@onready var main = $main
+
 #const JUMP_VELOCITY = -400.0
 
 
@@ -62,6 +64,15 @@ func _physics_process(delta: float) -> void:
 		player.play("down")
 	else:
 		player.play("default")
-
-
+		
+	#collisions
+	#
+	#main.set_deferred("disabled", 1)
+	#tiles.set_deferred("disabled", 0)
+	#collision_mask = 2
+	#move_and_slide()
+	#
+	#tiles.set_deferred("disabled", 1)
+	#main.set_deferred("disabled", 0)
+	#collision_mask = 7
 	move_and_slide()

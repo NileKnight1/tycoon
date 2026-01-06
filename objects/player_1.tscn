@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dgog2vrhk2fyd"]
+[gd_scene load_steps=20 format=3 uid="uid://dgog2vrhk2fyd"]
 
 [ext_resource type="Texture2D" uid="uid://dvf7avhjitfb3" path="res://assets/character/prototype_character.png" id="1_0tw63"]
 [ext_resource type="Script" uid="uid://dodir0exb6jl3" path="res://scripts/playerr.gd" id="1_3rx63"]
@@ -141,11 +141,29 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rx63"]
+radius = 3.645832
+height = 13.541664
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7ers"]
+radius = 0.5208473
+height = 8.333336
+
 [node name="player1" type="CharacterBody2D"]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 64
+collision_mask = 64
 script = ExtResource("1_3rx63")
 
 [node name="ch" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_16y4b")
 autoplay = "default"
+
+[node name="main" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5208333)
+shape = SubResource("CapsuleShape2D_3rx63")
+disabled = true
+
+[node name="tiles" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_s7ers")

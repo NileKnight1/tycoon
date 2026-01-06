@@ -4,6 +4,8 @@
 [ext_resource type="PackedScene" uid="uid://dgog2vrhk2fyd" path="res://objects/player_1.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bpcg7ewgml4ko" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://rut8u2g4jlcq" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://csykoan5262rt" path="res://objects/inventory.tscn" id="5_iywne"]
+[ext_resource type="Script" uid="uid://ci3ftc3pnovt3" path="res://scripts/inventory.gd" id="6_p57ef"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -45,7 +47,6 @@ texture = ExtResource("3_lbhrr")
 11:3/0 = 0
 0:0/0 = 0
 0:1/0 = 0
-0:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -53,21 +54,11 @@ texture = ExtResource("3_lbhrr")
 [sub_resource type="TileSet" id="TileSet_u5sy4"]
 physics_layer_0/collision_layer = 64
 physics_layer_0/collision_mask = 64
-physics_layer_1/collision_layer = 2
-physics_layer_1/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_iywne")
 sources/1 = SubResource("TileSetAtlasSource_p57ef")
 sources/2 = SubResource("TileSetAtlasSource_u5sy4")
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lbhrr"]
-radius = 3.645832
-height = 13.541664
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_iywne"]
-radius = 0.5208473
-height = 8.333336
-
-[node name="Node2D" type="Node2D"]
+[node name="game" type="Node2D"]
 
 [node name="map" type="Node2D" parent="."]
 
@@ -85,18 +76,29 @@ SPEED = 100
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player1"]
-position = Vector2(0, 0.5208333)
-shape = SubResource("CapsuleShape2D_lbhrr")
+[node name="ui" parent="." instance=ExtResource("5_iywne")]
+visible = false
+script = ExtResource("6_p57ef")
 
-[node name="player2" parent="." instance=ExtResource("1_uwrxv")]
-position = Vector2(39, 76)
-scale = Vector2(1.9200001, 1.9200001)
-collision_layer = 64
-collision_mask = 64
-SPEED = 100
+[node name="item" type="Control" parent="ui"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 527.0
+offset_top = 303.0
+offset_right = 567.0
+offset_bottom = 343.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player2"]
-position = Vector2(0, 6.5)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_iywne")
+[node name="name" type="Label" parent="ui/item"]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "mango"
+
+[node name="count" type="Label" parent="ui/item"]
+visible = false
+layout_mode = 0
+offset_left = 66.0
+offset_right = 106.0
+offset_bottom = 23.0
+text = "15"
