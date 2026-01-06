@@ -1,9 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://csykoan5262rt"]
-
-[ext_resource type="Script" uid="uid://c4txq44brsj0q" path="res://scripts/inventory_manage.gd" id="1_bx27n"]
+[gd_scene format=3 uid="uid://csykoan5262rt"]
 
 [node name="inventory" type="CanvasLayer"]
-script = ExtResource("1_bx27n")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = 8

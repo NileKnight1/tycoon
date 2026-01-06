@@ -36,6 +36,7 @@ func _physics_process(delta: float) -> void:
 		if boost_check:
 			velocity.y = direction2 * SPEED * boost
 		else:
+			#print("hi")
 			velocity.y = direction2 * SPEED
 		#if direction2<0:
 			##player.play("up")

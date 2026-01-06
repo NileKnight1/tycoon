@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=4 uid="uid://0ecmsyxubasp"]
+[gd_scene load_steps=12 format=4 uid="uid://0ecmsyxubasp"]
 
 [ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="1_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dgog2vrhk2fyd" path="res://objects/player_1.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bpcg7ewgml4ko" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://rut8u2g4jlcq" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png" id="3_lbhrr"]
-[ext_resource type="PackedScene" uid="uid://csykoan5262rt" path="res://objects/inventory.tscn" id="5_iywne"]
-[ext_resource type="Script" uid="uid://ci3ftc3pnovt3" path="res://scripts/inventory.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://cn8d7rjqs561t" path="res://scripts/player.gd" id="6_p57ef"]
+[ext_resource type="Script" uid="uid://ci3ftc3pnovt3" path="res://scripts/inventory.gd" id="7_gee14"]
+[ext_resource type="Texture2D" uid="uid://devqgwg4hm3iw" path="res://assets/Boat.png" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -47,6 +48,7 @@ texture = ExtResource("3_lbhrr")
 11:3/0 = 0
 0:0/0 = 0
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:2/0 = 0
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -67,38 +69,48 @@ tile_map_data = PackedByteArray("AAAAAAQAAQAMAAwAAAD4//3/AQAPAAwAAAD4//7/AQANAAw
 tile_set = SubResource("TileSet_u5sy4")
 rendering_quadrant_size = 64
 
+[node name="Boat" type="Sprite2D" parent="."]
+position = Vector2(264, 32)
+texture = ExtResource("7_u5sy4")
+
 [node name="player1" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(39, 76)
 scale = Vector2(1.9200001, 1.9200001)
-SPEED = 100
+script = ExtResource("6_p57ef")
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
 zoom = Vector2(4, 4)
 position_smoothing_enabled = true
 
-[node name="ui" parent="." instance=ExtResource("5_iywne")]
-visible = false
-script = ExtResource("6_p57ef")
+[node name="gui" type="CanvasLayer" parent="."]
 
-[node name="item" type="Control" parent="ui"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 527.0
-offset_top = 303.0
-offset_right = 567.0
-offset_bottom = 343.0
-
-[node name="name" type="Label" parent="ui/item"]
+[node name="inventory" type="CanvasLayer" parent="gui"]
 visible = false
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "mango"
+script = ExtResource("7_gee14")
 
-[node name="count" type="Label" parent="ui/item"]
-visible = false
-layout_mode = 0
-offset_left = 66.0
-offset_right = 106.0
-offset_bottom = 23.0
-text = "15"
+[node name="ColorRect" type="ColorRect" parent="gui/inventory"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -315.38464
+offset_top = -205.0
+offset_right = 315.3847
+offset_bottom = 205.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 0.42352942)
+
+[node name="sell" type="Button" parent="gui"]
+offset_left = 1082.9999
+offset_top = 241.99998
+offset_right = 1900.9999
+offset_bottom = 932.0
+scale = Vector2(0.2017381, 0.2017381)
+focus_mode = 0
+theme_override_font_sizes/font_size = 500
+text = "sell"
+
+[connection signal="pressed" from="gui/sell" to="gui/inventory" method="_on_sell_pressed"]
