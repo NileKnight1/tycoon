@@ -5,6 +5,9 @@ extends Node2D
 @onready var inventory = $gui/inventory
 @onready var currency_label = $gui/currency
 
+#@onready var timer1 = $map/chests/timer1
+#@onready var chest1 = $map/chests/chest/chest
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -23,3 +26,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 		inventory.inventory_opened = 0
 		inventory.inventory.visible = 0
 	
+#
+#func _on_timer_1_timeout() -> void:
+	#chest1.play("open")
+	#pass

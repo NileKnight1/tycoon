@@ -1,0 +1,74 @@
+[gd_scene load_steps=8 format=3 uid="uid://ufrrhdqwy6gk"]
+
+[ext_resource type="Texture2D" uid="uid://bv5b8uaopr3b8" path="res://assets/LittleTreasureChest.png" id="1_ima5d"]
+[ext_resource type="Script" uid="uid://bfkaefaq5d7rf" path="res://scripts/chest_small.gd" id="1_m40va"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m40va"]
+size = Vector2(34, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
+atlas = ExtResource("1_ima5d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvpfn"]
+atlas = ExtResource("1_ima5d")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m40va"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtaks")
+}],
+"loop": true,
+"name": &"close",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvpfn")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awrsk"]
+size = Vector2(20, 19)
+
+[node name="chest" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_m40va")
+
+[node name="area" type="Area2D" parent="."]
+collision_layer = 66
+collision_mask = 66
+
+[node name="col" type="CollisionShape2D" parent="area"]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_m40va")
+
+[node name="chest" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.11999512, -2.119995)
+scale = Vector2(1.3600006, 1.3600006)
+sprite_frames = SubResource("SpriteFrames_m40va")
+animation = &"open"
+autoplay = "close"
+
+[node name="col1" type="CollisionShape2D" parent="."]
+position = Vector2(-0.11999512, -0.11999512)
+shape = SubResource("RectangleShape2D_awrsk")
+
+[node name="col2" type="CollisionShape2D" parent="."]
+position = Vector2(-0.11999512, -2.5)
+shape = SubResource("RectangleShape2D_awrsk")
+disabled = true
+
+[node name="timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]
+[connection signal="timeout" from="timer" to="." method="_on_timer_timeout"]

@@ -5,6 +5,8 @@ var player_boost = 3
 
 var currency = 33
 
+var chest_small_time = 3
+
 func update_currency(amount):
 	#print("I came hered")
 	currency += amount

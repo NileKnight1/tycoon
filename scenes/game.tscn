@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=4 uid="uid://0ecmsyxubasp"]
+[gd_scene load_steps=15 format=4 uid="uid://0ecmsyxubasp"]
 
 [ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://b0yjn2vojtrlf" path="res://scripts/game.gd" id="1_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://dwcsox3sb054a" path="res://objects/player_1.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bpcg7ewgml4ko" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://rut8u2g4jlcq" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ufrrhdqwy6gk" path="res://objects/chest_small.tscn" id="5_0tnpc"]
 [ext_resource type="Script" uid="uid://ci3ftc3pnovt3" path="res://scripts/inventory.gd" id="7_gee14"]
 [ext_resource type="Texture2D" uid="uid://devqgwg4hm3iw" path="res://assets/Boat.png" id="7_u5sy4"]
 [ext_resource type="FontFile" uid="uid://b7faf6p2scur0" path="res://temp.ttf" id="8_gee14"]
@@ -83,6 +84,11 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D"]
 position = Vector2(3.7233124, -1.2682762)
 shape = SubResource("RectangleShape2D_gee14")
+
+[node name="chests" type="Node2D" parent="map"]
+
+[node name="chest" parent="map/chests" instance=ExtResource("5_0tnpc")]
+position = Vector2(-87, 26)
 
 [node name="Boat" type="Sprite2D" parent="."]
 position = Vector2(264, 32)
