@@ -3,6 +3,14 @@ extends Node
 var player_speed = 150
 var player_boost = 3
 
+var currency = 33
+
+func update_currency(amount):
+	#print("I came hered")
+	currency += amount
+	print(currency)
+
+
 
 #
 #func _ready() -> void:

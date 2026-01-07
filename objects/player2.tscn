@@ -1,65 +1,74 @@
-[gd_scene load_steps=20 format=3 uid="uid://dwcsox3sb054a"]
+[gd_scene load_steps=21 format=3 uid="uid://dythr5capmpbt"]
 
-[ext_resource type="Texture2D" uid="uid://dvf7avhjitfb3" path="res://assets/character/prototype_character.png" id="1_0tw63"]
-[ext_resource type="Script" uid="uid://cn8d7rjqs561t" path="res://scripts/player.gd" id="1_s7ers"]
+[ext_resource type="Script" uid="uid://dodir0exb6jl3" path="res://scripts/playerr.gd" id="1_kwimg"]
+[ext_resource type="Texture2D" uid="uid://dvf7avhjitfb3" path="res://assets/character/prototype_character.png" id="1_vmfkp"]
+[ext_resource type="Script" path="res://scripts/player3.gd" id="3_kwimg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0yi27"]
+radius = 3.9994066
+height = 9.998516
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cb7wu"]
+radius = 1.0
+height = 10.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3rx63"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ujwn3"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0tw63"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(0, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s7ers"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(32, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16y4b"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(64, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_700j4"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(96, 96, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1lpt5"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(0, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rnjff"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(32, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3mask"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(64, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oh2c7"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(96, 128, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ph61"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(0, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_16x3t"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(32, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ysx4w"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(64, 160, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qx6ir"]
-atlas = ExtResource("1_0tw63")
+atlas = ExtResource("1_vmfkp")
 region = Rect2(96, 160, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_16y4b"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_triyk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
@@ -141,29 +150,28 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3rx63"]
-radius = 3.645832
-height = 13.541664
+[node name="playerr" type="Node2D"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7ers"]
-radius = 0.5208473
-height = 8.333336
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("3_kwimg")
 
-[node name="player1" type="CharacterBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(0, 3)
+rotation = 3.124363
+shape = SubResource("CapsuleShape2D_0yi27")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="."]
 collision_layer = 64
 collision_mask = 64
-script = ExtResource("1_s7ers")
+script = ExtResource("1_kwimg")
 
-[node name="ch" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_16y4b")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+position = Vector2(0, 6)
+rotation = -1.5707964
+shape = SubResource("CapsuleShape2D_cb7wu")
+
+[node name="ch" type="AnimatedSprite2D" parent="CharacterBody2D2"]
+sprite_frames = SubResource("SpriteFrames_triyk")
 autoplay = "default"
-
-[node name="main" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5208333)
-shape = SubResource("CapsuleShape2D_3rx63")
-disabled = true
-
-[node name="tiles" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6.5)
-rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_s7ers")

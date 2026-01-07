@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=4 uid="uid://0ecmsyxubasp"]
+[gd_scene load_steps=14 format=4 uid="uid://0ecmsyxubasp"]
 
 [ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetField.png" id="1_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://dgog2vrhk2fyd" path="res://objects/player_1.tscn" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b0yjn2vojtrlf" path="res://scripts/game.gd" id="1_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://dwcsox3sb054a" path="res://objects/player_1.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://bpcg7ewgml4ko" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="2_lbhrr"]
 [ext_resource type="Texture2D" uid="uid://rut8u2g4jlcq" path="res://temp/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetWater.png" id="3_lbhrr"]
-[ext_resource type="Script" uid="uid://cn8d7rjqs561t" path="res://scripts/player.gd" id="6_p57ef"]
 [ext_resource type="Script" uid="uid://ci3ftc3pnovt3" path="res://scripts/inventory.gd" id="7_gee14"]
 [ext_resource type="Texture2D" uid="uid://devqgwg4hm3iw" path="res://assets/Boat.png" id="7_u5sy4"]
+[ext_resource type="FontFile" uid="uid://b7faf6p2scur0" path="res://temp.ttf" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -60,7 +61,11 @@ sources/0 = SubResource("TileSetAtlasSource_iywne")
 sources/1 = SubResource("TileSetAtlasSource_p57ef")
 sources/2 = SubResource("TileSetAtlasSource_u5sy4")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
+size = Vector2(18.723324, 20.780546)
+
 [node name="game" type="Node2D"]
+script = ExtResource("1_u5sy4")
 
 [node name="map" type="Node2D" parent="."]
 
@@ -69,6 +74,16 @@ tile_map_data = PackedByteArray("AAAAAAQAAQAMAAwAAAD4//3/AQAPAAwAAAD4//7/AQANAAw
 tile_set = SubResource("TileSet_u5sy4")
 rendering_quadrant_size = 64
 
+[node name="Area2D" type="Area2D" parent="map"]
+position = Vector2(245, 43)
+scale = Vector2(3.2097888, 1.205876)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="map/Area2D"]
+position = Vector2(3.7233124, -1.2682762)
+shape = SubResource("RectangleShape2D_gee14")
+
 [node name="Boat" type="Sprite2D" parent="."]
 position = Vector2(264, 32)
 texture = ExtResource("7_u5sy4")
@@ -76,7 +91,8 @@ texture = ExtResource("7_u5sy4")
 [node name="player1" parent="." instance=ExtResource("1_uwrxv")]
 position = Vector2(39, 76)
 scale = Vector2(1.9200001, 1.9200001)
-script = ExtResource("6_p57ef")
+collision_layer = 66
+collision_mask = 66
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
 zoom = Vector2(4, 4)
@@ -104,6 +120,7 @@ size_flags_horizontal = 4
 color = Color(0, 0, 0, 0.42352942)
 
 [node name="sell" type="Button" parent="gui"]
+visible = false
 offset_left = 1082.9999
 offset_top = 241.99998
 offset_right = 1900.9999
@@ -113,4 +130,15 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 500
 text = "sell"
 
+[node name="currency" type="Label" parent="gui"]
+offset_left = 63.0
+offset_top = 56.0
+offset_right = 232.0
+offset_bottom = 151.0
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 50
+text = "0 $"
+
+[connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="map/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="pressed" from="gui/sell" to="gui/inventory" method="_on_sell_pressed"]

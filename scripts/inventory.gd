@@ -1,6 +1,7 @@
 extends CanvasLayer
-@onready var inventory = $"."
 
+@onready var inventory = $"."
+@onready var currency_label = $"../currency"
 
 var inventory_opened = 0
 
@@ -13,6 +14,12 @@ var inventory_items = [
 	
 ]
 
+#@export var currency = global.currency
+
+func refresh_currency():
+	#print("i'm here")
+	#print()
+	currency_label.text = str(global.currency) + " $"
 
 
 func print_test():
@@ -23,6 +30,7 @@ func print_test():
 var test = 0
 
 func _ready() -> void:
+	refresh_currency()
 	print(get_path())
 	
 
@@ -65,10 +73,14 @@ func _process(delta: float) -> void:
 		
 
 
-func update_inventory(i):
+func update_inventory(i, case):
 	print(inventory_items[i]["count"])
 	inventory_items[i]["count"] -= 1
+	if(case):
+		global.update_currency(inventory_items[i]["price"])
+	refresh_currency()
 	refresh_inventory(1)
+	
 
 
 func refresh_inventory(case):
@@ -115,7 +127,7 @@ func refresh_inventory(case):
 			button.text = "Sell x1"
 
 			var sell_press = func():
-				update_inventory(i)
+				update_inventory(i, 1)
 				#print("Selled")
 				#print(i)
 				#print(inventory_items[i]["name"])
