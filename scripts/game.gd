@@ -27,7 +27,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	if(inventory.inventory_opened == 2):
 		inventory.inventory_opened = 0
 		inventory.inventory.visible = 0
-	
+
 #
 #func _on_timer_1_timeout() -> void:
 	#chest1.play("open")

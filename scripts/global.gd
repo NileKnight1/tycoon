@@ -37,12 +37,7 @@ func chest_opened(tier):
 func random_chest_item():
 	var num = randi() % 5
 	return tiers[0][num]
-	
 
-#
-#func _ready() -> void:
-	#pass # Replace with function body.
-#
 #
 #func _process(delta: float) -> void:
 	#pass
