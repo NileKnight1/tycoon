@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://ufrrhdqwy6gk"]
+[gd_scene load_steps=9 format=3 uid="uid://ufrrhdqwy6gk"]
 
 [ext_resource type="Texture2D" uid="uid://bv5b8uaopr3b8" path="res://assets/LittleTreasureChest.png" id="1_ima5d"]
 [ext_resource type="Script" uid="uid://bfkaefaq5d7rf" path="res://scripts/chest_small.gd" id="1_m40va"]
+[ext_resource type="FontFile" uid="uid://b7faf6p2scur0" path="res://temp.ttf" id="3_awrsk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m40va"]
-size = Vector2(34, 29)
+size = Vector2(56, 61)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vtaks"]
 atlas = ExtResource("1_ima5d")
@@ -42,8 +43,8 @@ collision_mask = 0
 script = ExtResource("1_m40va")
 
 [node name="area" type="Area2D" parent="."]
-collision_layer = 66
-collision_mask = 66
+collision_layer = 0
+collision_mask = 64
 
 [node name="col" type="CollisionShape2D" parent="area"]
 position = Vector2(0, 2.5)
@@ -53,7 +54,7 @@ shape = SubResource("RectangleShape2D_m40va")
 position = Vector2(-0.11999512, -2.119995)
 scale = Vector2(1.3600006, 1.3600006)
 sprite_frames = SubResource("SpriteFrames_m40va")
-animation = &"open"
+animation = &"close"
 autoplay = "close"
 
 [node name="col1" type="CollisionShape2D" parent="."]
@@ -68,6 +69,17 @@ disabled = true
 [node name="timer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="label" type="Label" parent="."]
+offset_left = -7.0000005
+offset_top = -17.0
+offset_right = 123.0
+offset_bottom = 86.0
+scale = Vector2(0.1, 0.1)
+theme_override_fonts/font = ExtResource("3_awrsk")
+theme_override_font_sizes/font_size = 75
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="area" to="." method="_on_area_body_entered"]
 [connection signal="body_exited" from="area" to="." method="_on_area_body_exited"]

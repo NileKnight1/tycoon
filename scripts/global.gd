@@ -12,7 +12,9 @@ func update_currency(amount):
 	currency += amount
 	print(currency)
 
-
+var items = [
+	{"name": "Apple", "price": 7}
+]
 
 #
 #func _ready() -> void:

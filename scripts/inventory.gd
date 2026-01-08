@@ -7,12 +7,13 @@ var inventory_opened = 0
 
 
 var inventory_items = [
-	{"name": "Apple", "count":  7, "price": 7},
-	{"name": "Cat", "count":  1, "price": 100},
-	{"name": "Mango", "count":  4, "price": 10},
-	{"name": "Diamonds", "count":  64, "price": 99}
+	{"name": "Apple", "amount":  7, "price": 7},
+	{"name": "Cat", "amount":  1, "price": 100},
+	{"name": "Mango", "amount":  4, "price": 10},
+	#{"name": "Diamonds", "amount":  64, "price": 99}
 	
 ]
+
 
 #@export var currency = global.currency
 
@@ -30,8 +31,18 @@ func print_test():
 var test = 0
 
 func _ready() -> void:
+	#print(inventory_items[")
+	
+	#print(item_exist("apple"))
+	#print(item_exist("Apple"))
+	
+	_update_inventory("Apple", 5)
+	_update_inventory("Mango", -4)
+	
+	
+	
 	refresh_currency()
-	print(get_path())
+	#print(get_path())
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -70,22 +81,55 @@ func _process(delta: float) -> void:
 			inventory_opened = 0
 			inventory.visible = 0
 			
-		
 
 
-func update_inventory(i, case):
-	print(inventory_items[i]["count"])
-	inventory_items[i]["count"] -= 1
-	if(case):
-		global.update_currency(inventory_items[i]["price"])
-	refresh_currency()
-	refresh_inventory(1)
+func item_exist(name, list):
+	for i in range(len(list)):
+		if(name == list[i]["name"]):
+			return i
+	return -1
+
+
+func _update_inventory(name, amount, sell = 0):
+	var inventory_location = item_exist(name, inventory_items)
+	var global_location = item_exist(name, inventory_items)
 	
+	if(inventory_location == -1):
+		inventory_items.append(
+			{"name": name, 
+			"amount": amount, 
+			"price": global.items[global_location]["price"]
+			})
+	else:
+		inventory_items[inventory_location]["amount"] += amount
+		if(sell):
+			global.update_currency(inventory_items[inventory_location]["price"]*abs(amount))
+			refresh_currency()
+			print(inventory_items[inventory_location]["price"]*abs(amount))
+			
+		
+		if(inventory_items[inventory_location]["amount"] < 1):
+			inventory_items.remove_at(inventory_location)
+	if(!sell):
+		refresh_inventory(0)
+	else:
+		refresh_inventory(1)
+	
+#
+#func update_inventory(i, case):
+	#print(inventory_items[i]["amount"])
+	#inventory_items[i]["amount"] -= 1
+	#if(case):
+		#global.update_currency(inventory_items[i]["price"])
+	#refresh_currency()
+		#
+	#refresh_inventory(1)
+	#
 
 
 func refresh_inventory(case):
 	#name1.text = inventory_items[0]["name"]
-	#count1.text = str(inventory_items[0]["count"])
+	#amount1.text = str(inventory_items[0]["amount"])
 	
 	var safe_inv = 0
 	
@@ -95,22 +139,18 @@ func refresh_inventory(case):
 			child.queue_free()
 	
 	for i in len(inventory_items):
-		if(!inventory_items[i]["count"]):
-			safe_inv += 1
-			continue
-			
-			
+		
 		var name1 = Label.new()
-		var count = Label.new()
+		var amount = Label.new()
 			
 		var xpos = ((i-safe_inv)*50)+200
 		
 		add_child(name1)
-		add_child(count)
+		add_child(amount)
 		name1.position = Vector2(360, xpos)
-		count.position = Vector2(600, xpos)
+		amount.position = Vector2(600, xpos)
 		name1.text = inventory_items[i]["name"]
-		count.text = str(inventory_items[i]["count"])
+		amount.text = str(inventory_items[i]["amount"])
 	
 		
 		if(case):
@@ -127,11 +167,8 @@ func refresh_inventory(case):
 			button.text = "Sell x1"
 
 			var sell_press = func():
-				update_inventory(i, 1)
-				#print("Selled")
-				#print(i)
-				#print(inventory_items[i]["name"])
-			
+				_update_inventory(inventory_items[i]["name"], -1, 1)
+
 			button.pressed.connect(sell_press)
 			
 			
@@ -150,8 +187,6 @@ func refresh_inventory(case):
 	#pass # Replace with function body.
 
 
-
-#
 #func _on_sell_toggled(toggled_on: bool) -> void:
 	#if(inventory_opened == 1): return
 	#

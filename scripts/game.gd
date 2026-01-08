@@ -6,7 +6,9 @@ extends Node2D
 @onready var currency_label = $gui/currency
 
 #@onready var timer1 = $map/chests/timer1
-#@onready var chest1 = $map/chests/chest/chest
+@onready var chest1 = $map/chests/chest
+
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,7 +16,9 @@ func _ready() -> void:
 	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	#print(chest1.is_ready)
 	pass
+	
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
