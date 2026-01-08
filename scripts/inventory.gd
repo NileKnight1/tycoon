@@ -7,9 +7,9 @@ var inventory_opened = 0
 
 
 var inventory_items = [
-	{"name": "Apple", "amount":  7, "price": 7},
-	{"name": "Cat", "amount":  1, "price": 100},
-	{"name": "Mango", "amount":  4, "price": 10},
+	#{"name": "Apple", "amount":  7, "price": 7},
+	#{"name": "Cat", "amount":  1, "price": 100},
+	#{"name": "Mango", "amount":  4, "price": 10},
 	#{"name": "Diamonds", "amount":  64, "price": 99}
 	
 ]
@@ -31,13 +31,14 @@ func print_test():
 var test = 0
 
 func _ready() -> void:
+	global.inventory = self
 	#print(inventory_items[")
 	
 	#print(item_exist("apple"))
 	#print(item_exist("Apple"))
 	
-	_update_inventory("Apple", 5)
-	_update_inventory("Mango", -4)
+	#_update_inventory("Apple", 5)
+	#_update_inventory("Mango", -4)
 	
 	
 	
@@ -83,20 +84,20 @@ func _process(delta: float) -> void:
 			
 
 
-func item_exist(name, list):
+func item_exist(_name, list):
 	for i in range(len(list)):
-		if(name == list[i]["name"]):
+		if(_name == list[i]["name"]):
 			return i
 	return -1
 
 
-func _update_inventory(name, amount, sell = 0):
-	var inventory_location = item_exist(name, inventory_items)
-	var global_location = item_exist(name, inventory_items)
+func _update_inventory(_name, amount, sell = 0):
+	var inventory_location = item_exist(_name, inventory_items)
+	var global_location = item_exist(_name, inventory_items)
 	
 	if(inventory_location == -1):
 		inventory_items.append(
-			{"name": name, 
+			{"name": _name, 
 			"amount": amount, 
 			"price": global.items[global_location]["price"]
 			})
@@ -135,10 +136,12 @@ func refresh_inventory(case):
 	
 	
 	for child in get_children():
-		if child is Label or child is Button:
+		if child is Label or child is Button or child is SpinBox:
 			child.queue_free()
 	
 	for i in len(inventory_items):
+		
+		if i >= len(inventory_items): return
 		
 		var name1 = Label.new()
 		var amount = Label.new()
@@ -148,28 +151,43 @@ func refresh_inventory(case):
 		add_child(name1)
 		add_child(amount)
 		name1.position = Vector2(360, xpos)
-		amount.position = Vector2(600, xpos)
+		amount.position = Vector2(500, xpos)
 		name1.text = inventory_items[i]["name"]
-		amount.text = str(inventory_items[i]["amount"])
+		amount.text = str(int(inventory_items[i]["amount"]))
 	
 		
 		if(case):
 			var price = Label.new()
 			var button = Button.new()
+			var all = Button.new()
+
+			var amount_input = SpinBox.new()
 			
 			add_child(price)
 			add_child(button)
+			add_child(all)
+			add_child(amount_input)
 			
-			price.position = Vector2(700, xpos)
-			button.position = Vector2(800, xpos)
+			price.position = Vector2(550, xpos)
+			amount_input.position = Vector2(600, xpos)
+			all.position = Vector2(700, xpos)
+			button.position = Vector2(750, xpos)
+			
+			amount_input.min_value = 1
+			amount_input.max_value = inventory_items[i]["amount"]
 			
 			price.text = str(inventory_items[i]["price"])
-			button.text = "Sell x1"
+			all.text = "All"
+			button.text = "Sell"
 
 			var sell_press = func():
-				_update_inventory(inventory_items[i]["name"], -1, 1)
+				_update_inventory(inventory_items[i]["name"], -amount_input.value, 1)
 
+			var select_all = func():
+				amount_input.value = amount_input.max_value
+			
 			button.pressed.connect(sell_press)
+			all.pressed.connect(select_all)
 			
 			
 			

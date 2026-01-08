@@ -9,8 +9,6 @@ extends Node2D
 @onready var chest1 = $map/chests/chest
 
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
