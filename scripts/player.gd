@@ -5,6 +5,9 @@ extends CharacterBody2D
 @export var boost = global.player_boost
 
 @onready var player = $ch
+
+var no_move = 0
+
 #@onready var tiles = $tiles
 #@onready var main = $main
 
@@ -15,6 +18,8 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	#if not is_on_floor():
+	if(no_move): return
+	
 	velocity += get_gravity() * delta
 
 	var direction := Input.get_axis("left", "right")

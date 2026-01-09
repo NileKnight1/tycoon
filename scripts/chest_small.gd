@@ -60,18 +60,18 @@ func _process(delta: float) -> void:
 		label.text = str(int(timer.time_left)) + "s"
 	
 	if Input.is_action_just_pressed("interact") and timer.is_stopped():
-		print("Closed")
+		#print("Closed")
 		close()
 	
 func _on_area_body_entered(body: Node) -> void:
-	print("Im here")
+	#print("Im here")
 	if(_show):
 		label.visible = 1
 	inarea = 1
 	is_ready = inarea && is_open
 
 func _on_area_body_exited(body: Node2D) -> void:
-	print("im not here")
+	#print("im not here")
 	label.visible = 0
 	inarea = 0
 	is_ready = inarea && is_open

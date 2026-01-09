@@ -147,7 +147,7 @@ height = 13.541664
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_s7ers"]
 radius = 0.5208473
-height = 8.333336
+height = 8.0
 
 [node name="player1" type="CharacterBody2D"]
 collision_layer = 64
