@@ -17,10 +17,15 @@ var ypos = position.y
 	#print(self.position)
 
 var move_ = 0
+var back = 0
 
 func start():
 	move_ = 1
 	print(move_)
+
+
+func worker_back():
+	back = 1
 
 
 func move():
@@ -40,6 +45,7 @@ func move():
 	if self.position.y < 0 + ypos:
 		if move_ == 5:
 			move_ = 0
+			back = 0
 	
 	#
 	#if (self.position.y < 30 && move_ == 0): 
@@ -72,9 +78,12 @@ func _physics_process(delta: float) -> void:
 	match move_:
 		1: direction2 = 1
 		2: direction = -1
-		3: direction = 1
-		4: direction = -1
-		5: direction2 = -1
+		
+	if back:
+		match move_:
+			3: direction = 1
+			4: direction = -1
+			5: direction2 = -1
 		
 	#print(move_)
 	#print(self.position)

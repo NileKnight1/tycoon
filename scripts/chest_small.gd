@@ -11,6 +11,8 @@ var is_open = 0
 var is_ready = 0
 var inarea = 0
 var _show = 1
+var back = 0
+
 #
 #func _ready() -> void:
 	#timer.start(global.chest_small_time)
@@ -19,6 +21,7 @@ var _show = 1
 func start():
 	timer.start(global.chest_small_time)
 	game.get_chest(get_index())
+
 
 func open():
 	
@@ -30,8 +33,10 @@ func open():
 	col2.set_deferred("disabled", 0)
 	
 func close():
-	
+	back = 0
 	game.get_chest(get_index())
+	
+	print("I came here")
 	
 	is_open = 0
 	is_ready = inarea && is_open
@@ -45,6 +50,10 @@ func close():
 	timer.start(global.chest_small_time)
 
 func _process(delta: float) -> void:
+	if (timer.time_left < 5 && !back):
+		game.back(get_index())
+		back = 1
+	
 	if(!inarea): return
 	
 	if(_show):
@@ -55,13 +64,14 @@ func _process(delta: float) -> void:
 		close()
 	
 func _on_area_body_entered(body: Node) -> void:
-	#print("Im here")
+	print("Im here")
 	if(_show):
 		label.visible = 1
 	inarea = 1
 	is_ready = inarea && is_open
 
 func _on_area_body_exited(body: Node2D) -> void:
+	print("im not here")
 	label.visible = 0
 	inarea = 0
 	is_ready = inarea && is_open

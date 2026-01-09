@@ -6,7 +6,7 @@ extends Node2D
 @onready var currency_label = $gui/currency
 
 #@onready var timer1 = $map/chests/timer1
-@onready var chest = $map/chests/chest
+#@onready var chest = $map/chests/chest
 
 @onready var chests = $map/chests
 
@@ -26,6 +26,7 @@ func _process(delta: float) -> void:
 	pass
 
 func start_game():
+	#print("Mhm")
 	for i in chests.get_child_count():
 		chests.get_child(i).start()
 
@@ -45,6 +46,9 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func get_chest(index):
 	#print(workers)
 	workers.get_child(index).start()
+
+func back(index):
+	workers.get_child(index).worker_back()
 
 
 #func _on_timer_1_timeout() -> void:
