@@ -8,8 +8,9 @@ var player_speed = 150
 var player_boost = 3
 var currency: int = 10
 
-var chest_small_time = 30
+var chest_small_time = 10
 
+var workers_count = 1
 
 
 func update_currency(amount):

@@ -49,6 +49,7 @@ collision_mask = 64
 [node name="col" type="CollisionShape2D" parent="area"]
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_m40va")
+disabled = true
 
 [node name="chest" type="AnimatedSprite2D" parent="."]
 position = Vector2(-0.11999512, -2.119995)
@@ -60,6 +61,7 @@ autoplay = "close"
 [node name="col1" type="CollisionShape2D" parent="."]
 position = Vector2(-0.11999512, -0.11999512)
 shape = SubResource("RectangleShape2D_awrsk")
+disabled = true
 
 [node name="col2" type="CollisionShape2D" parent="."]
 position = Vector2(-0.11999512, -2.5)

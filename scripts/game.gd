@@ -36,10 +36,14 @@ func _process(delta: float) -> void:
 
 func start_game():
 	#print("Mhm")
-	for i in chests.get_child_count():
+	for i in global.workers_count:
 		chests.get_child(i).start()
+		for j in chests.get_child(i).cols:
+			j.set_deferred("disabled", 0)
 
-
+func add_worker():
+	global.workers_count +=1
+	start_game()
 
 
 
@@ -70,17 +74,20 @@ func back(index):
 func _on_house_body_entered(body: Node2D) -> void:
 	player.no_move = 1
 	camera.enabled = 0
-	#camera2.enabled = 1
-	
-	
-	
-	
-	
-
-
-func _on_house_body_exited(body: Node2D) -> void:
-	pass # Replace with function body.
-
+	camera2.enabled = 1
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scripts/node_2d.tscn")
+
+
+func _on_back_pressed() -> void:
+	camera.enabled = 1
+	camera2.enabled = 0
+	player.no_move = 0
+	player.position.x = 76
+	player.position.y = -68
+	
+
+
+func _on_add_pressed() -> void:
+	add_worker()

@@ -13,15 +13,28 @@ var inarea = 0
 var _show = 1
 var back = 0
 
-#
-#func _ready() -> void:
-	#timer.start(global.chest_small_time)
+var cols = []
 
+var stopped
+
+
+
+func _ready() -> void:
+	get_cols()
 
 func start():
-	timer.start(global.chest_small_time)
-	game.get_chest(get_index())
+	if(!timer.time_left):
+		timer.start(global.chest_small_time)
+		game.get_chest(get_index())
 
+func get_cols(node = self):
+	for child in node.get_children():
+		if child is CollisionShape2D:
+			cols.append(child)
+			print(self)
+			print(child)
+		get_cols(child)
+	
 
 func open():
 	
@@ -50,6 +63,8 @@ func close():
 	timer.start(global.chest_small_time)
 
 func _process(delta: float) -> void:
+	if(stopped): return
+	
 	if (timer.time_left < 5 && !back):
 		game.back(get_index())
 		back = 1
