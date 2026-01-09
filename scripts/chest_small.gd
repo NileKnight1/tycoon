@@ -4,16 +4,21 @@ extends CharacterBody2D
 @onready var col2 = $col2
 @onready var timer = $timer
 @onready var label = $label
-
+@onready var game = $"../../.."
 
 var tier = 1
 var is_open = 0
 var is_ready = 0
 var inarea = 0
 var _show = 1
+#
+#func _ready() -> void:
+	#timer.start(global.chest_small_time)
 
-func _ready() -> void:
+
+func start():
 	timer.start(global.chest_small_time)
+	game.get_chest(get_index())
 
 func open():
 	
@@ -25,8 +30,10 @@ func open():
 	col2.set_deferred("disabled", 0)
 	
 func close():
-	is_open = 0
 	
+	game.get_chest(get_index())
+	
+	is_open = 0
 	is_ready = inarea && is_open
 	_show = 1
 	label.visible = 1

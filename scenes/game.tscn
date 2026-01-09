@@ -74,10 +74,20 @@ texture = ExtResource("5_kvpfn")
 8:0/0 = 0
 19:19/size_in_atlas = Vector2i(3, 3)
 19:19/0 = 0
-25:14/size_in_atlas = Vector2i(4, 5)
+25:18/size_in_atlas = Vector2i(4, 1)
+25:18/0 = 0
+25:18/0/physics_layer_0/polygon_0/points = PackedVector2Array(-29.917116, -7.9026337, 27.094746, -8.46711, 29.352642, 7.3381577, -29.917116, 7.3381577)
+25:15/size_in_atlas = Vector2i(4, 3)
+25:15/0 = 0
+25:15/0/z_index = 2
+25:15/0/physics_layer_0/polygon_0/points = PackedVector2Array(-28.788168, -15.805267, -20.32106, -23.707905, 19.192112, -24.272377, 27.659222, -18.063164, 28.22369, 23.143425, -29.352642, 23.707901)
+25:14/size_in_atlas = Vector2i(4, 1)
 25:14/0 = 0
+25:14/0/z_index = 3
 
 [sub_resource type="TileSet" id="TileSet_trtic"]
+physics_layer_0/collision_layer = 66
+physics_layer_0/collision_mask = 66
 sources/0 = SubResource("TileSetAtlasSource_kvuet")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gee14"]
@@ -245,8 +255,7 @@ tile_set = SubResource("TileSet_u5sy4")
 rendering_quadrant_size = 64
 
 [node name="layer2" type="TileMapLayer" parent="map"]
-z_index = 1
-tile_map_data = PackedByteArray("AADz//z/AAAZAA4AAAA=")
+tile_map_data = PackedByteArray("AAD6////AAAZABIAAADz////AAAZABIAAADz/wUAAAAZABIAAAD6//3/AAAZAA8AAAD6//v/AAAZAA4AAADz/wMAAAAZAA8AAADz/wEAAAAZAA4AAADz//3/AAAZAA8AAADz//v/AAAZAA4AAAA=")
 tile_set = SubResource("TileSet_trtic")
 
 [node name="Area2D" type="Area2D" parent="map"]
@@ -259,37 +268,82 @@ collision_mask = 2
 position = Vector2(3.7233124, -1.2682762)
 shape = SubResource("RectangleShape2D_gee14")
 
+[node name="Boat" type="Sprite2D" parent="map"]
+position = Vector2(264, 32)
+texture = ExtResource("7_u5sy4")
+
 [node name="chests" type="Node2D" parent="map"]
-position = Vector2(-116, 35)
+position = Vector2(-116, 50)
 
 [node name="chest" parent="map/chests" instance=ExtResource("5_0tnpc")]
 position = Vector2(-41, -59)
 
-[node name="Boat" type="Sprite2D" parent="."]
-position = Vector2(264, 32)
-texture = ExtResource("7_u5sy4")
+[node name="chest2" parent="map/chests" instance=ExtResource("5_0tnpc")]
+position = Vector2(-41, 36)
 
-[node name="workerssss" type="Node2D" parent="."]
-z_index = 2
+[node name="chest3" parent="map/chests" instance=ExtResource("5_0tnpc")]
+position = Vector2(71, -59)
 
-[node name="worker" type="CharacterBody2D" parent="workerssss"]
+[node name="workers" type="Node2D" parent="map"]
+z_index = 1
+position = Vector2(0, 15)
+
+[node name="worker" type="CharacterBody2D" parent="map/workers"]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource("14_trtic")
 
-[node name="sprite" type="AnimatedSprite2D" parent="workerssss/worker"]
+[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker"]
 position = Vector2(-208, -43)
 scale = Vector2(1.3125, 1.3125)
 sprite_frames = SubResource("SpriteFrames_ir15t")
 animation = &"down"
 autoplay = "idle"
 
-[node name="col" type="CollisionShape2D" parent="workerssss/worker"]
+[node name="col" type="CollisionShape2D" parent="map/workers/worker"]
+position = Vector2(-206.99998, -41)
+scale = Vector2(1.3599999, 1.3599999)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="worker2" type="CharacterBody2D" parent="map/workers"]
+position = Vector2(0, 96)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("14_trtic")
+
+[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker2"]
+position = Vector2(-208, -43)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_ir15t")
+animation = &"down"
+autoplay = "idle"
+
+[node name="col" type="CollisionShape2D" parent="map/workers/worker2"]
+position = Vector2(-206.99998, -41)
+scale = Vector2(1.3599999, 1.3599999)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="worker3" type="CharacterBody2D" parent="map/workers"]
+position = Vector2(111, 0)
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("14_trtic")
+
+[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker3"]
+position = Vector2(-208, -43)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_ir15t")
+animation = &"down"
+autoplay = "idle"
+
+[node name="col" type="CollisionShape2D" parent="map/workers/worker3"]
 position = Vector2(-206.99998, -41)
 scale = Vector2(1.3599999, 1.3599999)
 shape = SubResource("CapsuleShape2D_kvuet")
 
 [node name="player1" parent="." instance=ExtResource("1_uwrxv")]
-z_index = 5
-position = Vector2(-164, 47)
+z_index = 2
+position = Vector2(-100, 49)
 scale = Vector2(1.9200001, 1.9200001)
 collision_layer = 66
 collision_mask = 66

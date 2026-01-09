@@ -9,37 +9,47 @@ var boost = 1
 
 @onready var player = $sprite
 
+var xpos = position.x
+var ypos = position.y
 
-func _ready() -> void:
-	print(self.position)
+#
+#func _ready() -> void:
+	#print(self.position)
 
-var move_ = 1
+var move_ = 0
+
+func start():
+	move_ = 1
+	print(move_)
+
 
 func move():
 	
-	if(self.position.y == 30):
-		if(move_ == 1):
-			print('i')
+	if self.position.y > 30 + ypos:
+		if move_ == 1:
 			move_ = 2
-	if(self.position.x == -350):
-		move_ = 3
-	if(self.position.x == 50):
-		move_ = 4
-	if(self.position.x == 0):
+	if self.position.x < -350 + xpos:
+		if move_ == 2:
+			move_ = 3
+	if self.position.x > 50 + xpos:
+		if move_ == 3:
+			move_ = 4
+	if self.position.x < 0 + xpos:
 		if move_ == 4:
 			move_ = 5
-	if(self.position.y == 0):
-		move_ = 1
+	if self.position.y < 0 + ypos:
+		if move_ == 5:
+			move_ = 0
 	
-	
-	if (self.position.y < 30 && move_ == 0): 
-		move_ += 1
-	elif (self.position.x > -350 && move_ == 1):
-		move_ += 1	
-	elif(self.position.x < 50 && move_ == 2):
-		move_ += 1
-	elif(self.position.x > -1 && move_ == 3):
-		move_ += 1
+	#
+	#if (self.position.y < 30 && move_ == 0): 
+		#move_ += 1
+	#elif (self.position.x > -350 && move_ == 1):
+		#move_ += 1	
+	#elif(self.position.x < 50 && move_ == 2):
+		#move_ += 1
+	#elif(self.position.x > -1 && move_ == 3):
+		#move_ += 1
 
 var direction = 0
 var direction2 = 0
@@ -56,6 +66,9 @@ func _physics_process(delta: float) -> void:
 	
 	move()
 	
+	#print(move_)
+	
+	
 	match move_:
 		1: direction2 = 1
 		2: direction = -1
@@ -64,7 +77,8 @@ func _physics_process(delta: float) -> void:
 		5: direction2 = -1
 		
 	#print(move_)
-
+	#print(self.position)
+	
 	#print(velocity)
 	#if(self.position)
 	
