@@ -31,8 +31,8 @@ func get_cols(node = self):
 	for child in node.get_children():
 		if child is CollisionShape2D:
 			cols.append(child)
-			print(self)
-			print(child)
+			#print(self)
+			#print(child)
 		get_cols(child)
 	
 
@@ -49,7 +49,7 @@ func close():
 	back = 0
 	game.get_chest(get_index())
 	
-	print("I came here")
+	#print("I came here")
 	
 	is_open = 0
 	is_ready = inarea && is_open

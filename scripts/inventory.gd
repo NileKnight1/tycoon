@@ -7,10 +7,12 @@ var inventory_opened = 0
 
 
 var inventory_items = [
-	#{"name": "Apple", "amount":  7, "price": 7},
-	#{"name": "Cat", "amount":  1, "price": 100},
-	#{"name": "Mango", "amount":  4, "price": 10},
-	#{"name": "Diamonds", "amount":  64, "price": 99}
+	#{"name": "Apple", "amount":  7},
+	#{"name": "Tomato", "amount":  7},
+	#{"name": "Potato", "amount":  7},
+	#{"name": "Banana", "amount":  7},
+	#{"name": "Orange", "amount":  7},
+	
 	
 ]
 
@@ -132,66 +134,90 @@ func refresh_inventory(case):
 	#name1.text = inventory_items[0]["name"]
 	#amount1.text = str(inventory_items[0]["amount"])
 	
-	var safe_inv = 0
-	
+	#var safe_inv = 0
+	var row = 0
 	
 	for child in get_children():
-		if child is Label or child is Button or child is SpinBox:
+		if child is Label or child is Button or child is SpinBox or child is TextureButton:
 			child.queue_free()
+	
+	var sss = Button.new()
+	add_child(sss)
+	sss.text = "Nothing"
+	sss.position = Vector2(500,500)
 	
 	for i in len(inventory_items):
 		
-		if i >= len(inventory_items): return
+		#if i >= len(inventory_items): return
 		
-		var name1 = Label.new()
+		
+		
+		var xpos = (row*100)+300
+		var ypos = (i*100)+180
+		
+		var icon = TextureButton.new()
+		icon.texture_normal = load("res://assets/items/%s.png" % inventory_items[i]["name"])
+		
+		add_child(icon)
+		
+		icon.position = Vector2(xpos, ypos)
+		icon.size = Vector2(64,64)
+		
+		icon.ignore_texture_size = true
+		icon.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED
+		#var name1 = Label.new()
+		#add_child(name1)
+		#name1.position = Vector2(360, ypos)
+		#name1.text = inventory_items[i]["name"]
+		
 		var amount = Label.new()
-			
-		var xpos = ((i-safe_inv)*50)+200
-		
-		add_child(name1)
 		add_child(amount)
-		name1.position = Vector2(360, xpos)
-		amount.position = Vector2(500, xpos)
-		name1.text = inventory_items[i]["name"]
+		amount.position = Vector2(xpos+64, ypos+40)
 		amount.text = str(int(inventory_items[i]["amount"]))
-	
 		
-		if(case):
-			var price = Label.new()
-			var button = Button.new()
-			var all = Button.new()
-
-			var amount_input = SpinBox.new()
-			
-			add_child(price)
-			add_child(button)
-			add_child(all)
-			add_child(amount_input)
-			
-			price.position = Vector2(550, xpos)
-			amount_input.position = Vector2(600, xpos)
-			all.position = Vector2(700, xpos)
-			button.position = Vector2(750, xpos)
-			
-			amount_input.min_value = 1
-			amount_input.max_value = inventory_items[i]["amount"]
-			
-			price.text = str(inventory_items[i]["price"])
-			all.text = "All"
-			button.text = "Sell"
-
-			var sell_press = func():
-				_update_inventory(inventory_items[i]["name"], -amount_input.value, 1)
-
-			var select_all = func():
-				amount_input.value = amount_input.max_value
-			
-			button.pressed.connect(sell_press)
-			all.pressed.connect(select_all)
-			
-			
-			
+		icon.pressed.connect(func():
+			sss.text = inventory_items[i]["name"]
+		)
+		
+		if (i % 4 == 0):
+			row +=1 
 	
+		#
+		#if(case):
+			#var price = Label.new()
+			#var button = Button.new()
+			#var all = Button.new()
+#
+			#var amount_input = SpinBox.new()
+			#
+			#add_child(price)
+			#add_child(button)
+			#add_child(all)
+			#add_child(amount_input)
+			#
+			#price.position = Vector2(550, ypos)
+			#amount_input.position = Vector2(600, ypos)
+			#all.position = Vector2(700, ypos)
+			#button.position = Vector2(750, ypos)
+			#
+			#amount_input.min_value = 1
+			#amount_input.max_value = inventory_items[i]["amount"]
+			#
+			#price.text = str(inventory_items[i]["price"])
+			#all.text = "All"
+			#button.text = "Sell"
+#
+			#var sell_press = func():
+				#_update_inventory(inventory_items[i]["name"], -amount_input.value, 1)
+#
+			#var select_all = func():
+				#amount_input.value = amount_input.max_value
+			#
+			#button.pressed.connect(sell_press)
+			#all.pressed.connect(select_all)
+	#if(case):
+		#var button
+	#
 	
 	#print("Inventory refreshed")
 	#print("Case " + str(case))

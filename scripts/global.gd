@@ -8,9 +8,9 @@ var player_speed = 150
 var player_boost = 3
 var currency: int = 10
 
-var chest_small_time = 10
+var chest_small_time = 0.1
 
-var workers_count = 1
+var workers_count = 0
 
 
 func update_currency(amount):
@@ -23,12 +23,17 @@ var items = [
 	{"name": "Banana", "price": 5},
 	{"name": "Orange", "price": 5},
 	{"name": "Watermelon", "price": 5},
-	{"name": "Grape", "price": 5},
+	{"name": "Red Grape", "price": 5},
+	{"name": "Green Grape", "price": 5},
+	{"name": "Potato", "price": 5},
+	{"name": "Tomato", "price": 5},
+	
+	
 	
 ]
 
 var tiers = [
-	["Apple", "Banana", "Grape", "Orange", "Watermelon"]
+	["Apple", "Banana", "Red Grape", "Orange", "Watermelon", "Green Grape", "Potato", "Tomato"]
 ]
 
 func chest_opened(tier):
@@ -36,7 +41,7 @@ func chest_opened(tier):
 	inventory._update_inventory(chest_item, 1)
 
 func random_chest_item():
-	var num = randi() % 5
+	var num = randi() % len(tiers[0])
 	return tiers[0][num]
 
 #

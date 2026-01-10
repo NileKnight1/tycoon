@@ -394,9 +394,41 @@ tile_map_data = PackedByteArray("AAAAAAQAAQAPAAwAAAD4//3/AQAMAAwAAAD4//7/AQALAAw
 tile_set = SubResource("TileSet_u5sy4")
 rendering_quadrant_size = 64
 
-[node name="layer2" type="TileMapLayer" parent="map/tilemaps"]
+[node name="houses" type="Node2D" parent="map/tilemaps"]
+
+[node name="layer" type="TileMapLayer" parent="map/tilemaps/houses"]
 position = Vector2(92, 60)
-tile_map_data = PackedByteArray("AAD6////AAAZABIAAADz////AAAZABIAAADz/wUAAAAZABIAAAD6//3/AAAZABAAAAD6//v/AAAZAA4AAADz/wMAAAAZABAAAADz/wEAAAAZAA4AAADz//3/AAAZABAAAADz//v/AAAZAA4AAAD6//z/AAAZAA8AAAD6//7/AAAZABEAAADz//z/AAAZAA8AAADz//7/AAAZABEAAADz/wIAAAAZAA8AAADz/wQAAAAZABEAAAD6/wEAAAAZAA4AAAD6/wIAAAAZAA8AAAD6/wMAAAAZABAAAAD6/wQAAAAZABEAAAD6/wUAAAAZABIAAAD///P/AAAZAAcAAAD///T/AAAZAAgAAAD///X/AAAZAAkAAAD+//b/AAAZAAoAAAD///b/AAAaAAoAAAAAAPb/AAAbAAoAAAABAPb/AAAcAAoAAAD+//f/AAAZAA0AAAD///f/AAAaAA0AAAAAAPf/AAAbAA0AAAABAPf/AAAcAA0AAAA=")
+tile_map_data = PackedByteArray("AADz////AAAZABIAAADz//3/AAAZABAAAADz//v/AAAZAA4AAADz//z/AAAZAA8AAADz//7/AAAZABEAAAD///P/AAAZAAcAAAD///T/AAAZAAgAAAD///X/AAAZAAkAAAD+//b/AAAZAAoAAAD///b/AAAaAAoAAAAAAPb/AAAbAAoAAAABAPb/AAAcAAoAAAD+//f/AAAZAA0AAAD///f/AAAaAA0AAAAAAPf/AAAbAA0AAAABAPf/AAAcAA0AAAA=")
+tile_set = SubResource("TileSet_trtic")
+
+[node name="layer3" type="TileMapLayer" parent="map/tilemaps/houses"]
+position = Vector2(92, 60)
+tile_map_data = PackedByteArray("AAD6////AAAZABIAAAD6//3/AAAZABAAAAD6//v/AAAZAA4AAAD6//z/AAAZAA8AAAD6//7/AAAZABEAAAA=")
+enabled = false
+tile_set = SubResource("TileSet_trtic")
+
+[node name="layer2" type="TileMapLayer" parent="map/tilemaps/houses"]
+position = Vector2(92, 60)
+tile_map_data = PackedByteArray("AADz/wUAAAAZABIAAADz/wMAAAAZABAAAADz/wEAAAAZAA4AAADz/wIAAAAZAA8AAADz/wQAAAAZABEAAAA=")
+enabled = false
+tile_set = SubResource("TileSet_trtic")
+
+[node name="layer4" type="TileMapLayer" parent="map/tilemaps/houses"]
+position = Vector2(92, 60)
+tile_map_data = PackedByteArray("AAD6/wEAAAAZAA4AAAD6/wIAAAAZAA8AAAD6/wMAAAAZABAAAAD6/wQAAAAZABEAAAD6/wUAAAAZABIAAAA=")
+enabled = false
+tile_set = SubResource("TileSet_trtic")
+
+[node name="layer5" type="TileMapLayer" parent="map/tilemaps/houses"]
+position = Vector2(-20, 156)
+tile_map_data = PackedByteArray("AAD6/wEAAAAZAA4AAAD6/wIAAAAZAA8AAAD6/wMAAAAZABAAAAD6/wQAAAAZABEAAAD6/wUAAAAZABIAAAA=")
+enabled = false
+tile_set = SubResource("TileSet_trtic")
+
+[node name="layer6" type="TileMapLayer" parent="map/tilemaps/houses"]
+position = Vector2(92, 156)
+tile_map_data = PackedByteArray("AAD6/wEAAAAZAA4AAAD6/wIAAAAZAA8AAAD6/wMAAAAZABAAAAD6/wQAAAAZABEAAAD6/wUAAAAZABIAAAA=")
+enabled = false
 tile_set = SubResource("TileSet_trtic")
 
 [node name="layer3" type="TileMapLayer" parent="map/tilemaps"]
@@ -431,14 +463,20 @@ position = Vector2(-24, 110)
 [node name="chest1" parent="map/chests" instance=ExtResource("5_0tnpc")]
 position = Vector2(-41, -59)
 
-[node name="chest2" parent="map/chests" instance=ExtResource("5_0tnpc")]
-position = Vector2(-41, 36)
-
 [node name="chest3" parent="map/chests" instance=ExtResource("5_0tnpc")]
 position = Vector2(71, -59)
 
+[node name="chest2" parent="map/chests" instance=ExtResource("5_0tnpc")]
+position = Vector2(-41, 36)
+
 [node name="chest4" parent="map/chests" instance=ExtResource("5_0tnpc")]
 position = Vector2(71, 36)
+
+[node name="chest5" parent="map/chests" instance=ExtResource("5_0tnpc")]
+position = Vector2(-41, 132)
+
+[node name="chest6" parent="map/chests" instance=ExtResource("5_0tnpc")]
+position = Vector2(71, 132)
 
 [node name="workers" type="Node2D" parent="map"]
 z_index = 1
@@ -461,24 +499,6 @@ position = Vector2(-206.99998, -41)
 scale = Vector2(1.3599999, 1.3599999)
 shape = SubResource("CapsuleShape2D_kvuet")
 
-[node name="worker2" type="CharacterBody2D" parent="map/workers"]
-position = Vector2(0, 96)
-collision_layer = 8
-collision_mask = 0
-script = ExtResource("14_trtic")
-
-[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker2"]
-position = Vector2(-208, -43)
-scale = Vector2(1.3125, 1.3125)
-sprite_frames = SubResource("SpriteFrames_ir15t")
-animation = &"down"
-autoplay = "idle"
-
-[node name="col" type="CollisionShape2D" parent="map/workers/worker2"]
-position = Vector2(-206.99998, -41)
-scale = Vector2(1.3599999, 1.3599999)
-shape = SubResource("CapsuleShape2D_kvuet")
-
 [node name="worker3" type="CharacterBody2D" parent="map/workers"]
 position = Vector2(111, 0)
 collision_layer = 8
@@ -493,6 +513,24 @@ animation = &"down"
 autoplay = "idle"
 
 [node name="col" type="CollisionShape2D" parent="map/workers/worker3"]
+position = Vector2(-206.99998, -41)
+scale = Vector2(1.3599999, 1.3599999)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="worker2" type="CharacterBody2D" parent="map/workers"]
+position = Vector2(0, 96)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("14_trtic")
+
+[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker2"]
+position = Vector2(-208, -43)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_ir15t")
+animation = &"down"
+autoplay = "idle"
+
+[node name="col" type="CollisionShape2D" parent="map/workers/worker2"]
 position = Vector2(-206.99998, -41)
 scale = Vector2(1.3599999, 1.3599999)
 shape = SubResource("CapsuleShape2D_kvuet")
@@ -515,6 +553,42 @@ position = Vector2(-206.99998, -41)
 scale = Vector2(1.3599999, 1.3599999)
 shape = SubResource("CapsuleShape2D_kvuet")
 
+[node name="worker5" type="CharacterBody2D" parent="map/workers"]
+position = Vector2(-1, 192)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("14_trtic")
+
+[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker5"]
+position = Vector2(-208, -43)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_ir15t")
+animation = &"down"
+autoplay = "idle"
+
+[node name="col" type="CollisionShape2D" parent="map/workers/worker5"]
+position = Vector2(-206.99998, -41)
+scale = Vector2(1.3599999, 1.3599999)
+shape = SubResource("CapsuleShape2D_kvuet")
+
+[node name="worker6" type="CharacterBody2D" parent="map/workers"]
+position = Vector2(111, 192)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("14_trtic")
+
+[node name="sprite" type="AnimatedSprite2D" parent="map/workers/worker6"]
+position = Vector2(-208, -43)
+scale = Vector2(1.3125, 1.3125)
+sprite_frames = SubResource("SpriteFrames_ir15t")
+animation = &"down"
+autoplay = "idle"
+
+[node name="col" type="CollisionShape2D" parent="map/workers/worker6"]
+position = Vector2(-206.99998, -41)
+scale = Vector2(1.3599999, 1.3599999)
+shape = SubResource("CapsuleShape2D_kvuet")
+
 [node name="player1" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 2
 position = Vector2(76, -68)
@@ -529,7 +603,6 @@ position_smoothing_enabled = true
 [node name="gui" type="CanvasLayer" parent="."]
 
 [node name="inventory" type="CanvasLayer" parent="gui"]
-visible = false
 script = ExtResource("7_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="gui/inventory"]
@@ -538,10 +611,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -315.38464
-offset_top = -205.0
-offset_right = 315.3847
-offset_bottom = 205.0
+offset_left = -350.0
+offset_top = -200.0
+offset_right = 350.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4

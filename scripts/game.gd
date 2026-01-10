@@ -17,7 +17,7 @@ extends Node2D
 @onready var camera2 = $player2/Camera2D
 
 @onready var workers = $map/workers
-
+@onready var houses = $map/tilemaps/houses
 
 
 # Called when the node enters the scene tree for the first time.
@@ -36,13 +36,19 @@ func _process(delta: float) -> void:
 
 func start_game():
 	#print("Mhm")
-	for i in global.workers_count:
-		chests.get_child(i).start()
-		for j in chests.get_child(i).cols:
-			j.set_deferred("disabled", 0)
+	
+	chests.get_child(global.workers_count).start()
+	chests.get_child(global.workers_count).visible = 1
+	for j in chests.get_child(global.workers_count).cols:
+		j.set_deferred("disabled", 0)
+		
+	houses.get_child(global.workers_count).enabled = 1
+
+	global.workers_count +=1
+	
+
 
 func add_worker():
-	global.workers_count +=1
 	start_game()
 
 
