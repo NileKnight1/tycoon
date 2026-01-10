@@ -21,7 +21,7 @@ var back = 0
 
 func start():
 	move_ = 1
-	print(move_)
+	#print(move_)
 
 
 func worker_back():

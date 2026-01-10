@@ -16,7 +16,7 @@ var workers_count = 0
 func update_currency(amount):
 	#print("I came hered")
 	currency += amount
-	print(currency)
+	#print(currency)
 
 var items = [
 	{"name": "Apple", "price": 5},
@@ -27,13 +27,25 @@ var items = [
 	{"name": "Green Grape", "price": 5},
 	{"name": "Potato", "price": 5},
 	{"name": "Tomato", "price": 5},
+	{"name": "Kiwi", "price": 5},
+	{"name": "Lime", "price": 5},
+	{"name": "Lemon", "price": 5},
+	{"name": "Peach", "price": 5},
+	{"name": "Blueberry", "price": 5},
+	{"name": "Cherry", "price": 5},
+	{"name": "Eggplant", "price": 5},
 	
 	
 	
 ]
 
 var tiers = [
-	["Apple", "Banana", "Red Grape", "Orange", "Watermelon", "Green Grape", "Potato", "Tomato"]
+	["Apple", "Banana", "Red Grape", "Orange", "Watermelon",
+	"Green Grape", "Potato", "Tomato",
+	"Kiwi", "Lime", "Lemon", "Peach",
+	"Blueberry", "Cherry", "Eggplant"
+	
+	]
 ]
 
 func chest_opened(tier):

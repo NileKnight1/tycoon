@@ -108,7 +108,7 @@ func _update_inventory(_name, amount, sell = 0):
 		if(sell):
 			global.update_currency(inventory_items[inventory_location]["price"]*abs(amount))
 			refresh_currency()
-			print(inventory_items[inventory_location]["price"]*abs(amount))
+			#print(inventory_items[inventory_location]["price"]*abs(amount))
 			
 		
 		if(inventory_items[inventory_location]["amount"] < 1):
@@ -129,31 +129,47 @@ func _update_inventory(_name, amount, sell = 0):
 	#refresh_inventory(1)
 	#
 
+var item_order
 
 func refresh_inventory(case):
 	#name1.text = inventory_items[0]["name"]
 	#amount1.text = str(inventory_items[0]["amount"])
+	#print("New lap")
 	
 	#var safe_inv = 0
+	
+	
 	var row = 0
+	
+	var button = Button.new()
+	var all = Button.new()
+	var amount_input = SpinBox.new()
 	
 	for child in get_children():
 		if child is Label or child is Button or child is SpinBox or child is TextureButton:
 			child.queue_free()
 	
-	var sss = Button.new()
-	add_child(sss)
-	sss.text = "Nothing"
-	sss.position = Vector2(500,500)
+	var item_name = Label.new()
+	var item_price = Label.new()
+	
+	
+	add_child(item_name)
+	item_name.text = "Item"
+	item_name.position = Vector2(870,200)
+	
+	add_child(item_price)
+	item_price.text = "0$"
+	item_price.position = Vector2(870,250)
+	
 	
 	for i in len(inventory_items):
-		
-		#if i >= len(inventory_items): return
+		#print("row: " + str(row))
+		#if i >= lenas(inventory_items): return
 		
 		
 		
 		var xpos = (row*100)+300
-		var ypos = (i*100)+180
+		var ypos = ((i-(4*row))*100)+180
 		
 		var icon = TextureButton.new()
 		icon.texture_normal = load("res://assets/items/%s.png" % inventory_items[i]["name"])
@@ -170,16 +186,39 @@ func refresh_inventory(case):
 		#name1.position = Vector2(360, ypos)
 		#name1.text = inventory_items[i]["name"]
 		
+		icon.scale = Vector2.ONE
+		
 		var amount = Label.new()
 		add_child(amount)
 		amount.position = Vector2(xpos+64, ypos+40)
 		amount.text = str(int(inventory_items[i]["amount"]))
 		
 		icon.pressed.connect(func():
-			sss.text = inventory_items[i]["name"]
+			item_name.text = inventory_items[i]["name"]
+			item_price.text = str(inventory_items[i]["price"]) + "$"
+			item_order = i
+			print(item_order)
+			
+			all.disabled = 0
+			amount_input.editable = 1
+			button.disabled = 0
+			amount_input.max_value = inventory_items[item_order]["amount"]
 		)
 		
-		if (i % 4 == 0):
+		icon.mouse_entered.connect(func():
+			icon.create_tween().tween_property(
+				icon, "scale", Vector2(1.15, 1.15), 0.12
+			)
+		)
+
+		icon.mouse_exited.connect(func():
+			icon.create_tween().tween_property(
+				icon, "scale", Vector2.ONE, 0.12
+			)
+		)
+		
+		if (i % 4 == 3):
+			#print("i " + str(i))
 			row +=1 
 	
 		#
@@ -215,9 +254,48 @@ func refresh_inventory(case):
 			#
 			#button.pressed.connect(sell_press)
 			#all.pressed.connect(select_all)
-	#if(case):
-		#var button
-	#
+	if(case):
+		
+		button.disabled = 1
+		all.disabled = 1
+		amount_input.editable = 0
+		
+		all.text = "All"
+		button.text = "Sell"
+		
+		add_child(button)
+		add_child(all)
+		add_child(amount_input)
+		
+		button.position = Vector2(870,300)
+		all.position = Vector2(870,350)
+		amount_input.position = Vector2(870,400)
+		
+		
+		
+		amount_input.min_value = 1
+		amount_input.max_value = 15
+		#amount_input.max_value = inventory_items[item_order]["amount"]
+		
+		
+		var sell_press = func():
+			_update_inventory(inventory_items[item_order]["name"], -amount_input.value, 1)
+			
+			#print(inventory_items)
+			#print(item_order)
+			#print(inventory_items[item_order])
+			#print(inventory_items[item_order]["name"])
+			#
+			#print(amount_input.value)
+
+		
+		var select_all = func():
+			amount_input.value = amount_input.max_value
+			
+		button.pressed.connect(sell_press)
+		all.pressed.connect(select_all)
+		
+	
 	
 	#print("Inventory refreshed")
 	#print("Case " + str(case))
@@ -248,7 +326,7 @@ func refresh_inventory(case):
 		#
 	
 func _on_sell_pressed() -> void:
-	if(inventory_opened == 1): print("im not glitching")
+	#if(inventory_opened == 1): print("im not glitching")
 	
 	if(inventory_opened == 0):
 		inventory.visible = 1

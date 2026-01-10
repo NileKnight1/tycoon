@@ -603,6 +603,7 @@ position_smoothing_enabled = true
 [node name="gui" type="CanvasLayer" parent="."]
 
 [node name="inventory" type="CanvasLayer" parent="gui"]
+visible = false
 script = ExtResource("7_gee14")
 
 [node name="ColorRect" type="ColorRect" parent="gui/inventory"]
@@ -686,6 +687,10 @@ limit_left = 1160
 limit_top = -1617
 limit_right = 1431
 limit_bottom = -1504
+
+[node name="TextureButton" type="SpinBox" parent="."]
+offset_right = 86.5625
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="map/Area2D" to="." method="_on_area_2d_body_exited"]
