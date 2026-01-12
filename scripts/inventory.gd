@@ -141,9 +141,16 @@ func refresh_inventory(case):
 	
 	var row = 0
 	
-	var button = Button.new()
-	var all = Button.new()
+	
+	# Shop #
+	var button = TextureButton.new()
+	var all = TextureButton.new()
 	var amount_input = SpinBox.new()
+	var button_text = Label.new()
+	var all_text = Label.new()
+	
+	
+	###
 	
 	for child in get_children():
 		if child is Label or child is Button or child is SpinBox or child is TextureButton:
@@ -259,16 +266,48 @@ func refresh_inventory(case):
 		button.disabled = 1
 		all.disabled = 1
 		amount_input.editable = 0
-		
-		all.text = "All"
-		button.text = "Sell"
-		
+		#
+		#all.text = "All"
+		#button.text = "Sell"
+		#
 		add_child(button)
 		add_child(all)
 		add_child(amount_input)
+		add_child(button_text)
+		add_child(all_text)
+		
+		button_text.text = "Sell"
+		all_text.text = "All"
+		
+		button.texture_normal = global.button_normal
+		button.texture_hover = global.button_hover
+		button.texture_disabled = global.button_disabled
+		button.texture_pressed = global.button_pressed
+		
+		all.texture_normal = global.button_normal
+		all.texture_hover = global.button_hover
+		all.texture_disabled = global.button_disabled
+		all.texture_pressed = global.button_pressed
+				
+		
+		var tp1 = 300
+		var tp2 = 350
+		
+		
+		button.scale = Vector2(3.5,3.5)
+		all.scale = Vector2(3.5,3.5)
 		
 		button.position = Vector2(870,300)
 		all.position = Vector2(870,350)
+		
+		button_text.position = Vector2(883,tp1)
+		all_text.position = Vector2(885,tp2)
+		
+		button_text.add_theme_font_override("font", global.font1)
+		all_text.add_theme_font_override("font", global.font1)
+		
+		
+		
 		amount_input.position = Vector2(870,400)
 		
 		
@@ -291,10 +330,51 @@ func refresh_inventory(case):
 		
 		var select_all = func():
 			amount_input.value = amount_input.max_value
-			
+			#
 		button.pressed.connect(sell_press)
 		all.pressed.connect(select_all)
 		
+		#var text_down = func():
+			#var _temp = tex.position.y
+			#tex.position.y = _temp - 20
+			#
+			#
+		
+		#button.button_up.connect(text_down)
+		#all.button_up.connect(text_down)
+		
+		
+		all.button_up.connect(func():
+			#all_text.text = "Hello1"
+			
+			all_text.position.y = tp2
+			print(all_text.position.y)
+
+		)
+		
+		all.button_down.connect(func():
+			#all_text.text = "Hello2"
+			all_text.position.y = tp2+2 
+			print(all_text.position.y)
+			
+		)
+	
+		
+		button.button_up.connect(func():
+			#button_text.text = "Hello1"
+			
+			button_text.position.y = tp1
+			print(button_text.position.y)
+
+		)
+		
+		button.button_down.connect(func():
+			#button_text.text = "Hello2"
+			button_text.position.y = tp1+2 
+			print(button_text.position.y)
+			
+		)
+	
 	
 	
 	#print("Inventory refreshed")

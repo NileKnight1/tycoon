@@ -3,6 +3,7 @@ extends Node
 
 var inventory = null
 
+var font1 = load("res://temp2.ttf")
 
 var player_speed = 150
 var player_boost = 3
@@ -11,6 +12,14 @@ var currency: int = 10
 var chest_small_time = 0.1
 
 var workers_count = 0
+
+var button_normal = load("res://assets/ui/button_normal.png")
+var button_hover = load("res://assets/ui/button_hover.png")
+var button_disabled = load("res://assets/ui/button_disabled.png")
+var button_pressed = load("res://assets/ui/button_pressed.png")
+
+
+
 
 
 func update_currency(amount):

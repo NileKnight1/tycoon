@@ -2,6 +2,9 @@ extends Node2D
 
 
 @onready var sell_button = $gui/sell
+
+@onready var sell_button_text = $gui/sell/Label
+
 @onready var inventory = $gui/inventory
 @onready var currency_label = $gui/currency
 
@@ -24,6 +27,7 @@ extends Node2D
 func _ready() -> void:
 	#print(workers)
 	#chests.start()
+	#print(sell_button_text.position.y)
 	
 	start_game()
 	player2.no_move = 1
@@ -97,3 +101,17 @@ func _on_back_pressed() -> void:
 
 func _on_add_pressed() -> void:
 	add_worker()
+
+
+func _on_sell_button_down() -> void:
+	sell_button_text.position.y = 280
+	#print(sell_button_text.position.y)
+	pass
+	
+
+
+func _on_sell_button_up() -> void:
+	sell_button_text.position.y = 218
+	#print(sell_button_text.position.y)
+	pass
+	
