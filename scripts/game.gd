@@ -22,11 +22,13 @@ extends Node2D
 @onready var workers = $map/workers
 @onready var houses = $map/tilemaps/houses
 
+var play_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#print(workers)
 	#chests.start()
+	#print("bruhhhh")
 	#print(sell_button_text.position.y)
 	
 	start_game()
@@ -36,6 +38,9 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#print(chest1.is_ready)
+	#print(player.position)
+	#play_pos = player.position
+	
 	pass
 
 func start_game():

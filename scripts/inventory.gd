@@ -163,10 +163,14 @@ func refresh_inventory(case):
 	add_child(item_name)
 	item_name.text = "Item"
 	item_name.position = Vector2(870,200)
+	item_name.add_theme_font_override("font", global.font2)
+	
+
 	
 	add_child(item_price)
 	item_price.text = "0$"
 	item_price.position = Vector2(870,250)
+	item_price.add_theme_font_override("font", global.font2)
 	
 	
 	for i in len(inventory_items):

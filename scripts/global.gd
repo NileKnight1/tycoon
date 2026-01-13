@@ -4,6 +4,8 @@ extends Node
 var inventory = null
 
 var font1 = load("res://temp2.ttf")
+var font2 = load("res://temp.ttf")
+
 
 var player_speed = 150
 var player_boost = 3
