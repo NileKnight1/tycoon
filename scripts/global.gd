@@ -30,6 +30,8 @@ func update_currency(amount):
 	#print(currency)
 
 var items = [
+	{"name": "Small Knife", 	"price": 75		, "sellable": true, "holdable": true						},
+	
 	{"name": "Apple", 			"price": 5		, "sellable": true, "holdable": true						},
 	{"name": "Banana", 			"price": 5		, "sellable": true, "holdable": true						},
 	{"name": "Orange", 			"price": 5		, "sellable": true, "holdable": true						},

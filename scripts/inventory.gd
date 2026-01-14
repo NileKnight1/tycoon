@@ -43,6 +43,8 @@ var test = 0
 
 func _ready() -> void:
 	global.inventory = self
+	
+	_update_inventory("Small Knife", 1)
 	#print(inventory_items[")
 	
 	#print(item_exist("apple"))
@@ -163,12 +165,11 @@ func refresh_inventory(case):
 	###
 	
 	for child in get_children():
-		if child is Label or child is Button or child is SpinBox or child is TextureButton:
+		if child is Label or child is Button or child is SpinBox or child is TextureButton or child is TextureRect:
 			child.queue_free()
 	
 	var item_name = Label.new()
 	var item_price = Label.new()
-	
 	
 	add_child(item_name)
 	item_name.text = "Item"
@@ -190,12 +191,23 @@ func refresh_inventory(case):
 		var ypos = ((i-(4*row))*100)+180
 		
 		var icon = TextureButton.new()
+		
 		icon.texture_normal = load("res://assets/items/%s.png" % inventory_items[i]["name"])
 		
+			
+		var frame = TextureRect.new()
+		frame.texture = load("res://assets/ui/sq.png")
+		
+	
+		
+		add_child(frame)
 		add_child(icon)
 		
-		icon.position = Vector2(xpos, ypos)
-		icon.size = Vector2(64,64)
+		frame.position = Vector2(xpos, ypos)
+		frame.size = Vector2(64, 64)
+		
+		icon.position = Vector2(xpos+10, ypos+10)
+		icon.size = Vector2(47,47)
 		
 		icon.ignore_texture_size = true
 		icon.stretch_mode = TextureButton.STRETCH_KEEP_ASPECT_CENTERED

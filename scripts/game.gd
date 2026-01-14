@@ -140,18 +140,15 @@ func _on_button_1_toggled(toggled_on: bool) -> void:
 		for i in taskbar.get_children():
 			if(i.get_index() == 0): continue
 			i.button_pressed = 0
-			
 
 func _on_button_2_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		for i in taskbar.get_children():
 			if(i.get_index() == 1): continue
 			i.button_pressed = 0
-			
 
 func _on_button_3_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		for i in taskbar.get_children():
 			if(i.get_index() == 2): continue
 			i.button_pressed = 0
-			
