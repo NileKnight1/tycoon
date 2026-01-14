@@ -8,6 +8,9 @@ extends CharacterBody2D
 
 var no_move = 0
 
+var health = 0
+
+
 #@onready var tiles = $tiles
 #@onready var main = $main
 

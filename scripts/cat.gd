@@ -1,13 +1,16 @@
 extends CharacterBody2D
 
-@export var speed: float = 100.0
+@export var speed: float = 70
 
 var player: Node2D
 var ch: AnimatedSprite2D
 
+var hitbox = 0
+
+
 func _ready() -> void:
-	player = $"../player1"
-	ch = $ch  # reference to AnimatedSprite2D node
+	player = $"../../player1"
+	ch = $ch
 
 
 func _physics_process(delta: float) -> void:
@@ -39,3 +42,18 @@ func _physics_process(delta: float) -> void:
 			else:
 				ch.play("up")
 	#ch.play()
+
+
+func _on_area_body_entered(body: Node2D) -> void:
+	player.health += 1
+	print(player.health)
+
+func _on_damage_body_entered(body: Node2D) -> void:
+	hitbox = 1
+
+func _on_damage_body_exited(body: Node2D) -> void:
+	hitbox = 0
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("action") and hitbox == 1:
+		self.queue_free()

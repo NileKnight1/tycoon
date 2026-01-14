@@ -21,6 +21,7 @@ extends Node2D
 
 @onready var workers = $map/workers
 @onready var houses = $map/tilemaps/houses
+@onready var taskbar = $gui/taskbar
 
 var play_pos
 
@@ -115,8 +116,42 @@ func _on_sell_button_down() -> void:
 	
 
 
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("t1"):
+		taskbar.get_child(0).button_pressed = 1
+	elif Input.is_action_just_pressed("t2"):
+		taskbar.get_child(1).button_pressed = 2
+	elif Input.is_action_just_pressed("t3"):
+		taskbar.get_child(2).button_pressed = 3
+	
+
+
+
 func _on_sell_button_up() -> void:
 	sell_button_text.position.y = 218
 	#print(sell_button_text.position.y)
 	pass
 	
+
+
+func _on_button_1_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		for i in taskbar.get_children():
+			if(i.get_index() == 0): continue
+			i.button_pressed = 0
+			
+
+func _on_button_2_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		for i in taskbar.get_children():
+			if(i.get_index() == 1): continue
+			i.button_pressed = 0
+			
+
+func _on_button_3_toggled(toggled_on: bool) -> void:
+	if toggled_on:
+		for i in taskbar.get_children():
+			if(i.get_index() == 2): continue
+			i.button_pressed = 0
+			

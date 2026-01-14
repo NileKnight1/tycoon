@@ -30,21 +30,21 @@ func update_currency(amount):
 	#print(currency)
 
 var items = [
-	{"name": "Apple", "price": 5},
-	{"name": "Banana", "price": 5},
-	{"name": "Orange", "price": 5},
-	{"name": "Watermelon", "price": 5},
-	{"name": "Red Grape", "price": 5},
-	{"name": "Green Grape", "price": 5},
-	{"name": "Potato", "price": 5},
-	{"name": "Tomato", "price": 5},
-	{"name": "Kiwi", "price": 5},
-	{"name": "Lime", "price": 5},
-	{"name": "Lemon", "price": 5},
-	{"name": "Peach", "price": 5},
-	{"name": "Blueberry", "price": 5},
-	{"name": "Cherry", "price": 5},
-	{"name": "Eggplant", "price": 5},
+	{"name": "Apple", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Banana", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Orange", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Watermelon", 		"price": 5		, "sellable": true, "holdable": true							},
+	{"name": "Red Grape", 		"price": 5		, "sellable": true, "holdable": true							},
+	{"name": "Green Grape", 	"price": 5		, "sellable": true, "holdable": true							},
+	{"name": "Potato", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Tomato", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Kiwi", 			"price": 5		, "sellable": true, "holdable": true					},
+	{"name": "Lime", 			"price": 5		, "sellable": true, "holdable": true					},
+	{"name": "Lemon", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Peach", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Blueberry", 		"price": 5		, "sellable": true, "holdable": true							},
+	{"name": "Cherry", 			"price": 5		, "sellable": true, "holdable": true						},
+	{"name": "Eggplant", 		"price": 5		, "sellable": true, "holdable": true						},
 	
 	
 	

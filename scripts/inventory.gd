@@ -2,8 +2,11 @@ extends CanvasLayer
 
 @onready var inventory = $"."
 @onready var currency_label = $"../currency"
+@onready var taskbar = $"../taskbar"
+
 
 var inventory_opened = 0
+
 
 
 var inventory_items = [
@@ -15,6 +18,12 @@ var inventory_items = [
 	
 	
 ]
+#
+#var task_item1
+#var task_item2
+#var task_item3
+
+var task_items = [null, null, null]
 
 
 #@export var currency = global.currency
@@ -95,13 +104,15 @@ func item_exist(_name, list):
 
 func _update_inventory(_name, amount, sell = 0):
 	var inventory_location = item_exist(_name, inventory_items)
-	var global_location = item_exist(_name, inventory_items)
+	var global_location = item_exist(_name, global.items)
 	
 	if(inventory_location == -1):
 		inventory_items.append(
 			{"name": _name, 
 			"amount": amount, 
-			"price": global.items[global_location]["price"]
+			"price": global.items[global_location]["price"],
+			"holdable": global.items[global_location]["holdable"]
+
 			})
 	else:
 		inventory_items[inventory_location]["amount"] += amount
@@ -109,8 +120,7 @@ func _update_inventory(_name, amount, sell = 0):
 			global.update_currency(inventory_items[inventory_location]["price"]*abs(amount))
 			refresh_currency()
 			#print(inventory_items[inventory_location]["price"]*abs(amount))
-			
-		
+
 		if(inventory_items[inventory_location]["amount"] < 1):
 			inventory_items.remove_at(inventory_location)
 	if(!sell):
@@ -176,9 +186,6 @@ func refresh_inventory(case):
 	for i in len(inventory_items):
 		#print("row: " + str(row))
 		#if i >= lenas(inventory_items): return
-		
-		
-		
 		var xpos = (row*100)+300
 		var ypos = ((i-(4*row))*100)+180
 		
@@ -208,12 +215,40 @@ func refresh_inventory(case):
 			item_name.text = inventory_items[i]["name"]
 			item_price.text = str(inventory_items[i]["price"]) + "$"
 			item_order = i
-			print(item_order)
+			#print(item_order)
 			
 			all.disabled = 0
 			amount_input.editable = 1
 			button.disabled = 0
 			amount_input.max_value = inventory_items[item_order]["amount"]
+			
+			if(!case && inventory_items[i]["holdable"]):
+				#print(inventory_items)
+				#print("YESSSS")
+				#print(inventory_items[i]["holdable"])
+				#var _task
+				
+				for j in taskbar.get_children():
+					if j.button_pressed == true:
+						
+						j.get_child(0).texture = load("res://assets/items/%s.png" % inventory_items[item_order]["name"])
+						#print(task_items[j.get_index()])
+						
+						if task_items[j.get_index()] == null:
+							task_items[j.get_index()] = inventory_items[item_order]["name"]
+							_update_inventory(inventory_items[item_order]["name"], -1)
+						else:
+							_update_inventory(task_items[j.get_index()], 1)
+							task_items[j.get_index()] = inventory_items[item_order]["name"]
+							_update_inventory(inventory_items[item_order]["name"], -1)
+							#print(inventory_items)as
+						
+						
+						
+						
+						break
+				
+				
 		)
 		
 		icon.mouse_entered.connect(func():
@@ -265,6 +300,7 @@ func refresh_inventory(case):
 			#
 			#button.pressed.connect(sell_press)
 			#all.pressed.connect(select_all)
+	
 	if(case):
 		
 		button.disabled = 1

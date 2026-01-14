@@ -1,4 +1,4 @@
-[gd_scene load_steps=95 format=4 uid="uid://0ecmsyxubasp"]
+[gd_scene load_steps=94 format=4 uid="uid://0ecmsyxubasp"]
 
 [ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://assets/Tilesets/TilesetField.png" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://b0yjn2vojtrlf" path="res://scripts/game.gd" id="1_u5sy4"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://bqkmho5ybxqmd" path="res://assets/interior/dungeon_ (2).png" id="19_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://didythlguvrlo" path="res://assets/ui/white.png" id="20_suyxu"]
 [ext_resource type="Texture2D" uid="uid://biqct5jjex5ux" path="res://assets/ui/dark.png" id="21_sgl2t"]
-[ext_resource type="Texture2D" uid="uid://cgaohmjll37un" path="res://assets/weapons/Sprite.png" id="21_sww3w"]
 [ext_resource type="Script" uid="uid://dxrjlv0r7d8u6" path="res://scripts/cat.gd" id="26_bhx41"]
 [ext_resource type="Texture2D" uid="uid://bemqptwm174vx" path="res://assets/characters/cars/cat 1 (64х64).png" id="27_qnb83"]
 
@@ -596,8 +595,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sww3w"]
-radius = 8.999425
-height = 26.020948
+radius = 20.012934
+height = 40.025867
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_u5sy4")
@@ -808,9 +807,9 @@ shape = SubResource("CapsuleShape2D_kvuet")
 
 [node name="player1" parent="." instance=ExtResource("1_uwrxv")]
 z_index = 2
-position = Vector2(68, 33.000015)
+position = Vector2(29, -1.0000001)
 scale = Vector2(1.44, 1.44)
-collision_layer = 74
+collision_layer = 202
 collision_mask = 74
 
 [node name="Camera2D" type="Camera2D" parent="player1"]
@@ -891,102 +890,91 @@ theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 50
 text = "0 $"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="gui"]
-
-[node name="button1" type="TextureButton" parent="gui/CanvasLayer"]
+[node name="taskbar" type="HBoxContainer" parent="gui"]
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -24.0
-offset_top = -86.0
-offset_right = 24.0
-offset_bottom = -38.0
+offset_left = -161.00003
+offset_top = -104.0
+offset_right = -85.0
+offset_bottom = -88.0
 grow_horizontal = 2
 grow_vertical = 0
-scale = Vector2(1.56, 1.56)
-texture_normal = ExtResource("20_suyxu")
-texture_pressed = ExtResource("21_sgl2t")
+scale = Vector2(4.2799997, 4.2799997)
+alignment = 1
+
+[node name="button1" type="TextureButton" parent="gui/taskbar"]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("21_sgl2t")
+texture_pressed = ExtResource("20_suyxu")
 stretch_mode = 5
 
-[node name="item1" type="TextureRect" parent="gui/CanvasLayer"]
+[node name="item" type="TextureRect" parent="gui/taskbar/button1"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -7.0
-offset_top = -68.0
-offset_right = 33.0
-offset_bottom = -28.0
+offset_left = -4.728969
+offset_top = -12.962617
+offset_right = 23.47614
+offset_bottom = 15.242493
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("21_sww3w")
+scale = Vector2(0.31775695, 0.31775695)
 stretch_mode = 5
 
-[node name="button2" type="TextureButton" parent="gui/CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = 61.0
-offset_top = -86.0
-offset_right = 109.0
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.56, 1.56)
-texture_normal = ExtResource("20_suyxu")
-texture_pressed = ExtResource("21_sgl2t")
+[node name="button2" type="TextureButton" parent="gui/taskbar"]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("21_sgl2t")
+texture_pressed = ExtResource("20_suyxu")
 stretch_mode = 5
 
-[node name="item2" type="TextureRect" parent="gui/CanvasLayer"]
+[node name="item" type="TextureRect" parent="gui/taskbar/button2"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = 78.0
-offset_top = -68.0
-offset_right = 118.0
-offset_bottom = -28.0
+offset_left = -4.728969
+offset_top = -12.962617
+offset_right = 23.47614
+offset_bottom = 15.242493
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("21_sww3w")
+scale = Vector2(0.31775695, 0.31775695)
 stretch_mode = 5
 
-[node name="button3" type="TextureButton" parent="gui/CanvasLayer"]
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -109.0
-offset_top = -86.0
-offset_right = -61.0
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 0
-scale = Vector2(1.56, 1.56)
-texture_normal = ExtResource("20_suyxu")
-texture_pressed = ExtResource("21_sgl2t")
+[node name="button3" type="TextureButton" parent="gui/taskbar"]
+layout_mode = 2
+toggle_mode = true
+action_mode = 0
+texture_normal = ExtResource("21_sgl2t")
+texture_pressed = ExtResource("20_suyxu")
 stretch_mode = 5
 
-[node name="item3" type="TextureRect" parent="gui/CanvasLayer"]
+[node name="item" type="TextureRect" parent="gui/taskbar/button3"]
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -92.0
-offset_top = -68.0
-offset_right = -52.0
-offset_bottom = -28.0
+offset_left = -4.728969
+offset_top = -12.962617
+offset_right = 23.47614
+offset_bottom = 15.242493
 grow_horizontal = 2
 grow_vertical = 0
-texture = ExtResource("21_sww3w")
+scale = Vector2(0.31775695, 0.31775695)
 stretch_mode = 5
 
 [node name="house" type="Node2D" parent="."]
@@ -1036,19 +1024,125 @@ limit_top = -1617
 limit_right = 1431
 limit_bottom = -1504
 
-[node name="cat" type="CharacterBody2D" parent="."]
+[node name="cats" type="Node2D" parent="."]
+
+[node name="cat" type="CharacterBody2D" parent="cats"]
 scale = Vector2(0.8751179, 0.89774454)
-collision_layer = 66
-collision_mask = 66
+collision_layer = 16
+collision_mask = 16
 script = ExtResource("26_bhx41")
 
-[node name="ch" type="AnimatedSprite2D" parent="cat"]
+[node name="ch" type="AnimatedSprite2D" parent="cats/cat"]
+scale = Vector2(1, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_qnb83")
-animation = &"idle"
+animation = &"left"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="cat"]
-position = Vector2(1, 6)
+[node name="hit" type="Area2D" parent="cats/cat"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat/hit"]
+position = Vector2(-0.11469332, 1.4286625)
 rotation = -1.5594913
+scale = Vector2(0.84688556, 0.9705991)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="damage" type="Area2D" parent="cats/cat"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat/damage"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(1.3703128, 1.5704889)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(1.3703128, 1.5704889)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="cat2" type="CharacterBody2D" parent="cats"]
+position = Vector2(-90, 223.99998)
+scale = Vector2(0.8751179, 0.89774454)
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("26_bhx41")
+
+[node name="ch" type="AnimatedSprite2D" parent="cats/cat2"]
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+animation = &"left"
+
+[node name="hit" type="Area2D" parent="cats/cat2"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat2/hit"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(0.84688556, 0.9705991)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="damage" type="Area2D" parent="cats/cat2"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat2/damage"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(1.3703128, 1.5704889)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat2"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(1.3703128, 1.5704889)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="cat3" type="CharacterBody2D" parent="cats"]
+position = Vector2(106, 197.99998)
+scale = Vector2(0.8751179, 0.89774454)
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("26_bhx41")
+
+[node name="ch" type="AnimatedSprite2D" parent="cats/cat3"]
+scale = Vector2(1, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_qnb83")
+animation = &"left"
+
+[node name="hit" type="Area2D" parent="cats/cat3"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat3/hit"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(0.84688556, 0.9705991)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="damage" type="Area2D" parent="cats/cat3"]
+scale = Vector2(0.99999994, 0.99999994)
+collision_layer = 0
+collision_mask = 128
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat3/damage"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(1.3703128, 1.5704889)
+shape = SubResource("CapsuleShape2D_sww3w")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="cats/cat3"]
+position = Vector2(-0.11469332, 1.4286625)
+rotation = -1.5594913
+scale = Vector2(1.3703128, 1.5704889)
 shape = SubResource("CapsuleShape2D_sww3w")
 
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
@@ -1058,5 +1152,17 @@ shape = SubResource("CapsuleShape2D_sww3w")
 [connection signal="button_down" from="gui/sell" to="." method="_on_sell_button_down"]
 [connection signal="button_up" from="gui/sell" to="." method="_on_sell_button_up"]
 [connection signal="pressed" from="gui/sell" to="gui/inventory" method="_on_sell_pressed"]
+[connection signal="toggled" from="gui/taskbar/button1" to="." method="_on_button_1_toggled"]
+[connection signal="toggled" from="gui/taskbar/button2" to="." method="_on_button_2_toggled"]
+[connection signal="toggled" from="gui/taskbar/button3" to="." method="_on_button_3_toggled"]
 [connection signal="pressed" from="house/back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="house/Node2D/add" to="." method="_on_add_pressed"]
+[connection signal="body_entered" from="cats/cat/hit" to="cats/cat" method="_on_area_body_entered"]
+[connection signal="body_entered" from="cats/cat/damage" to="cats/cat" method="_on_damage_body_entered"]
+[connection signal="body_exited" from="cats/cat/damage" to="cats/cat" method="_on_damage_body_exited"]
+[connection signal="body_entered" from="cats/cat2/hit" to="cats/cat2" method="_on_area_body_entered"]
+[connection signal="body_entered" from="cats/cat2/damage" to="cats/cat2" method="_on_damage_body_entered"]
+[connection signal="body_exited" from="cats/cat2/damage" to="cats/cat2" method="_on_damage_body_exited"]
+[connection signal="body_entered" from="cats/cat3/hit" to="cats/cat3" method="_on_area_body_entered"]
+[connection signal="body_entered" from="cats/cat3/damage" to="cats/cat3" method="_on_damage_body_entered"]
+[connection signal="body_exited" from="cats/cat3/damage" to="cats/cat3" method="_on_damage_body_exited"]
