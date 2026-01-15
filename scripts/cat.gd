@@ -2,6 +2,9 @@ extends CharacterBody2D
 
 @export var speed: float = 70
 @onready var taskbar = $"../../gui/taskbar"
+@onready var inventory = $"../../gui/inventory"
+#@onready var cooldown = $"../cooldown"
+@onready var game = $"../.."
 
 var player: Node2D
 var ch: AnimatedSprite2D
@@ -10,11 +13,14 @@ var health = 1
 
 
 func _ready() -> void:
+	
 	player = $"../../player1"
 	ch = $ch
 
 
 func _physics_process(delta: float) -> void:
+	#print(cooldown.wait_time)
+	
 	if player == null:
 		return
 
@@ -56,12 +62,6 @@ func _on_damage_body_exited(body: Node2D) -> void:
 	hitbox = 0
 
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("action") and hitbox == 1:
-		for i in taskbar.get_children():
-			if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png") :
-				health -= 1
-				break
-
-	if(!health):
-		self.queue_free()
-		
+	
+	if Input.is_action_just_pressed("action"):
+		game.hit(self)

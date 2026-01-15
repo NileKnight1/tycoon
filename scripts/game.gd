@@ -23,10 +23,16 @@ extends Node2D
 @onready var houses = $map/tilemaps/houses
 @onready var taskbar = $gui/taskbar
 
+@onready var cooldown = $cats/cooldown
+
+
 var play_pos
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	#cooldown.start()
+	
+	
 	#print(workers)
 	#chests.start()
 	#print("bruhhhh")
@@ -41,6 +47,8 @@ func _process(delta: float) -> void:
 	#print(chest1.is_ready)
 	#print(player.position)
 	#play_pos = player.position
+	#print(cooldown.wait_time)
+	
 	
 	pass
 
@@ -124,7 +132,6 @@ func _input(event: InputEvent) -> void:
 		taskbar.get_child(1).button_pressed = 2
 	elif Input.is_action_just_pressed("t3"):
 		taskbar.get_child(2).button_pressed = 3
-	
 
 
 
@@ -152,3 +159,31 @@ func _on_button_3_toggled(toggled_on: bool) -> void:
 		for i in taskbar.get_children():
 			if(i.get_index() == 2): continue
 			i.button_pressed = 0
+			
+func hit(cat):
+	
+	if inventory.inventory_opened: return
+	
+	if 1:
+		if cooldown.time_left: return
+		#print(cooldown.time_left)
+		
+		cooldown.start(0.5)
+		
+		
+		
+		
+		player.get_node("hand").position.y += 3
+		await get_tree().create_timer(0.1).timeout
+		player.get_node("hand").position.y -= 3
+		
+		if(!cat.hitbox): return
+		
+		for i in taskbar.get_children():
+			if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png") :
+				cat.health -= 1
+				break
+
+		if(!cat.health):
+			cat.queue_free()
+		

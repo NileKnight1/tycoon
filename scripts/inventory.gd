@@ -7,8 +7,6 @@ extends CanvasLayer
 
 var inventory_opened = 0
 
-
-
 var inventory_items = [
 	#{"name": "Apple", "amount":  7},
 	#{"name": "Tomato", "amount":  7},
