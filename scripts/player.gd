@@ -6,10 +6,9 @@ extends CharacterBody2D
 
 @onready var player = $ch
 
+var health = 3
+
 var no_move = 0
-
-var health = 0
-
 
 #@onready var tiles = $tiles
 #@onready var main = $main

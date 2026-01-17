@@ -23,8 +23,14 @@ extends Node2D
 @onready var houses = $map/tilemaps/houses
 @onready var taskbar = $gui/taskbar
 
-@onready var cooldown = $cats/cooldown
+@onready var cooldown = $player1/cooldown
+@onready var hearts = $gui/hearts
+@onready var hearts_cooldown = $player1/hearts
+@onready var cats = $cats
 
+@onready var cat_scene = preload("res://objects/cat.tscn")
+@onready var cat_script = preload("res://scripts/cat.gd")
+	
 
 var play_pos
 
@@ -33,14 +39,18 @@ func _ready() -> void:
 	#cooldown.start()
 	
 	
+	
 	#print(workers)
 	#chests.start()
 	#print("bruhhhh")
 	#print(sell_button_text.position.y)
 	
 	start_game()
+	spawn_cat()
+	
 	player2.no_move = 1
 
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -68,6 +78,8 @@ func start_game():
 
 func add_worker():
 	start_game()
+	
+	
 
 
 
@@ -132,7 +144,8 @@ func _input(event: InputEvent) -> void:
 		taskbar.get_child(1).button_pressed = 2
 	elif Input.is_action_just_pressed("t3"):
 		taskbar.get_child(2).button_pressed = 3
-
+	if Input.is_action_just_pressed("action"):
+		_hit()
 
 
 func _on_sell_button_up() -> void:
@@ -159,31 +172,66 @@ func _on_button_3_toggled(toggled_on: bool) -> void:
 		for i in taskbar.get_children():
 			if(i.get_index() == 2): continue
 			i.button_pressed = 0
-			
+
+
+
+func _hit():
+	if cooldown.time_left: return
+	
+	cooldown.start(0.5)
+	
+	player.get_node("hand").position.y += 3
+	await get_tree().create_timer(0.1).timeout
+	player.get_node("hand").position.y -= 3
+		
+
+
 func hit(cat):
 	
-	if inventory.inventory_opened: return
+	#print(1)
 	
-	if 1:
-		if cooldown.time_left: return
-		#print(cooldown.time_left)
-		
-		cooldown.start(0.5)
-		
-		
-		
-		
-		player.get_node("hand").position.y += 3
-		await get_tree().create_timer(0.1).timeout
-		player.get_node("hand").position.y -= 3
-		
-		if(!cat.hitbox): return
-		
-		for i in taskbar.get_children():
-			if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png") :
-				cat.health -= 1
-				break
+	if inventory.inventory_opened: return
+	#print(2)
+	
+	if cooldown.time_left: return
+	_hit()
+	#print(3)
+	#if cooldown.time_left: return
 
-		if(!cat.health):
-			cat.queue_free()
-		
+	
+	if(!cat.hitbox): return
+	
+	for i in taskbar.get_children():
+		if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png") :
+			cat.health -= 1
+			break
+
+	if(!cat.health):
+		cat.queue_free()
+
+
+
+func player_hit():
+	
+	if hearts_cooldown.time_left: return
+	if player.health == 0:
+		print("Dead")
+		return
+	
+	
+	player.health -= 1
+	hearts_cooldown.start()
+	
+	for i in range(3-player.health):
+		hearts.get_child(i).play("false")
+	
+		#get_tree().change_scene_to_file("res://scenes/game.tscn")
+	
+func spawn_cat():
+	var new_cat = cat_scene.instantiate()
+	print("Hi")
+	new_cat.set_script(cat_script)
+	cats.add_child(new_cat)
+	
+	new_cat.position = Vector2(100, 100)
+	
