@@ -28,11 +28,19 @@ extends Node2D
 @onready var hearts_cooldown = $player1/hearts
 @onready var cats = $cats
 
+@onready var cats_att = $cats_att
+@onready var cats_time_left = $gui/timer
+
 @onready var cat_scene = preload("res://objects/cat.tscn")
 @onready var cat_script = preload("res://scripts/cat.gd")
 	
 
+
 var play_pos
+var cats_num = 0
+var killed_cats_all = 0
+var killed_cats = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -46,7 +54,11 @@ func _ready() -> void:
 	#print(sell_button_text.position.y)
 	
 	start_game()
-	spawn_cat()
+	
+	#spawn_cat()
+	#spawn_cat()
+	
+	
 	
 	player2.no_move = 1
 
@@ -58,6 +70,19 @@ func _process(delta: float) -> void:
 	#print(player.position)
 	#play_pos = player.position
 	#print(cooldown.wait_time)
+	
+	var rem = int(cats_att.time_left)
+	var min = str(rem / 60)
+	var sec = str(rem % 60)
+	#
+	#if(rem < 119):
+		#title.hide()
+	#
+	if(int(sec)>9):
+		cats_time_left.text = "0" + min + ":" + sec
+	else:
+		cats_time_left.text = "0" + min + ":0" + sec
+		
 	
 	
 	pass
@@ -140,11 +165,18 @@ func _on_sell_button_down() -> void:
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("t1"):
 		taskbar.get_child(0).button_pressed = 1
+		$player1/hand.texture = taskbar.get_child(0).get_child(0).texture
+		
 	elif Input.is_action_just_pressed("t2"):
 		taskbar.get_child(1).button_pressed = 2
+		$player1/hand.texture = taskbar.get_child(1).get_child(0).texture
+			
 	elif Input.is_action_just_pressed("t3"):
 		taskbar.get_child(2).button_pressed = 3
+		$player1/hand.texture = taskbar.get_child(2).get_child(0).texture
+			
 	if Input.is_action_just_pressed("action"):
+		check_hit_on_cats()
 		_hit()
 
 
@@ -157,18 +189,24 @@ func _on_sell_button_up() -> void:
 
 func _on_button_1_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		$player1/hand.texture = taskbar.get_child(0).get_child(0).texture
+		
 		for i in taskbar.get_children():
 			if(i.get_index() == 0): continue
 			i.button_pressed = 0
 
 func _on_button_2_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		$player1/hand.texture = taskbar.get_child(1).get_child(0).texture
+		
 		for i in taskbar.get_children():
 			if(i.get_index() == 1): continue
 			i.button_pressed = 0
 
 func _on_button_3_toggled(toggled_on: bool) -> void:
 	if toggled_on:
+		$player1/hand.texture = taskbar.get_child(2).get_child(0).texture
+		
 		for i in taskbar.get_children():
 			if(i.get_index() == 2): continue
 			i.button_pressed = 0
@@ -188,7 +226,6 @@ func _hit():
 
 func hit(cat):
 	
-	#print(1)
 	
 	if inventory.inventory_opened: return
 	#print(2)
@@ -198,8 +235,10 @@ func hit(cat):
 	#print(3)
 	#if cooldown.time_left: return
 
+	print(cat.hitbox)
 	
 	if(!cat.hitbox): return
+	
 	
 	for i in taskbar.get_children():
 		if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png") :
@@ -217,21 +256,53 @@ func player_hit():
 	if player.health == 0:
 		print("Dead")
 		return
-	
-	
+		
 	player.health -= 1
 	hearts_cooldown.start()
 	
 	for i in range(3-player.health):
 		hearts.get_child(i).play("false")
-	
-		#get_tree().change_scene_to_file("res://scenes/game.tscn")
-	
-func spawn_cat():
+
+func spawn_cat(x, y):
 	var new_cat = cat_scene.instantiate()
-	print("Hi")
+	#print("Hi")
 	new_cat.set_script(cat_script)
 	cats.add_child(new_cat)
 	
-	new_cat.position = Vector2(100, 100)
+	new_cat.position = Vector2(x, y)
+	
+
+func _on_cats_att_timeout() -> void:
+	cats_attack()
+	
+func cats_attack():
+	cats_num += 2
+	
+	for i in range(cats_num):
+		spawn_cat(
+		randi_range(-470, -315),
+		randi_range(-66, 271)
+		)
+
+func check_hit_on_cats():
+	if inventory.inventory_opened: return
+	if cooldown.time_left: return
+	
+	_hit()
+	
+	for cat in cats.get_children():
+		if cat.hitbox:
+			for i in taskbar.get_children():
+				if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png"):
+					cat.health -= 1
+					if cat.health <= 0:
+						cat.queue_free()
+						killed_cats_all += 1
+						killed_cats += 1
+						if killed_cats == cats_num:
+							killed_cats = 0
+							cats_att.start()
+						
+					break
+			break
 	

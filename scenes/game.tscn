@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://0ecmsyxubasp"]
+[gd_scene load_steps=69 format=4 uid="uid://0ecmsyxubasp"]
 
 [ext_resource type="Texture2D" uid="uid://en3s3b46ylvk" path="res://assets/Tilesets/TilesetField.png" id="1_lnu2h"]
 [ext_resource type="Script" uid="uid://b0yjn2vojtrlf" path="res://scripts/game.gd" id="1_u5sy4"]
@@ -13,7 +13,6 @@
 [ext_resource type="FontFile" uid="uid://b7faf6p2scur0" path="res://temp.ttf" id="8_gee14"]
 [ext_resource type="Texture2D" uid="uid://b2oor0dp6qlsn" path="res://assets/characters/skeleton/Walk.png" id="9_kvuet"]
 [ext_resource type="Texture2D" uid="uid://ljld8ffkol62" path="res://assets/characters/skeleton/Idle.png" id="10_trtic"]
-[ext_resource type="Texture2D" uid="uid://di3jel1j1infi" path="res://assets/items/Small Knife 2.png" id="13_suyxu"]
 [ext_resource type="Texture2D" uid="uid://cpvvhwucou8ci" path="res://assets/ui/button_normal.png" id="14_bt5mj"]
 [ext_resource type="Script" uid="uid://crgqk2rw0amg5" path="res://scripts/worker1.gd" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://cgnicxvhdljcl" path="res://assets/interior/TilesetInteriorFloor.png" id="15_264po"]
@@ -421,6 +420,11 @@ sources/4 = SubResource("TileSetAtlasSource_sww3w")
 [node name="game" type="Node2D"]
 script = ExtResource("1_u5sy4")
 
+[node name="cats_att" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
 [node name="map" type="Node2D" parent="."]
 
 [node name="tilemaps" type="Node2D" parent="map"]
@@ -641,7 +645,6 @@ offset_left = -5.555561
 offset_top = 2.0833323
 offset_right = -2.0833359
 offset_bottom = 8.449079
-texture = ExtResource("13_suyxu")
 expand_mode = 1
 stretch_mode = 5
 
@@ -813,6 +816,22 @@ theme_override_fonts/font = ExtResource("8_gee14")
 theme_override_font_sizes/font_size = 50
 text = "0 $"
 
+[node name="timer" type="Label" parent="gui"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -84.5
+offset_top = 34.0
+offset_right = 84.5
+offset_bottom = 129.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("8_gee14")
+theme_override_font_sizes/font_size = 50
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="taskbar" type="HBoxContainer" parent="gui"]
 anchors_preset = 7
 anchor_left = 0.5
@@ -949,6 +968,7 @@ limit_bottom = -1504
 
 [node name="cats" type="Node2D" parent="."]
 
+[connection signal="timeout" from="cats_att" to="." method="_on_cats_att_timeout"]
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="map/Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="body_entered" from="map/house" to="." method="_on_house_body_entered"]

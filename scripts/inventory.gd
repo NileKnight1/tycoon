@@ -42,7 +42,12 @@ var test = 0
 func _ready() -> void:
 	global.inventory = self
 	
-	_update_inventory("Small Knife", 1)
+	_update_inventory("Knife", 1)
+	_update_inventory("Axe", 1)
+	_update_inventory("Small Axe", 1)
+	_update_inventory("Stick", 1)
+	
+	
 	#print(inventory_items[")
 	
 	#print(item_exist("apple"))
@@ -111,7 +116,9 @@ func _update_inventory(_name, amount, sell = 0):
 			{"name": _name, 
 			"amount": amount, 
 			"price": global.items[global_location]["price"],
-			"holdable": global.items[global_location]["holdable"]
+			"holdable": global.items[global_location]["holdable"],
+			"list": global.items[global_location]["list"]
+			
 
 			})
 	else:
@@ -190,7 +197,12 @@ func refresh_inventory(case):
 		
 		var icon = TextureButton.new()
 		
-		icon.texture_normal = load("res://assets/items/%s.png" % inventory_items[i]["name"])
+		
+		if(inventory_items[i]["list"] == 1):
+			icon.texture_normal = load("res://assets/items/%s.png" % inventory_items[i]["name"])
+		else:
+			icon.texture_normal = load("res://assets/items2/%s.png" % inventory_items[i]["name"])
+			
 		
 			
 		var frame = TextureRect.new()
@@ -240,8 +252,17 @@ func refresh_inventory(case):
 				
 				for j in taskbar.get_children():
 					if j.button_pressed == true:
+
+						if(inventory_items[i]["list"] == 1):
+							j.get_child(0).texture = load("res://assets/items/%s.png" % inventory_items[item_order]["name"])
+							$"../../player1/hand".texture = j.get_child(0).texture
+							
+						else:
+							j.get_child(0).texture = load("res://assets/items2/%s2.png" % inventory_items[item_order]["name"])
+							$"../../player1/hand".texture = load("res://assets/items2/%s.png" % inventory_items[item_order]["name"])
+		
+							
 						
-						j.get_child(0).texture = load("res://assets/items/%s.png" % inventory_items[item_order]["name"])
 						#print(task_items[j.get_index()])
 						
 						if task_items[j.get_index()] == null:

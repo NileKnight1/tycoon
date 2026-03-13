@@ -30,23 +30,30 @@ func update_currency(amount):
 	#print(currency)
 
 var items = [
-	{"name": "Small Knife", 	"price": 75		, "sellable": true, "holdable": true						},
+	# Weapons
+	{"name": "Stick", 	"price": 75		, "sellable": true, "holdable": true,	"list": 2						},
+	{"name": "Knife", "price": 75	, "sellable": true, "holdable": true,	"list": 2						},
+	{"name": "Small Axe", "price": 75	, "sellable": true, "holdable": true,	"list": 2						},
+	{"name": "Axe", 	"price": 75		, "sellable": true, "holdable": true,	"list": 2						},
 	
-	{"name": "Apple", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Banana", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Orange", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Watermelon", 		"price": 5		, "sellable": true, "holdable": true							},
-	{"name": "Red Grape", 		"price": 5		, "sellable": true, "holdable": true							},
-	{"name": "Green Grape", 	"price": 5		, "sellable": true, "holdable": true							},
-	{"name": "Potato", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Tomato", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Kiwi", 			"price": 5		, "sellable": true, "holdable": true					},
-	{"name": "Lime", 			"price": 5		, "sellable": true, "holdable": true					},
-	{"name": "Lemon", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Peach", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Blueberry", 		"price": 5		, "sellable": true, "holdable": true							},
-	{"name": "Cherry", 			"price": 5		, "sellable": true, "holdable": true						},
-	{"name": "Eggplant", 		"price": 5		, "sellable": true, "holdable": true						},
+	
+	
+	# Crops
+	{"name": "Apple", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Banana", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Orange", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Watermelon", 		"price": 5		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Red Grape", 		"price": 5		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Green Grape", 	"price": 5		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Potato", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Tomato", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Kiwi", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1					},
+	{"name": "Lime", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1					},
+	{"name": "Lemon", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Peach", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Blueberry", 		"price": 5		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Cherry", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Eggplant", 		"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
 	
 	
 	

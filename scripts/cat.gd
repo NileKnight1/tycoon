@@ -52,14 +52,28 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_area_body_entered(body: Node2D) -> void:
-	game.player_hit()
+	#print("here6")
+	
+	if body == player:
+		#print("here1")
+		game.player_hit()
 
 func _on_damage_body_entered(body: Node2D) -> void:
-	hitbox = 1
+	#print("here5")
+	
+	if body == player:
+		#print("here2")
+		
+		hitbox = 1
 
 func _on_damage_body_exited(body: Node2D) -> void:
-	hitbox = 0
-
-func _input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("action"):
-		game.hit(self)
+	#print("here4")
+	
+	if body == player:
+		#print("here3")
+		
+		hitbox = 0
+#
+#func _input(event: InputEvent) -> void:
+	#if Input.is_action_just_pressed("action"):
+		#game.hit(self)

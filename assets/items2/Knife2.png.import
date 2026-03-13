@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://co7o7ilvh0l02"
-path="res://.godot/imported/SpriteInHand.png-929d2c253d81776f588ac150759ce161.ctex"
+uid="uid://do4v5npv40646"
+path="res://.godot/imported/Knife2.png-2c3d02c43cb0e1617e30ef5adad1acd1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/weapons/SpriteInHand.png"
-dest_files=["res://.godot/imported/SpriteInHand.png-929d2c253d81776f588ac150759ce161.ctex"]
+source_file="res://assets/items2/Knife2.png"
+dest_files=["res://.godot/imported/Knife2.png-2c3d02c43cb0e1617e30ef5adad1acd1.ctex"]
 
 [params]
 

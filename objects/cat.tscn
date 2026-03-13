@@ -1,7 +1,10 @@
-[gd_scene load_steps=30 format=3 uid="uid://tag6uebycwco"]
+[gd_scene load_steps=31 format=3 uid="uid://tag6uebycwco"]
 
 [ext_resource type="Texture2D" uid="uid://bemqptwm174vx" path="res://assets/characters/cars/cat 1 (64х64).png" id="1_01qht"]
 [ext_resource type="Script" uid="uid://dxrjlv0r7d8u6" path="res://scripts/cat.gd" id="1_upkem"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_upkem"]
+radius = 15.997845
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_upkem"]
 atlas = ExtResource("1_01qht")
@@ -207,14 +210,19 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sww3w"]
-radius = 20.012934
-height = 40.025867
+radius = 21.85241
+height = 46.070946
 
 [node name="cat" type="CharacterBody2D"]
 scale = Vector2(0.8751179, 0.89774454)
 collision_layer = 16
 collision_mask = 16
 script = ExtResource("1_upkem")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.1427035, 2.2278051)
+scale = Vector2(0.9023156, 0.57075423)
+shape = SubResource("CircleShape2D_upkem")
 
 [node name="ch" type="AnimatedSprite2D" parent="."]
 scale = Vector2(1, 0.99999994)
@@ -240,13 +248,7 @@ collision_mask = 128
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="damage"]
 position = Vector2(-0.11469332, 1.4286625)
 rotation = -1.5594913
-scale = Vector2(1.3703128, 1.5704889)
-shape = SubResource("CapsuleShape2D_sww3w")
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-0.11469332, 1.4286625)
-rotation = -1.5594913
-scale = Vector2(1.3703128, 1.5704889)
+scale = Vector2(-1.8720428, 1.811647)
 shape = SubResource("CapsuleShape2D_sww3w")
 
 [connection signal="body_entered" from="hit" to="." method="_on_area_body_entered"]
