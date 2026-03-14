@@ -421,7 +421,7 @@ sources/4 = SubResource("TileSetAtlasSource_sww3w")
 script = ExtResource("1_u5sy4")
 
 [node name="cats_att" type="Timer" parent="." unique_id=480667788]
-wait_time = 120.0
+wait_time = 5.0
 one_shot = true
 autostart = true
 
@@ -992,7 +992,7 @@ text = "➥"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="add worker" type="TextureButton" parent="house/Node2D" unique_id=1946462]
+[node name="workers" type="TextureButton" parent="house/Node2D" unique_id=1442573921]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1013,7 +1013,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/add worker" unique_id=2111155562]
+[node name="Label" type="Label" parent="house/Node2D/workers" unique_id=703659101]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1031,7 +1031,7 @@ grow_vertical = 2
 scale = Vector2(0.28232896, 0.6937903)
 theme_override_fonts/font = ExtResource("18_e1j6l")
 theme_override_font_sizes/font_size = 300
-text = "Add Worker 50$"
+text = "Workers"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1078,96 +1078,10 @@ text = "Weapons"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Unknown" type="TextureButton" parent="house/Node2D" unique_id=1470608469]
-anchors_preset = -1
-anchor_left = 0.91200006
-anchor_top = 0.44700003
-anchor_right = 0.91200006
-anchor_bottom = 0.44700003
-offset_left = 90.0
-offset_top = -57.0
-offset_right = 1124.782
-offset_bottom = 810.46106
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.092969745, 0.051474806)
-focus_mode = 0
-texture_normal = ExtResource("14_bt5mj")
-texture_pressed = ExtResource("15_e1j6l")
-texture_hover = ExtResource("16_pl11u")
-texture_disabled = ExtResource("17_bhx41")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="house/Node2D/Unknown" unique_id=933525448]
-z_index = 2
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -357.776
-offset_top = -158.73053
-offset_right = 2236.9595
-offset_bottom = 242.26947
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.28232896, 0.6937903)
-theme_override_fonts/font = ExtResource("18_e1j6l")
-theme_override_font_sizes/font_size = 300
-text = "Add Worker 50$"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Unknown2" type="TextureButton" parent="house/Node2D" unique_id=1408173123]
-anchors_preset = -1
-anchor_left = 0.91200006
-anchor_top = 0.44700003
-anchor_right = 0.91200006
-anchor_bottom = 0.44700003
-offset_left = 90.0
-offset_top = -25.0
-offset_right = 1124.782
-offset_bottom = 842.46106
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.092969745, 0.051474806)
-focus_mode = 0
-texture_normal = ExtResource("14_bt5mj")
-texture_pressed = ExtResource("15_e1j6l")
-texture_hover = ExtResource("16_pl11u")
-texture_disabled = ExtResource("17_bhx41")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="house/Node2D/Unknown2" unique_id=1585193316]
-z_index = 2
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -357.776
-offset_top = -158.73053
-offset_right = 2236.9595
-offset_bottom = 242.26947
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.28232896, 0.6937903)
-theme_override_fonts/font = ExtResource("18_e1j6l")
-theme_override_font_sizes/font_size = 300
-text = "Weapons"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="wlist" type="Node2D" parent="house/Node2D" unique_id=1224804778]
+[node name="weapons_list" type="Node2D" parent="house/Node2D" unique_id=1224804778]
 visible = false
 
-[node name="w1" type="TextureButton" parent="house/Node2D/wlist" unique_id=635053440]
+[node name="w1" type="TextureButton" parent="house/Node2D/weapons_list" unique_id=635053440]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1188,7 +1102,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist/w1" unique_id=1396294055]
+[node name="Label" type="Label" parent="house/Node2D/weapons_list/w1" unique_id=1396294055]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1210,7 +1124,7 @@ text = "Stick                             10$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w2" type="TextureButton" parent="house/Node2D/wlist" unique_id=2041578559]
+[node name="w2" type="TextureButton" parent="house/Node2D/weapons_list" unique_id=2041578559]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1231,7 +1145,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist/w2" unique_id=415658296]
+[node name="Label" type="Label" parent="house/Node2D/weapons_list/w2" unique_id=415658296]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1253,7 +1167,7 @@ text = "Knife                              50$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w3" type="TextureButton" parent="house/Node2D/wlist" unique_id=1087654246]
+[node name="w3" type="TextureButton" parent="house/Node2D/weapons_list" unique_id=1087654246]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1274,7 +1188,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist/w3" unique_id=474406505]
+[node name="Label" type="Label" parent="house/Node2D/weapons_list/w3" unique_id=474406505]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1296,7 +1210,7 @@ text = "Small Axe   100$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w4" type="TextureButton" parent="house/Node2D/wlist" unique_id=135774850]
+[node name="w4" type="TextureButton" parent="house/Node2D/weapons_list" unique_id=135774850]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1317,7 +1231,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist/w4" unique_id=385264274]
+[node name="Label" type="Label" parent="house/Node2D/weapons_list/w4" unique_id=385264274]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1339,7 +1253,7 @@ text = "Axe                                 200$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="back2" type="TextureButton" parent="house/Node2D/wlist" unique_id=225195558]
+[node name="back2" type="TextureButton" parent="house/Node2D/weapons_list" unique_id=225195558]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1360,7 +1274,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist/back2" unique_id=1319905861]
+[node name="Label" type="Label" parent="house/Node2D/weapons_list/back2" unique_id=1319905861]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1383,12 +1297,803 @@ text = "➥"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="workers_list" type="Node2D" parent="house/Node2D" unique_id=1706506866]
+visible = false
+
+[node name="w1" type="TextureButton" parent="house/Node2D/workers_list" unique_id=1433188701]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -121.0
+offset_right = 1124.782
+offset_bottom = 746.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/w1" unique_id=1935979352]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w2" type="TextureButton" parent="house/Node2D/workers_list" unique_id=1736741852]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -89.0
+offset_right = 1124.782
+offset_bottom = 778.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/w2" unique_id=457884840]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w3" type="TextureButton" parent="house/Node2D/workers_list" unique_id=1506478132]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -57.0
+offset_right = 1124.782
+offset_bottom = 810.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/w3" unique_id=387963564]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w4" type="TextureButton" parent="house/Node2D/workers_list" unique_id=1111507334]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -25.0
+offset_right = 1124.782
+offset_bottom = 842.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/w4" unique_id=584537396]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w5" type="TextureButton" parent="house/Node2D/workers_list" unique_id=1403418017]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = -20.0
+offset_top = -89.0
+offset_right = 1014.782
+offset_bottom = 778.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/w5" unique_id=1217214123]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w6" type="TextureButton" parent="house/Node2D/workers_list" unique_id=48696714]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = -20.0
+offset_top = -57.0
+offset_right = 1014.782
+offset_bottom = 810.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/w6" unique_id=1905045848]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 6 "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back2" type="TextureButton" parent="house/Node2D/workers_list" unique_id=714551567]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 57.0
+offset_top = -26.0
+offset_right = 1091.782
+offset_bottom = 841.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.021956729, 0.053384647)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/workers_list/back2" unique_id=1805674446]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1486.546
+offset_top = 146.26947
+offset_right = 4081.2817
+offset_bottom = 556.2695
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+scale = Vector2(1.1623987, 0.6574211)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "➥"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="worker_info" type="Node2D" parent="house/Node2D" unique_id=1854965662]
+visible = false
+
+[node name="w1" type="TextureButton" parent="house/Node2D/worker_info" unique_id=471731934]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -121.0
+offset_right = 1124.782
+offset_bottom = 746.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/worker_info/w1" unique_id=202784034]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Unlock                          50$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w2" type="TextureButton" parent="house/Node2D/worker_info" unique_id=1568410023]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -89.0
+offset_right = 1124.782
+offset_bottom = 778.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/worker_info/w2" unique_id=2095065992]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Speed                            40$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w3" type="TextureButton" parent="house/Node2D/worker_info" unique_id=784608250]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -57.0
+offset_right = 1124.782
+offset_bottom = 810.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/worker_info/w3" unique_id=342809270]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Capacity       150$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w4" type="TextureButton" parent="house/Node2D/worker_info" unique_id=1054602940]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -25.0
+offset_right = 1124.782
+offset_bottom = 842.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+disabled = true
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/worker_info/w4" unique_id=1727957128]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Tier                              200$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back3" type="TextureButton" parent="house/Node2D/worker_info" unique_id=930637582]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 57.0
+offset_top = -26.0
+offset_right = 1091.782
+offset_bottom = 841.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.021956729, 0.053384647)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/worker_info/back3" unique_id=1553562120]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1486.546
+offset_top = 146.26947
+offset_right = 4081.2817
+offset_bottom = 556.2695
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+scale = Vector2(1.1623987, 0.6574211)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "➥"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="wlist2" type="Node2D" parent="house/Node2D" unique_id=946105455]
+visible = false
+
+[node name="w1" type="TextureButton" parent="house/Node2D/wlist2" unique_id=21715107]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -121.0
+offset_right = 1124.782
+offset_bottom = 746.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/wlist2/w1" unique_id=1644022891]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w2" type="TextureButton" parent="house/Node2D/wlist2" unique_id=1310132974]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -89.0
+offset_right = 1124.782
+offset_bottom = 778.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/wlist2/w2" unique_id=455770811]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w3" type="TextureButton" parent="house/Node2D/wlist2" unique_id=66765363]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -57.0
+offset_right = 1124.782
+offset_bottom = 810.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/wlist2/w3" unique_id=745013912]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 3"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="w4" type="TextureButton" parent="house/Node2D/wlist2" unique_id=1791576001]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -25.0
+offset_right = 1124.782
+offset_bottom = 842.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/wlist2/w4" unique_id=953534001]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Worker                                 4"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back2" type="TextureButton" parent="house/Node2D/wlist2" unique_id=1044327510]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 57.0
+offset_top = -26.0
+offset_right = 1091.782
+offset_bottom = 841.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.021956729, 0.053384647)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/wlist2/back2" unique_id=1514195989]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1486.546
+offset_top = 146.26947
+offset_right = 4081.2817
+offset_bottom = 556.2695
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+scale = Vector2(1.1623987, 0.6574211)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "➥"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="add worker" type="TextureButton" parent="house/Node2D" unique_id=1946462]
+visible = false
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -121.0
+offset_right = 1124.782
+offset_bottom = 746.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/add worker" unique_id=2111155562]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Add Worker 50$"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="player2" parent="." unique_id=1692506950 instance=ExtResource("1_uwrxv")]
-position = Vector2(795, -279)
+position = Vector2(784, -279)
 scale = Vector2(3.84, 3.84)
 
 [node name="Camera2D" type="Camera2D" parent="player2" unique_id=76381083]
 position = Vector2(19.010416, -4.947916)
+offset = Vector2(10.78, 0)
 zoom = Vector2(4, 4)
 limit_enabled = false
 limit_left = 1160
@@ -1412,30 +2117,78 @@ limit_bottom = -1504
 [connection signal="button_down" from="house/Node2D/back" to="." method="_on_back_button_down"]
 [connection signal="button_up" from="house/Node2D/back" to="." method="_on_back_button_up"]
 [connection signal="pressed" from="house/Node2D/back" to="." method="_on_back_pressed"]
-[connection signal="button_down" from="house/Node2D/add worker" to="." method="_on_add_worker_button_down"]
-[connection signal="button_up" from="house/Node2D/add worker" to="." method="_on_add_worker_button_up"]
-[connection signal="pressed" from="house/Node2D/add worker" to="." method="_on_add_pressed"]
+[connection signal="button_down" from="house/Node2D/workers" to="." method="_on_add_worker_button_down"]
+[connection signal="button_up" from="house/Node2D/workers" to="." method="_on_add_worker_button_up"]
+[connection signal="pressed" from="house/Node2D/workers" to="." method="_on_add_pressed"]
 [connection signal="button_down" from="house/Node2D/Weapons" to="." method="_on_weapons_button_down"]
 [connection signal="button_up" from="house/Node2D/Weapons" to="." method="_on_weapons_button_up"]
 [connection signal="pressed" from="house/Node2D/Weapons" to="." method="_on_weapons_pressed"]
-[connection signal="button_down" from="house/Node2D/Unknown" to="." method="_on_add_worker_button_down"]
-[connection signal="button_up" from="house/Node2D/Unknown" to="." method="_on_add_worker_button_up"]
-[connection signal="pressed" from="house/Node2D/Unknown" to="." method="_on_add_pressed"]
-[connection signal="button_down" from="house/Node2D/Unknown2" to="." method="_on_add_worker_button_down"]
-[connection signal="button_up" from="house/Node2D/Unknown2" to="." method="_on_add_worker_button_up"]
-[connection signal="pressed" from="house/Node2D/Unknown2" to="." method="_on_add_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist/w1" to="." method="_on_w_1_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist/w1" to="." method="_on_w_1_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist/w1" to="." method="_on_w_1_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist/w2" to="." method="_on_w_2_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist/w2" to="." method="_on_w_2_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist/w2" to="." method="_on_w_2_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist/w3" to="." method="_on_w_3_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist/w3" to="." method="_on_w_3_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist/w3" to="." method="_on_w_3_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist/w4" to="." method="_on_w_4_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist/w4" to="." method="_on_w_4_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist/w4" to="." method="_on_w_4_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist/back2" to="." method="_on_back_2_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist/back2" to="." method="_on_back_2_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist/back2" to="." method="_on_back_2_pressed"]
+[connection signal="button_down" from="house/Node2D/weapons_list/w1" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/weapons_list/w1" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w1" to="." method="_on_w_1_pressed"]
+[connection signal="button_down" from="house/Node2D/weapons_list/w2" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/weapons_list/w2" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w2" to="." method="_on_w_2_pressed"]
+[connection signal="button_down" from="house/Node2D/weapons_list/w3" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/weapons_list/w3" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w3" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/weapons_list/w4" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/weapons_list/w4" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_button_down"]
+[connection signal="button_up" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_button_up"]
+[connection signal="pressed" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/w1" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/w1" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/w1" to="." method="_on_w_1_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/w2" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/w2" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/w2" to="." method="_on_w_2_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/w3" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/w3" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/w3" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/w4" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/w4" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/w5" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/w5" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/w5" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/w6" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/w6" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/w6" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/workers_list/back2" to="." method="_on_back_2_button_down"]
+[connection signal="button_up" from="house/Node2D/workers_list/back2" to="." method="_on_back_2_button_up"]
+[connection signal="pressed" from="house/Node2D/workers_list/back2" to="." method="_on_back_2_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/w1" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/w1" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/w1" to="." method="_on_w_1_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/w2" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/w2" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/w2" to="." method="_on_w_2_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/w3" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/w3" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/w3" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/w4" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/w4" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/back3" to="." method="_on_back_2_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/back3" to="." method="_on_back_2_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/back3" to="." method="_on_back_3_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist2/w2" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist2/w2" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist2/w2" to="." method="_on_w_2_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist2/w3" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist2/w3" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist2/w3" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist2/w4" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist2/w4" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist2/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist2/back2" to="." method="_on_back_2_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist2/back2" to="." method="_on_back_2_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist2/back2" to="." method="_on_back_2_pressed"]
+[connection signal="button_down" from="house/Node2D/add worker" to="." method="_on_add_worker_button_down"]
+[connection signal="button_up" from="house/Node2D/add worker" to="." method="_on_add_worker_button_up"]
+[connection signal="pressed" from="house/Node2D/add worker" to="." method="_on_add_pressed"]

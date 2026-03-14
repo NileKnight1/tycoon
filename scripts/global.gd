@@ -9,7 +9,7 @@ var font2 = load("res://temp.ttf")
 
 var player_speed = 150
 var player_boost = 3
-var currency: int = 10
+var currency: int = 2222
 
 var chest_small_time = 0.1
 
@@ -35,38 +35,41 @@ var items = [
 	{"name": "Knife", "price": 50	, "sellable": true, "holdable": true,	"list": 2						},
 	{"name": "Small Axe", "price": 100	, "sellable": true, "holdable": true,	"list": 2						},
 	{"name": "Axe", 	"price": 200		, "sellable": true, "holdable": true,	"list": 2						},
+
+		# Crops
+	{"name": "Apple", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Banana", 			"price": 10		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Orange", 			"price": 10		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Tomato", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Potato", 			"price": 5		, "sellable": true, "holdable": false,	"list": 1						},
 	
+	{"name": "Watermelon", 		"price": 15		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Peach", 			"price": 15		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Lemon", 			"price": 10		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Lime", 			"price": 15		, "sellable": true, "holdable": false,	"list": 1					},
+	{"name": "Kiwi", 			"price": 20		, "sellable": true, "holdable": false,	"list": 1					},
 	
+	{"name": "Red Grape", 		"price": 30		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Green Grape", 	"price": 30		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Blueberry", 		"price": 35		, "sellable": true, "holdable": false,	"list": 1							},
+	{"name": "Cherry", 			"price": 40		, "sellable": true, "holdable": false,	"list": 1						},
+	{"name": "Eggplant", 		"price": 25		, "sellable": true, "holdable": false,	"list": 1						},	
+
+	]
 	
-	# Crops
-	{"name": "Apple", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Banana", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Orange", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Watermelon", 		"price": 5		, "sellable": true, "holdable": true,	"list": 1							},
-	{"name": "Red Grape", 		"price": 5		, "sellable": true, "holdable": true,	"list": 1							},
-	{"name": "Green Grape", 	"price": 5		, "sellable": true, "holdable": true,	"list": 1							},
-	{"name": "Potato", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Tomato", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Kiwi", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1					},
-	{"name": "Lime", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1					},
-	{"name": "Lemon", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Peach", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Blueberry", 		"price": 5		, "sellable": true, "holdable": true,	"list": 1							},
-	{"name": "Cherry", 			"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
-	{"name": "Eggplant", 		"price": 5		, "sellable": true, "holdable": true,	"list": 1						},
+var weapons = [
+	{"name": "Stick", "att": 15},
+	{"name": "Knife", "att": 20},
+	{"name": "Small Axe", "att": 30},
+	{"name": "Axe", "att": 60}
 	
-	
-	
+]
+var tiers = [
+	["Apple", "Banana", "Orange", "Tomato", "Potato"],
+	["Watermelon", "Peach", "Lemon", "Lime", "Kiwi"],
+	["Red Grape", "Green Grape", "Blueberry", "Cherry", "Eggplant"]
 ]
 
-var tiers = [
-	["Apple", "Banana", "Red Grape", "Orange", "Watermelon",
-	"Green Grape", "Potato", "Tomato",
-	"Kiwi", "Lime", "Lemon", "Peach",
-	"Blueberry", "Cherry", "Eggplant"
-	
-	]
-]
 
 func chest_opened(tier):
 	var chest_item = random_chest_item()

@@ -40,13 +40,18 @@ extends Node2D
 @onready var house_1 = $"house/Node2D/add worker/Label"
 @onready var house_2 = $"house/Node2D/Weapons/Label"
 
-@onready var w0 = $house/Node2D/wlist/back2/Label
-@onready var w1 = $house/Node2D/wlist/w1/Label
-@onready var w2 = $house/Node2D/wlist/w2/Label
-@onready var w3 = $house/Node2D/wlist/w3/Label
-@onready var w4 = $house/Node2D/wlist/w4/Label
+@onready var w0 = $house/Node2D/weapons_list/back2/Label
+@onready var w1 = $house/Node2D/weapons_list/w1/Label
+@onready var w2 = $house/Node2D/weapons_list/w2/Label
+@onready var w3 = $house/Node2D/weapons_list/w3/Label
+@onready var w4 = $house/Node2D/weapons_list/w4/Label
 
-
+@onready var weapons_list = $house/Node2D/weapons_list
+@onready var workers_list = $house/Node2D/workers_list
+@onready var worker_info = $house/Node2D/worker_info
+@onready var houseb1 = $house/Node2D/back
+@onready var houseb2 = $house/Node2D/workers
+@onready var houseb3 = $house/Node2D/Weapons
 
 var play_pos
 var cats_num = 0
@@ -235,7 +240,7 @@ func _hit():
 
 
 func hit(cat):
-	
+	print("Im here")
 	
 	if inventory.inventory_opened: return
 	#print(2)
@@ -304,7 +309,7 @@ func check_hit_on_cats():
 		if cat.hitbox:
 			for i in taskbar.get_children():
 				if i.button_pressed && i.get_child(1).text == "Weapon":
-					cat.health -= 1
+					cat.health -= i.get_child(1).light_mask
 					if cat.health <= 0:
 						cat.queue_free()
 						killed_cats_all += 1
@@ -329,14 +334,22 @@ func _on_weapons_button_up() -> void:
 	
 	
 func _on_weapons_pressed() -> void:
-	house_sw()
-func _on_back_2_pressed() -> void:
-	house_sw()
+	houseb1.visible = 0
+	houseb2.visible = 0
+	houseb3.visible = 0
+	weapons_list.visible = 1
 
-func house_sw():
-	for child in house_.get_children():
-		if child.visible: child.visible = 0
-		else: child.visible = 1
+func _on_back_2_pressed() -> void:
+	houseb1.visible = 1
+	houseb2.visible = 1
+	houseb3.visible = 1
+	weapons_list.visible = 0
+	workers_list.visible = 0
+
+func _on_back_3_pressed() -> void:
+	workers_list.visible = 1
+	worker_info.visible = 0
+
 
 func _on_w_1_button_up() -> void: w1.position.y = 275
 func _on_w_1_button_down() -> void: w1.position.y = 330
@@ -386,3 +399,7 @@ func buy_w(num):
 
 	
 	
+
+
+func _on_workers_pressed() -> void:
+	pass # Replace with function body.

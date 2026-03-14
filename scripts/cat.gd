@@ -9,7 +9,7 @@ extends CharacterBody2D
 var player: Node2D
 var ch: AnimatedSprite2D
 var hitbox = 0
-var health = 1
+var health = 60
 
 
 func _ready() -> void:

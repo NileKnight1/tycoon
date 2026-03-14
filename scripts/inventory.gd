@@ -261,6 +261,10 @@ func refresh_inventory(case):
 						else:
 							j.get_child(0).texture = load("res://assets/items2/%s.png" % inventory_items[item_order]["name"])
 							j.get_child(1).text = "Weapon"
+							var ff = item_exist(inventory_items[item_order]["name"], global.weapons)
+							
+							j.get_child(1).light_mask =  global.weapons[ff]["att"]
+							#print(j.get_child(1).light_mask)
 							
 							$"../../player1/hand".texture = load("res://assets/items2/%s.png" % inventory_items[item_order]["name"])
 		
