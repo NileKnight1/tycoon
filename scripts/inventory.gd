@@ -41,12 +41,12 @@ var test = 0
 
 func _ready() -> void:
 	global.inventory = self
-	
-	_update_inventory("Knife", 1)
-	_update_inventory("Axe", 1)
-	_update_inventory("Small Axe", 1)
-	_update_inventory("Stick", 1)
-	
+	#
+	#_update_inventory("Knife", 1)
+	#_update_inventory("Axe", 1)
+	#_update_inventory("Small Axe", 1)
+	#_update_inventory("Stick", 1)
+	#
 	
 	#print(inventory_items[")
 	

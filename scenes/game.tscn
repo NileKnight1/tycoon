@@ -946,23 +946,53 @@ position = Vector2(828, -268)
 tile_map_data = PackedByteArray("AAD+/wEAAgAKAAMAAAD//wEAAgAKAAMAAAD9/wEAAgAKAAMAAAAAAAEAAgAKAAMAAAABAAEAAgAKAAMAAAACAAEAAgAKAAMAAAADAAEAAgAKAAMAAAAEAAEAAgAKAAMAAAD8/wEAAgAKAAMAAAAFAAEAAgAKAAMAAAAGAAEAAgAKAAMAAAD6/wEAAgAKAAMAAAD7/wEAAgAKAAMAAAD6//7/BAAEAAEAAAD6////BAAEAAEAAAD6/wAABAAEAAEAAAD7//7/BAAEAAEAAAD7////BAAEAAEAAAD7/wAABAAEAAEAAAD7//v/BAAEAAEAAAD7//z/BAAEAAEAAAD7//3/BAAEAAEAAAD6//v/BAAEAAEAAAD6//z/BAAEAAEAAAD6//3/BAAEAAEAAAD8//v/BAAEAAEAAAD8//z/BAAEAAEAAAD8//3/BAAEAAEAAAD9//v/BAAEAAEAAAD9//z/BAAEAAEAAAD9//3/BAAEAAEAAAD8//7/BAAEAAEAAAD8////BAAEAAEAAAD8/wAABAAEAAEAAAD9//7/BAAEAAEAAAD9////BAAEAAEAAAD9/wAABAAEAAEAAAD+//v/BAAEAAEAAAD+//z/BAAEAAEAAAD+//3/BAAEAAEAAAD+//7/BAAEAAEAAAD+////BAAEAAEAAAD+/wAABAAEAAEAAAD///v/BAAEAAEAAAD///z/BAAEAAEAAAD///3/BAAEAAEAAAD///7/BAAEAAEAAAD/////BAAEAAEAAAD//wAABAAEAAEAAAAAAP7/BAAEAAEAAAABAP7/BAAEAAEAAAABAP3/BAAEAAEAAAABAPz/BAAEAAEAAAABAPv/BAAEAAEAAAAAAPv/BAAEAAEAAAAAAPz/BAAEAAEAAAAAAP3/BAAEAAEAAAABAP//BAAEAAEAAAABAAAABAAEAAEAAAAAAP//BAAEAAEAAAAAAAAABAAEAAEAAAACAPv/BAAEAAEAAAACAPz/BAAEAAEAAAACAP3/BAAEAAEAAAACAP7/BAAEAAEAAAACAP//BAAEAAEAAAACAAAABAAEAAEAAAADAPv/BAAEAAEAAAAEAPz/BAAEAAEAAAAEAP3/BAAEAAEAAAAFAP7/BAAEAAEAAAAFAP//BAAEAAEAAAAGAAAABAAEAAEAAAADAPz/BAAEAAEAAAADAP3/BAAEAAEAAAADAP7/BAAEAAEAAAADAP//BAAEAAEAAAADAAAABAAEAAEAAAAEAAAABAAEAAEAAAAFAAAABAAEAAEAAAAEAP//BAAEAAEAAAAEAP7/BAAEAAEAAAAEAPv/BAAEAAEAAAAFAPv/BAAEAAEAAAAGAPv/BAAEAAEAAAAGAPz/BAAEAAEAAAAGAP3/BAAEAAEAAAAGAP7/BAAEAAEAAAAGAP//BAAEAAEAAAAFAPz/BAAEAAEAAAAFAP3/BAAEAAEAAAAHAPv/BAAEAAEAAAAHAPz/BAAEAAEAAAAHAP3/BAAEAAEAAAAHAP7/BAAEAAEAAAAHAP//BAAEAAEAAAAHAAAABAAEAAEAAAAIAPv/BAAEAAEAAAAIAPz/BAAEAAEAAAAIAP3/BAAEAAEAAAAIAP7/BAAEAAEAAAAIAP//BAAEAAEAAAAIAAAABAAEAAEAAAAJAPv/BAAEAAEAAAAJAPz/BAAEAAEAAAAJAP3/BAAEAAEAAAAJAP7/BAAEAAEAAAAJAP//BAAEAAEAAAAJAAAABAAEAAEAAAAKAPv/BAAEAAEAAAAKAPz/BAAEAAEAAAAKAP3/BAAEAAEAAAAKAP7/BAAEAAEAAAAKAP//BAAEAAEAAAAKAAAABAAEAAEAAAAHAAEAAgAKAAMAAAAIAAEAAgAKAAMAAAAJAAEAAgAKAAMAAAAKAAEAAgAKAAMAAAD5/wEAAgAKAAMAAAD4/wEAAgAKAAMAAAD3/wEAAgAKAAMAAAD2/wEAAgAKAAMAAAD1/wEAAgAKAAMAAAAMAAEAAgAKAAMAAAANAAEAAgAKAAMAAAAOAAEAAgAKAAMAAAAPAAEAAgAKAAMAAAAQAAEAAgAKAAMAAAARAAEAAgAKAAMAAAALAAEAAgAKAAMAAAD1//f/BAAEAAEAAAD1//j/BAAEAAEAAAD1//n/BAAEAAEAAAD1//r/BAAEAAEAAAD1//v/BAAEAAEAAAD1//z/BAAEAAEAAAD1//3/BAAEAAEAAAD1//7/BAAEAAEAAAD1////BAAEAAEAAAD1/wAABAAEAAEAAAD2//f/BAAEAAEAAAD2//j/BAAEAAEAAAD2//n/BAAEAAEAAAD2//r/BAAEAAEAAAD2//v/BAAEAAEAAAD2//z/BAAEAAEAAAD2//3/BAAEAAEAAAD2//7/BAAEAAEAAAD2////BAAEAAEAAAD2/wAABAAEAAEAAAD3//f/BAAEAAEAAAD3//j/BAAEAAEAAAD3//n/BAAEAAEAAAD3//r/BAAEAAEAAAD3//v/BAAEAAEAAAD3//z/BAAEAAEAAAD3//3/BAAEAAEAAAD3//7/BAAEAAEAAAD3////BAAEAAEAAAD3/wAABAAEAAEAAAD4//f/BAAEAAEAAAD4//j/BAAEAAEAAAD4//n/BAAEAAEAAAD4//r/BAAEAAEAAAD4//v/BAAEAAEAAAD4//z/BAAEAAEAAAD4//3/BAAEAAEAAAD4//7/BAAEAAEAAAD4////BAAEAAEAAAD4/wAABAAEAAEAAAD5//f/BAAEAAEAAAD5//j/BAAEAAEAAAD5//n/BAAEAAEAAAD5//r/BAAEAAEAAAD5//v/BAAEAAEAAAD5//z/BAAEAAEAAAD5//3/BAAEAAEAAAD5//7/BAAEAAEAAAD5////BAAEAAEAAAD5/wAABAAEAAEAAAD6//f/BAAEAAEAAAD6//j/BAAEAAEAAAD6//n/BAAEAAEAAAD6//r/BAAEAAEAAAD7//f/BAAEAAEAAAD7//j/BAAEAAEAAAD7//n/BAAEAAEAAAD7//r/BAAEAAEAAAD8//f/BAAEAAEAAAD8//j/BAAEAAEAAAD8//n/BAAEAAEAAAD8//r/BAAEAAEAAAD9//f/BAAEAAEAAAD9//j/BAAEAAEAAAD9//n/BAAEAAEAAAD9//r/BAAEAAEAAAD+//f/BAAEAAEAAAD+//j/BAAEAAEAAAD+//n/BAAEAAEAAAD+//r/BAAEAAEAAAD///f/BAAEAAEAAAD///j/BAAEAAEAAAD///n/BAAEAAEAAAD///r/BAAEAAEAAAAAAPf/BAAEAAEAAAAAAPj/BAAEAAEAAAAAAPn/BAAEAAEAAAAAAPr/BAAEAAEAAAABAPf/BAAEAAEAAAABAPj/BAAEAAEAAAABAPn/BAAEAAEAAAABAPr/BAAEAAEAAAACAPf/BAAEAAEAAAACAPj/BAAEAAEAAAACAPn/BAAEAAEAAAACAPr/BAAEAAEAAAADAPf/BAAEAAEAAAADAPj/BAAEAAEAAAADAPn/BAAEAAEAAAADAPr/BAAEAAEAAAAEAPf/BAAEAAEAAAAEAPj/BAAEAAEAAAAEAPn/BAAEAAEAAAAEAPr/BAAEAAEAAAAFAPf/BAAEAAEAAAAFAPj/BAAEAAEAAAAFAPn/BAAEAAEAAAAFAPr/BAAEAAEAAAAGAPf/BAAEAAEAAAAGAPj/BAAEAAEAAAAGAPn/BAAEAAEAAAAGAPr/BAAEAAEAAAAHAPf/BAAEAAEAAAAHAPj/BAAEAAEAAAAHAPn/BAAEAAEAAAAHAPr/BAAEAAEAAAAIAPf/BAAEAAEAAAAIAPj/BAAEAAEAAAAIAPn/BAAEAAEAAAAIAPr/BAAEAAEAAAAJAPf/BAAEAAEAAAAJAPj/BAAEAAEAAAAJAPn/BAAEAAEAAAAJAPr/BAAEAAEAAAAKAPf/BAAEAAEAAAAKAPj/BAAEAAEAAAAKAPn/BAAEAAEAAAAKAPr/BAAEAAEAAAALAPf/BAAEAAEAAAALAPj/BAAEAAEAAAALAPn/BAAEAAEAAAALAPr/BAAEAAEAAAALAPv/BAAEAAEAAAALAPz/BAAEAAEAAAALAP3/BAAEAAEAAAALAP7/BAAEAAEAAAALAP//BAAEAAEAAAALAAAABAAEAAEAAAAMAPf/BAAEAAEAAAAMAPj/BAAEAAEAAAAMAPn/BAAEAAEAAAAMAPr/BAAEAAEAAAAMAPv/BAAEAAEAAAAMAPz/BAAEAAEAAAAMAP3/BAAEAAEAAAAMAP7/BAAEAAEAAAAMAP//BAAEAAEAAAAMAAAABAAEAAEAAAANAPf/BAAEAAEAAAANAPj/BAAEAAEAAAANAPn/BAAEAAEAAAANAPr/BAAEAAEAAAANAPv/BAAEAAEAAAANAPz/BAAEAAEAAAANAP3/BAAEAAEAAAANAP7/BAAEAAEAAAANAP//BAAEAAEAAAANAAAABAAEAAEAAAAOAPf/BAAEAAEAAAAOAPj/BAAEAAEAAAAOAPn/BAAEAAEAAAAOAPr/BAAEAAEAAAAOAPv/BAAEAAEAAAAOAPz/BAAEAAEAAAAOAP3/BAAEAAEAAAAOAP7/BAAEAAEAAAAOAP//BAAEAAEAAAAOAAAABAAEAAEAAAAPAPf/BAAEAAEAAAAPAPj/BAAEAAEAAAAPAPn/BAAEAAEAAAAPAPr/BAAEAAEAAAAPAPv/BAAEAAEAAAAPAPz/BAAEAAEAAAAPAP3/BAAEAAEAAAAPAP7/BAAEAAEAAAAPAP//BAAEAAEAAAAPAAAABAAEAAEAAAAQAPf/BAAEAAEAAAAQAPj/BAAEAAEAAAAQAPn/BAAEAAEAAAAQAPr/BAAEAAEAAAAQAPv/BAAEAAEAAAAQAPz/BAAEAAEAAAAQAP3/BAAEAAEAAAAQAP7/BAAEAAEAAAAQAP//BAAEAAEAAAAQAAAABAAEAAEAAAARAPf/BAAEAAEAAAARAPj/BAAEAAEAAAARAPn/BAAEAAEAAAARAPr/BAAEAAEAAAARAPv/BAAEAAEAAAARAPz/BAAEAAEAAAARAP3/BAAEAAEAAAARAP7/BAAEAAEAAAARAP//BAAEAAEAAAARAAAABAAEAAEAAAD1/wIAAgAKAAQAAAD1/wMAAgAKAAQAAAD1/wQAAgAKAAQAAAD1/wUAAgAKAAQAAAD2/wIAAgAKAAQAAAD2/wMAAgAKAAQAAAD2/wQAAgAKAAQAAAD2/wUAAgAKAAQAAAD3/wIAAgAKAAQAAAD3/wMAAgAKAAQAAAD3/wQAAgAKAAQAAAD3/wUAAgAKAAQAAAD4/wIAAgAKAAQAAAD4/wMAAgAKAAQAAAD4/wQAAgAKAAQAAAD4/wUAAgAKAAQAAAD5/wIAAgAKAAQAAAD5/wMAAgAKAAQAAAD5/wQAAgAKAAQAAAD5/wUAAgAKAAQAAAD6/wIAAgAKAAQAAAD6/wMAAgAKAAQAAAD6/wQAAgAKAAQAAAD6/wUAAgAKAAQAAAD7/wIAAgAKAAQAAAD7/wMAAgAKAAQAAAD7/wQAAgAKAAQAAAD7/wUAAgAKAAQAAAD8/wIAAgAKAAQAAAD8/wMAAgAKAAQAAAD8/wQAAgAKAAQAAAD8/wUAAgAKAAQAAAD9/wIAAgAKAAQAAAD9/wMAAgAKAAQAAAD9/wQAAgAKAAQAAAD9/wUAAgAKAAQAAAD+/wIAAgAKAAQAAAD+/wMAAgAKAAQAAAD+/wQAAgAKAAQAAAD+/wUAAgAKAAQAAAD//wIAAgAKAAQAAAD//wMAAgAKAAQAAAD//wQAAgAKAAQAAAD//wUAAgAKAAQAAAAAAAIAAgAKAAQAAAAAAAMAAgAKAAQAAAAAAAQAAgAKAAQAAAAAAAUAAgAKAAQAAAABAAIAAgAKAAQAAAABAAMAAgAKAAQAAAABAAQAAgAKAAQAAAABAAUAAgAKAAQAAAACAAIAAgAKAAQAAAACAAMAAgAKAAQAAAACAAQAAgAKAAQAAAACAAUAAgAKAAQAAAADAAIAAgAKAAQAAAADAAMAAgAKAAQAAAADAAQAAgAKAAQAAAADAAUAAgAKAAQAAAAEAAIAAgAKAAQAAAAEAAMAAgAKAAQAAAAEAAQAAgAKAAQAAAAEAAUAAgAKAAQAAAAFAAIAAgAKAAQAAAAFAAMAAgAKAAQAAAAFAAQAAgAKAAQAAAAFAAUAAgAKAAQAAAAGAAIAAgAKAAQAAAAGAAMAAgAKAAQAAAAGAAQAAgAKAAQAAAAGAAUAAgAKAAQAAAAHAAIAAgAKAAQAAAAHAAMAAgAKAAQAAAAHAAQAAgAKAAQAAAAHAAUAAgAKAAQAAAAIAAIAAgAKAAQAAAAIAAMAAgAKAAQAAAAIAAQAAgAKAAQAAAAIAAUAAgAKAAQAAAAJAAIAAgAKAAQAAAAJAAMAAgAKAAQAAAAJAAQAAgAKAAQAAAAJAAUAAgAKAAQAAAAKAAIAAgAKAAQAAAAKAAMAAgAKAAQAAAAKAAQAAgAKAAQAAAAKAAUAAgAKAAQAAAALAAIAAgAKAAQAAAALAAMAAgAKAAQAAAALAAQAAgAKAAQAAAALAAUAAgAKAAQAAAAMAAIAAgAKAAQAAAAMAAMAAgAKAAQAAAAMAAQAAgAKAAQAAAAMAAUAAgAKAAQAAAANAAIAAgAKAAQAAAANAAMAAgAKAAQAAAANAAQAAgAKAAQAAAANAAUAAgAKAAQAAAAOAAIAAgAKAAQAAAAOAAMAAgAKAAQAAAAOAAQAAgAKAAQAAAAOAAUAAgAKAAQAAAAPAAIAAgAKAAQAAAAPAAMAAgAKAAQAAAAPAAQAAgAKAAQAAAAPAAUAAgAKAAQAAAAQAAIAAgAKAAQAAAAQAAMAAgAKAAQAAAAQAAQAAgAKAAQAAAAQAAUAAgAKAAQAAAARAAIAAgAKAAQAAAARAAMAAgAKAAQAAAARAAQAAgAKAAQAAAARAAUAAgAKAAQAAAA=")
 tile_set = SubResource("TileSet_suyxu")
 
-[node name="back" type="Button" parent="house" unique_id=109159868]
-offset_left = -114.0
-offset_top = -53.0
-offset_right = 234.0
-offset_bottom = 227.0
-scale = Vector2(0.1, 0.1)
-theme_override_fonts/font = ExtResource("8_gee14")
-theme_override_font_sizes/font_size = 200
-text = "Back
-"
-flat = true
-metadata/_edit_use_anchors_ = true
-
 [node name="Node2D" type="Node2D" parent="house" unique_id=1274120403]
 
+[node name="back" type="TextureButton" parent="house/Node2D" unique_id=363186665]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 57.0
+offset_top = -26.0
+offset_right = 1091.782
+offset_bottom = 841.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.021956729, 0.053384647)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/back" unique_id=1034900381]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1486.546
+offset_top = 146.26947
+offset_right = 4081.2817
+offset_bottom = 556.2695
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 3.1415927
+scale = Vector2(1.1623987, 0.6574211)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "➥"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="add worker" type="TextureButton" parent="house/Node2D" unique_id=1946462]
-visible = false
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1006,7 +1036,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Weapons" type="TextureButton" parent="house/Node2D" unique_id=1072734176]
-visible = false
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1050,7 +1079,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Unknown" type="TextureButton" parent="house/Node2D" unique_id=1470608469]
-visible = false
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1094,7 +1122,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Unknown2" type="TextureButton" parent="house/Node2D" unique_id=1408173123]
-visible = false
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1138,6 +1165,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="wlist" type="Node2D" parent="house/Node2D" unique_id=1224804778]
+visible = false
 
 [node name="w1" type="TextureButton" parent="house/Node2D/wlist" unique_id=635053440]
 anchors_preset = -1
@@ -1311,7 +1339,7 @@ text = "Axe                                 200$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="back" type="TextureButton" parent="house/Node2D/wlist" unique_id=363186665]
+[node name="back2" type="TextureButton" parent="house/Node2D/wlist" unique_id=225195558]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1332,7 +1360,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist/back" unique_id=1034900381]
+[node name="Label" type="Label" parent="house/Node2D/wlist/back2" unique_id=1319905861]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1342,9 +1370,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = 1486.546
-offset_top = 146.95697
+offset_top = 146.26947
 offset_right = 4081.2817
-offset_bottom = 556.957
+offset_bottom = 556.2695
 grow_horizontal = 2
 grow_vertical = 2
 rotation = 3.1415927
@@ -1381,15 +1409,33 @@ limit_bottom = -1504
 [connection signal="toggled" from="gui/taskbar/button1" to="." method="_on_button_1_toggled"]
 [connection signal="toggled" from="gui/taskbar/button2" to="." method="_on_button_2_toggled"]
 [connection signal="toggled" from="gui/taskbar/button3" to="." method="_on_button_3_toggled"]
-[connection signal="pressed" from="house/back" to="." method="_on_back_pressed"]
+[connection signal="button_down" from="house/Node2D/back" to="." method="_on_back_button_down"]
+[connection signal="button_up" from="house/Node2D/back" to="." method="_on_back_button_up"]
+[connection signal="pressed" from="house/Node2D/back" to="." method="_on_back_pressed"]
 [connection signal="button_down" from="house/Node2D/add worker" to="." method="_on_add_worker_button_down"]
 [connection signal="button_up" from="house/Node2D/add worker" to="." method="_on_add_worker_button_up"]
 [connection signal="pressed" from="house/Node2D/add worker" to="." method="_on_add_pressed"]
 [connection signal="button_down" from="house/Node2D/Weapons" to="." method="_on_weapons_button_down"]
 [connection signal="button_up" from="house/Node2D/Weapons" to="." method="_on_weapons_button_up"]
+[connection signal="pressed" from="house/Node2D/Weapons" to="." method="_on_weapons_pressed"]
 [connection signal="button_down" from="house/Node2D/Unknown" to="." method="_on_add_worker_button_down"]
 [connection signal="button_up" from="house/Node2D/Unknown" to="." method="_on_add_worker_button_up"]
 [connection signal="pressed" from="house/Node2D/Unknown" to="." method="_on_add_pressed"]
 [connection signal="button_down" from="house/Node2D/Unknown2" to="." method="_on_add_worker_button_down"]
 [connection signal="button_up" from="house/Node2D/Unknown2" to="." method="_on_add_worker_button_up"]
 [connection signal="pressed" from="house/Node2D/Unknown2" to="." method="_on_add_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist/w1" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist/w1" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist/w1" to="." method="_on_w_1_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist/w2" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist/w2" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist/w2" to="." method="_on_w_2_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist/w3" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist/w3" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist/w3" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist/w4" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist/w4" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/wlist/back2" to="." method="_on_back_2_button_down"]
+[connection signal="button_up" from="house/Node2D/wlist/back2" to="." method="_on_back_2_button_up"]
+[connection signal="pressed" from="house/Node2D/wlist/back2" to="." method="_on_back_2_pressed"]

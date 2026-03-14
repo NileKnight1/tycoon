@@ -33,9 +33,18 @@ extends Node2D
 
 @onready var cat_scene = preload("res://objects/cat.tscn")
 @onready var cat_script = preload("res://scripts/cat.gd")
-	
+
+@onready var house_ = $house/Node2D
+
+@onready var house_0 = $house/Node2D/back/Label
 @onready var house_1 = $"house/Node2D/add worker/Label"
-@onready var house_2 = $"house/Node2D/Weapons//Label"
+@onready var house_2 = $"house/Node2D/Weapons/Label"
+
+@onready var w0 = $house/Node2D/wlist/back2/Label
+@onready var w1 = $house/Node2D/wlist/w1/Label
+@onready var w2 = $house/Node2D/wlist/w2/Label
+@onready var w3 = $house/Node2D/wlist/w3/Label
+@onready var w4 = $house/Node2D/wlist/w4/Label
 
 
 
@@ -311,16 +320,69 @@ func check_hit_on_cats():
 
 func _on_add_worker_button_up() -> void:
 	house_1.position.y = 275
-	
 func _on_add_worker_button_down() -> void:
 	house_1.position.y = 330
-	
 func _on_weapons_button_down() -> void:
 	house_2.position.y = 330
-	
 func _on_weapons_button_up() -> void:
 	house_2.position.y = 275
-
-
+	
+	
 func _on_weapons_pressed() -> void:
-	pass # Replace with function body.
+	house_sw()
+func _on_back_2_pressed() -> void:
+	house_sw()
+
+func house_sw():
+	for child in house_.get_children():
+		if child.visible: child.visible = 0
+		else: child.visible = 1
+
+func _on_w_1_button_up() -> void: w1.position.y = 275
+func _on_w_1_button_down() -> void: w1.position.y = 330
+func _on_w_2_button_up() -> void: w2.position.y = 275
+func _on_w_2_button_down() -> void: w2.position.y = 330
+func _on_w_3_button_down() -> void: w3.position.y = 330
+func _on_w_3_button_up() -> void: w3.position.y = 275
+func _on_w_4_button_down() -> void: w4.position.y = 330
+func _on_w_4_button_up() -> void: w4.position.y = 275
+
+func _on_back_2_button_up() -> void:  w0.position.y = 580
+func _on_back_2_button_down() -> void: w0.position.y = 610
+func _on_back_button_up() -> void: house_0.position.y = 580
+func _on_back_button_down() -> void: house_0.position.y = 610
+
+func _on_w_1_pressed() -> void: buy_w(1)
+func _on_w_2_pressed() -> void: buy_w(2)
+func _on_w_3_pressed() -> void: buy_w(3)
+func _on_w_4_pressed() -> void: buy_w(4)
+
+
+	
+func buy_w(num):
+	match num:
+		1:
+			if global.currency >= 10:
+				global.update_currency(-10)
+				inventory.refresh_currency()
+				inventory._update_inventory("Stick", 1)
+		2:
+			if global.currency >= 50:
+				global.update_currency(-50)
+				inventory.refresh_currency()
+				inventory._update_inventory("Knife", 1)
+		3:
+			if global.currency >= 100:
+				global.update_currency(-100)
+				inventory.refresh_currency()
+				inventory._update_inventory("Small Axe", 1)
+		4:
+			if global.currency >= 200:
+				global.update_currency(-200)
+				inventory.refresh_currency()
+				inventory._update_inventory("Axe", 1)
+		
+			
+
+	
+	
