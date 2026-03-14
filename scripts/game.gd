@@ -34,6 +34,9 @@ extends Node2D
 @onready var cat_scene = preload("res://objects/cat.tscn")
 @onready var cat_script = preload("res://scripts/cat.gd")
 	
+@onready var house_1 = $"house/Node2D/add worker/Label"
+@onready var house_2 = $"house/Node2D/Weapons//Label"
+
 
 
 var play_pos
@@ -154,13 +157,6 @@ func _on_add_pressed() -> void:
 	add_worker()
 
 
-func _on_sell_button_down() -> void:
-	sell_button_text.position.y = 280
-	#print(sell_button_text.position.y)
-	pass
-	
-
-
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("t1"):
@@ -180,6 +176,11 @@ func _input(event: InputEvent) -> void:
 		_hit()
 
 
+func _on_sell_button_down() -> void:
+	sell_button_text.position.y = 280
+	#print(sell_button_text.position.y)
+	pass
+	
 func _on_sell_button_up() -> void:
 	sell_button_text.position.y = 218
 	#print(sell_button_text.position.y)
@@ -241,7 +242,7 @@ func hit(cat):
 	
 	
 	for i in taskbar.get_children():
-		if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png") :
+		if i.button_pressed && i.get_child(1).text == "Weapon":
 			cat.health -= 1
 			break
 
@@ -293,7 +294,7 @@ func check_hit_on_cats():
 	for cat in cats.get_children():
 		if cat.hitbox:
 			for i in taskbar.get_children():
-				if i.button_pressed && i.get_child(0).texture == load("res://assets/items/Small Knife.png"):
+				if i.button_pressed && i.get_child(1).text == "Weapon":
 					cat.health -= 1
 					if cat.health <= 0:
 						cat.queue_free()
@@ -306,3 +307,20 @@ func check_hit_on_cats():
 					break
 			break
 	
+
+
+func _on_add_worker_button_up() -> void:
+	house_1.position.y = 275
+	
+func _on_add_worker_button_down() -> void:
+	house_1.position.y = 330
+	
+func _on_weapons_button_down() -> void:
+	house_2.position.y = 330
+	
+func _on_weapons_button_up() -> void:
+	house_2.position.y = 275
+
+
+func _on_weapons_pressed() -> void:
+	pass # Replace with function body.

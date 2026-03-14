@@ -255,10 +255,13 @@ func refresh_inventory(case):
 
 						if(inventory_items[i]["list"] == 1):
 							j.get_child(0).texture = load("res://assets/items/%s.png" % inventory_items[item_order]["name"])
+							j.get_child(1).text = "Food"
 							$"../../player1/hand".texture = j.get_child(0).texture
 							
 						else:
-							j.get_child(0).texture = load("res://assets/items2/%s2.png" % inventory_items[item_order]["name"])
+							j.get_child(0).texture = load("res://assets/items2/%s.png" % inventory_items[item_order]["name"])
+							j.get_child(1).text = "Weapon"
+							
 							$"../../player1/hand".texture = load("res://assets/items2/%s.png" % inventory_items[item_order]["name"])
 		
 							
