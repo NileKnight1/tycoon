@@ -1357,6 +1357,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
+disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1400,6 +1401,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
+disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1443,6 +1445,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
+disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1486,6 +1489,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
+disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1529,6 +1533,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
+disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1605,7 +1610,7 @@ vertical_alignment = 1
 [node name="worker_info" type="Node2D" parent="house/Node2D" unique_id=1854965662]
 visible = false
 
-[node name="w1" type="TextureButton" parent="house/Node2D/worker_info" unique_id=471731934]
+[node name="add" type="TextureButton" parent="house/Node2D/worker_info" unique_id=471731934]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1619,6 +1624,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
+disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1626,7 +1632,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/worker_info/w1" unique_id=202784034]
+[node name="Label" type="Label" parent="house/Node2D/worker_info/add" unique_id=202784034]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1648,7 +1654,7 @@ text = "Unlock                          50$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w2" type="TextureButton" parent="house/Node2D/worker_info" unique_id=1568410023]
+[node name="speed" type="TextureButton" parent="house/Node2D/worker_info" unique_id=1568410023]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1662,7 +1668,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
-disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1670,7 +1675,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/worker_info/w2" unique_id=2095065992]
+[node name="Label" type="Label" parent="house/Node2D/worker_info/speed" unique_id=2095065992]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1692,7 +1697,7 @@ text = "Speed                            40$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w3" type="TextureButton" parent="house/Node2D/worker_info" unique_id=784608250]
+[node name="capacity" type="TextureButton" parent="house/Node2D/worker_info" unique_id=784608250]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1706,7 +1711,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
-disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1714,7 +1718,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/worker_info/w3" unique_id=342809270]
+[node name="Label" type="Label" parent="house/Node2D/worker_info/capacity" unique_id=342809270]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1736,7 +1740,7 @@ text = "Capacity       150$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w4" type="TextureButton" parent="house/Node2D/worker_info" unique_id=1054602940]
+[node name="tier" type="TextureButton" parent="house/Node2D/worker_info" unique_id=1054602940]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1750,7 +1754,6 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.092969745, 0.051474806)
 focus_mode = 0
-disabled = true
 texture_normal = ExtResource("14_bt5mj")
 texture_pressed = ExtResource("15_e1j6l")
 texture_hover = ExtResource("16_pl11u")
@@ -1758,7 +1761,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/worker_info/w4" unique_id=1727957128]
+[node name="Label" type="Label" parent="house/Node2D/worker_info/tier" unique_id=1727957128]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -2119,7 +2122,7 @@ limit_bottom = -1504
 [connection signal="pressed" from="house/Node2D/back" to="." method="_on_back_pressed"]
 [connection signal="button_down" from="house/Node2D/workers" to="." method="_on_add_worker_button_down"]
 [connection signal="button_up" from="house/Node2D/workers" to="." method="_on_add_worker_button_up"]
-[connection signal="pressed" from="house/Node2D/workers" to="." method="_on_add_pressed"]
+[connection signal="pressed" from="house/Node2D/workers" to="." method="_on_workers_pressed"]
 [connection signal="button_down" from="house/Node2D/Weapons" to="." method="_on_weapons_button_down"]
 [connection signal="button_up" from="house/Node2D/Weapons" to="." method="_on_weapons_button_up"]
 [connection signal="pressed" from="house/Node2D/Weapons" to="." method="_on_weapons_pressed"]
@@ -2140,40 +2143,40 @@ limit_bottom = -1504
 [connection signal="pressed" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/w1" to="." method="_on_w_1_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/w1" to="." method="_on_w_1_button_up"]
-[connection signal="pressed" from="house/Node2D/workers_list/w1" to="." method="_on_w_1_pressed"]
+[connection signal="pressed" from="house/Node2D/workers_list/w1" to="." method="_on_worker1_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/w2" to="." method="_on_w_2_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/w2" to="." method="_on_w_2_button_up"]
-[connection signal="pressed" from="house/Node2D/workers_list/w2" to="." method="_on_w_2_pressed"]
+[connection signal="pressed" from="house/Node2D/workers_list/w2" to="." method="_on_worker2_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/w3" to="." method="_on_w_3_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/w3" to="." method="_on_w_3_button_up"]
-[connection signal="pressed" from="house/Node2D/workers_list/w3" to="." method="_on_w_3_pressed"]
+[connection signal="pressed" from="house/Node2D/workers_list/w3" to="." method="_on_worker3_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/w4" to="." method="_on_w_4_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/w4" to="." method="_on_w_4_button_up"]
-[connection signal="pressed" from="house/Node2D/workers_list/w4" to="." method="_on_w_4_pressed"]
+[connection signal="pressed" from="house/Node2D/workers_list/w4" to="." method="_on_worker4_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/w5" to="." method="_on_w_3_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/w5" to="." method="_on_w_3_button_up"]
-[connection signal="pressed" from="house/Node2D/workers_list/w5" to="." method="_on_w_3_pressed"]
+[connection signal="pressed" from="house/Node2D/workers_list/w5" to="." method="_on_worker5_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/w6" to="." method="_on_w_4_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/w6" to="." method="_on_w_4_button_up"]
-[connection signal="pressed" from="house/Node2D/workers_list/w6" to="." method="_on_w_4_pressed"]
+[connection signal="pressed" from="house/Node2D/workers_list/w6" to="." method="_on_worker6_pressed"]
 [connection signal="button_down" from="house/Node2D/workers_list/back2" to="." method="_on_back_2_button_down"]
 [connection signal="button_up" from="house/Node2D/workers_list/back2" to="." method="_on_back_2_button_up"]
 [connection signal="pressed" from="house/Node2D/workers_list/back2" to="." method="_on_back_2_pressed"]
-[connection signal="button_down" from="house/Node2D/worker_info/w1" to="." method="_on_w_1_button_down"]
-[connection signal="button_up" from="house/Node2D/worker_info/w1" to="." method="_on_w_1_button_up"]
-[connection signal="pressed" from="house/Node2D/worker_info/w1" to="." method="_on_w_1_pressed"]
-[connection signal="button_down" from="house/Node2D/worker_info/w2" to="." method="_on_w_2_button_down"]
-[connection signal="button_up" from="house/Node2D/worker_info/w2" to="." method="_on_w_2_button_up"]
-[connection signal="pressed" from="house/Node2D/worker_info/w2" to="." method="_on_w_2_pressed"]
-[connection signal="button_down" from="house/Node2D/worker_info/w3" to="." method="_on_w_3_button_down"]
-[connection signal="button_up" from="house/Node2D/worker_info/w3" to="." method="_on_w_3_button_up"]
-[connection signal="pressed" from="house/Node2D/worker_info/w3" to="." method="_on_w_3_pressed"]
-[connection signal="button_down" from="house/Node2D/worker_info/w4" to="." method="_on_w_4_button_down"]
-[connection signal="button_up" from="house/Node2D/worker_info/w4" to="." method="_on_w_4_button_up"]
-[connection signal="pressed" from="house/Node2D/worker_info/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/add" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/add" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/add" to="." method="_on_add_worker_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/speed" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/speed" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/speed" to="." method="_on_speed_worker_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/capacity" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/capacity" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/capacity" to="." method="_on_capcity_worker_pressed"]
+[connection signal="button_down" from="house/Node2D/worker_info/tier" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/worker_info/tier" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/worker_info/tier" to="." method="_on_tier_worker_pressed"]
 [connection signal="button_down" from="house/Node2D/worker_info/back3" to="." method="_on_back_2_button_down"]
 [connection signal="button_up" from="house/Node2D/worker_info/back3" to="." method="_on_back_2_button_up"]
-[connection signal="pressed" from="house/Node2D/worker_info/back3" to="." method="_on_back_3_pressed"]
+[connection signal="pressed" from="house/Node2D/worker_info/back3" to="." method="_on_workers_pressed"]
 [connection signal="button_down" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_button_down"]
 [connection signal="button_up" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_button_up"]
 [connection signal="pressed" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_pressed"]

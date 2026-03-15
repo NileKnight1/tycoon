@@ -69,8 +69,15 @@ func _ready() -> void:
 	#chests.start()
 	#print("bruhhhh")
 	#print(sell_button_text.position.y)
-	
+	#
+	#start_game()
+	#start_game()
+	#start_game()
+	#start_game()
+	#start_game()
+	#
 	start_game()
+	
 	
 	#spawn_cat()
 	#spawn_cat()
@@ -331,8 +338,57 @@ func _on_weapons_button_down() -> void:
 	house_2.position.y = 330
 func _on_weapons_button_up() -> void:
 	house_2.position.y = 275
+
+
+func _on_workers_pressed() -> void:
+	houseb1.visible = 0
+	houseb2.visible = 0
+	houseb3.visible = 0
+	worker_info.visible = 0
+	workers_list.visible = 1
 	
+	for i in range(min(global.workers_count+1, 6)):
+		workers_list.get_child(i).disabled = 0
+		
+		
+var current_worker_upgrade = 0
+
+func _on_worker1_pressed() -> void: worker_upgrades(0)
+func _on_worker2_pressed() -> void: worker_upgrades(1)
+func _on_worker3_pressed() -> void: worker_upgrades(2)
+func _on_worker4_pressed() -> void: worker_upgrades(3)
+func _on_worker5_pressed() -> void: worker_upgrades(4)
+func _on_worker6_pressed() -> void: worker_upgrades(5)
+
+func worker_upgrades(num):
+	current_worker_upgrade = num
 	
+	workers_list.visible = 0
+	worker_info.visible = 1
+	if(num == global.workers_count):
+		worker_info.get_child(0).disabled = 0
+		worker_info.get_child(1).disabled = 1
+		worker_info.get_child(2).disabled = 1
+		worker_info.get_child(3).disabled = 1
+	else:
+		worker_info.get_child(0).disabled = 1
+		worker_info.get_child(1).disabled = 1
+		worker_info.get_child(2).disabled = 1
+		worker_info.get_child(3).disabled = 1
+		
+		if(global.workers[current_worker_upgrade]["Time"] > 15):
+			worker_info.get_child(1).disabled = 0
+		if(global.workers[current_worker_upgrade]["Capacity"] < 5):
+			worker_info.get_child(2).disabled = 0
+		if(global.workers[current_worker_upgrade]["Tier"] < 3):
+			worker_info.get_child(3).disabled = 0
+		
+	
+		
+
+
+
+
 func _on_weapons_pressed() -> void:
 	houseb1.visible = 0
 	houseb2.visible = 0
@@ -365,10 +421,36 @@ func _on_back_2_button_down() -> void: w0.position.y = 610
 func _on_back_button_up() -> void: house_0.position.y = 580
 func _on_back_button_down() -> void: house_0.position.y = 610
 
-func _on_w_1_pressed() -> void: buy_w(1)
-func _on_w_2_pressed() -> void: buy_w(2)
-func _on_w_3_pressed() -> void: buy_w(3)
-func _on_w_4_pressed() -> void: buy_w(4)
+func _on_add_worker_pressed() -> void:
+	if(global.currency >= 50):
+		global.update_currency(-50)
+		inventory.refresh_currency()
+		add_worker()
+		worker_upgrades(current_worker_upgrade)
+
+func _on_speed_worker_pressed() -> void:
+	if(global.currency >= 40):
+		global.update_currency(-50)
+		inventory.refresh_currency()
+		global.workers[current_worker_upgrade]["Time"] -= 15
+		worker_upgrades(current_worker_upgrade)
+		
+
+func _on_capcity_worker_pressed() -> void:
+	if(global.currency >= 100):
+		global.update_currency(-100)
+		inventory.refresh_currency()
+		global.workers[current_worker_upgrade]["Capacity"] += 1
+		worker_upgrades(current_worker_upgrade)
+		
+
+func _on_tier_worker_pressed() -> void: 
+	if(global.currency >= 200):
+		global.update_currency(-200)
+		inventory.refresh_currency()
+		global.workers[current_worker_upgrade]["Tier"] += 1
+		worker_upgrades(current_worker_upgrade)
+		
 
 
 	
@@ -401,5 +483,5 @@ func buy_w(num):
 	
 
 
-func _on_workers_pressed() -> void:
+func _on_capacity_worker_pressed() -> void:
 	pass # Replace with function body.

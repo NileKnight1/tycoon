@@ -24,7 +24,7 @@ func _ready() -> void:
 
 func start():
 	if(!timer.time_left):
-		timer.start(global.chest_small_time)
+		timer.start(global.workers[get_index()]["Time"])
 		game.get_chest(get_index())
 
 func get_cols(node = self):
@@ -56,11 +56,12 @@ func close():
 	_show = 1
 	label.visible = 1
 	
-	global.chest_opened(tier)
+	for i in range(global.workers[get_index()]["Capacity"]):
+		global.chest_opened(global.workers[get_index()]["Tier"])
 	
 	chest.play("close")
 	col2.set_deferred("disabled", 1)
-	timer.start(global.chest_small_time)
+	timer.start(global.workers[get_index()]["Time"])
 
 func _process(delta: float) -> void:
 	if(stopped): return

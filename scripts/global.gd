@@ -70,14 +70,23 @@ var tiers = [
 	["Red Grape", "Green Grape", "Blueberry", "Cherry", "Eggplant"]
 ]
 
+var workers = [
+	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 60, "Capacity": 1, "Tier": 1},
+	
+]
 
 func chest_opened(tier):
-	var chest_item = random_chest_item()
+	var chest_item = random_chest_item(tier)
 	inventory._update_inventory(chest_item, 1)
 
-func random_chest_item():
-	var num = randi() % len(tiers[0])
-	return tiers[0][num]
+func random_chest_item(tier):
+	var num = randi() % len(tiers[tier-1])
+	return tiers[tier-1][num]
 
 #
 #func _process(delta: float) -> void:
