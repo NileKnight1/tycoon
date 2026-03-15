@@ -27,6 +27,9 @@
 [ext_resource type="Texture2D" uid="uid://b68i3m1omiv5f" path="res://assets/ui/Heart.png" id="20_sgl2t"]
 [ext_resource type="Texture2D" uid="uid://didythlguvrlo" path="res://assets/ui/white.png" id="20_suyxu"]
 [ext_resource type="Texture2D" uid="uid://biqct5jjex5ux" path="res://assets/ui/dark.png" id="21_sgl2t"]
+[ext_resource type="AudioStream" uid="uid://b0u4njl4j7e82" path="res://assets/sfx/click.wav" id="28_suyxu"]
+[ext_resource type="AudioStream" uid="uid://1djsiglgodag" path="res://assets/sfx/error.wav" id="29_sgl2t"]
+[ext_resource type="AudioStream" uid="uid://cv4obpajpd45t" path="res://assets/sfx/upgrade.wav" id="30_sgl2t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -789,20 +792,51 @@ vertical_alignment = 1
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="heart3" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1489466418]
-position = Vector2(238, 85)
+[node name="heart1" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1467246653]
+visible = false
+position = Vector2(94, 85)
 scale = Vector2(4.3125, 4.3125)
 sprite_frames = SubResource("SpriteFrames_v2yb1")
 animation = &"true"
 
 [node name="heart2" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1871349085]
+visible = false
 position = Vector2(166.00002, 85)
 scale = Vector2(4.3125, 4.3125)
 sprite_frames = SubResource("SpriteFrames_v2yb1")
 animation = &"true"
 
-[node name="heart1" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1467246653]
-position = Vector2(94, 85)
+[node name="heart3" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1489466418]
+visible = false
+position = Vector2(238, 85)
+scale = Vector2(4.3125, 4.3125)
+sprite_frames = SubResource("SpriteFrames_v2yb1")
+animation = &"true"
+
+[node name="heart4" type="AnimatedSprite2D" parent="gui/hearts" unique_id=744950820]
+visible = false
+position = Vector2(309.5, 85)
+scale = Vector2(4.3125, 4.3125)
+sprite_frames = SubResource("SpriteFrames_v2yb1")
+animation = &"true"
+
+[node name="heart5" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1300901199]
+visible = false
+position = Vector2(381.5, 85)
+scale = Vector2(4.3125, 4.3125)
+sprite_frames = SubResource("SpriteFrames_v2yb1")
+animation = &"true"
+
+[node name="heart6" type="AnimatedSprite2D" parent="gui/hearts" unique_id=1746986162]
+visible = false
+position = Vector2(453.5, 85)
+scale = Vector2(4.3125, 4.3125)
+sprite_frames = SubResource("SpriteFrames_v2yb1")
+animation = &"true"
+
+[node name="heart7" type="AnimatedSprite2D" parent="gui/hearts" unique_id=490149856]
+visible = false
+position = Vector2(526, 85)
 scale = Vector2(4.3125, 4.3125)
 sprite_frames = SubResource("SpriteFrames_v2yb1")
 animation = &"true"
@@ -1075,6 +1109,49 @@ scale = Vector2(0.28232896, 0.6937903)
 theme_override_fonts/font = ExtResource("18_e1j6l")
 theme_override_font_sizes/font_size = 300
 text = "Weapons"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Health" type="TextureButton" parent="house/Node2D" unique_id=1946462]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 90.0
+offset_top = -57.0
+offset_right = 1124.782
+offset_bottom = 810.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("14_bt5mj")
+texture_pressed = ExtResource("15_e1j6l")
+texture_hover = ExtResource("16_pl11u")
+texture_disabled = ExtResource("17_bhx41")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="house/Node2D/Health" unique_id=2111155562]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("18_e1j6l")
+theme_override_font_sizes/font_size = 300
+text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -1827,10 +1904,10 @@ text = "➥"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="wlist2" type="Node2D" parent="house/Node2D" unique_id=946105455]
+[node name="health_list" type="Node2D" parent="house/Node2D" unique_id=946105455]
 visible = false
 
-[node name="w1" type="TextureButton" parent="house/Node2D/wlist2" unique_id=21715107]
+[node name="regen" type="TextureButton" parent="house/Node2D/health_list" unique_id=21715107]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1851,7 +1928,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist2/w1" unique_id=1644022891]
+[node name="Label" type="Label" parent="house/Node2D/health_list/regen" unique_id=1644022891]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1869,11 +1946,11 @@ grow_vertical = 2
 scale = Vector2(0.28232896, 0.6937903)
 theme_override_fonts/font = ExtResource("18_e1j6l")
 theme_override_font_sizes/font_size = 300
-text = "Worker                                 1"
+text = "Regen.                         50$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w2" type="TextureButton" parent="house/Node2D/wlist2" unique_id=1310132974]
+[node name="heart" type="TextureButton" parent="house/Node2D/health_list" unique_id=1310132974]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1894,7 +1971,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist2/w2" unique_id=455770811]
+[node name="Label" type="Label" parent="house/Node2D/health_list/heart" unique_id=455770811]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1912,11 +1989,12 @@ grow_vertical = 2
 scale = Vector2(0.28232896, 0.6937903)
 theme_override_fonts/font = ExtResource("18_e1j6l")
 theme_override_font_sizes/font_size = 300
-text = "Worker                                 2"
+text = "Heart +               500$"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w3" type="TextureButton" parent="house/Node2D/wlist2" unique_id=66765363]
+[node name="w3" type="TextureButton" parent="house/Node2D/health_list" unique_id=66765363]
+visible = false
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1937,7 +2015,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist2/w3" unique_id=745013912]
+[node name="Label" type="Label" parent="house/Node2D/health_list/w3" unique_id=745013912]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -1959,7 +2037,8 @@ text = "Worker                                 3"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="w4" type="TextureButton" parent="house/Node2D/wlist2" unique_id=1791576001]
+[node name="w4" type="TextureButton" parent="house/Node2D/health_list" unique_id=1791576001]
+visible = false
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -1980,7 +2059,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist2/w4" unique_id=953534001]
+[node name="Label" type="Label" parent="house/Node2D/health_list/w4" unique_id=953534001]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -2002,7 +2081,7 @@ text = "Worker                                 4"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="back2" type="TextureButton" parent="house/Node2D/wlist2" unique_id=1044327510]
+[node name="back2" type="TextureButton" parent="house/Node2D/health_list" unique_id=1044327510]
 anchors_preset = -1
 anchor_left = 0.91200006
 anchor_top = 0.44700003
@@ -2023,7 +2102,7 @@ texture_disabled = ExtResource("17_bhx41")
 stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="house/Node2D/wlist2/back2" unique_id=1514195989]
+[node name="Label" type="Label" parent="house/Node2D/health_list/back2" unique_id=1514195989]
 z_index = 2
 z_as_relative = false
 layout_mode = 1
@@ -2046,50 +2125,6 @@ text = "➥"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="add worker" type="TextureButton" parent="house/Node2D" unique_id=1946462]
-visible = false
-anchors_preset = -1
-anchor_left = 0.91200006
-anchor_top = 0.44700003
-anchor_right = 0.91200006
-anchor_bottom = 0.44700003
-offset_left = 90.0
-offset_top = -121.0
-offset_right = 1124.782
-offset_bottom = 746.46106
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.092969745, 0.051474806)
-focus_mode = 0
-texture_normal = ExtResource("14_bt5mj")
-texture_pressed = ExtResource("15_e1j6l")
-texture_hover = ExtResource("16_pl11u")
-texture_disabled = ExtResource("17_bhx41")
-stretch_mode = 5
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="Label" parent="house/Node2D/add worker" unique_id=2111155562]
-z_index = 2
-z_as_relative = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -357.776
-offset_top = -158.73053
-offset_right = 2236.9595
-offset_bottom = 242.26947
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.28232896, 0.6937903)
-theme_override_fonts/font = ExtResource("18_e1j6l")
-theme_override_font_sizes/font_size = 300
-text = "Add Worker 50$"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="player2" parent="." unique_id=1692506950 instance=ExtResource("1_uwrxv")]
 position = Vector2(784, -279)
 scale = Vector2(3.84, 3.84)
@@ -2105,6 +2140,17 @@ limit_right = 1431
 limit_bottom = -1504
 
 [node name="cats" type="Node2D" parent="." unique_id=1553277179]
+
+[node name="sounds" type="Node" parent="." unique_id=347459888]
+
+[node name="click" type="AudioStreamPlayer" parent="sounds" unique_id=1454084826]
+stream = ExtResource("28_suyxu")
+
+[node name="error" type="AudioStreamPlayer" parent="sounds" unique_id=1486861586]
+stream = ExtResource("29_sgl2t")
+
+[node name="upgrade" type="AudioStreamPlayer" parent="sounds" unique_id=2121697565]
+stream = ExtResource("30_sgl2t")
 
 [connection signal="timeout" from="cats_att" to="." method="_on_cats_att_timeout"]
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]
@@ -2126,18 +2172,19 @@ limit_bottom = -1504
 [connection signal="button_down" from="house/Node2D/Weapons" to="." method="_on_weapons_button_down"]
 [connection signal="button_up" from="house/Node2D/Weapons" to="." method="_on_weapons_button_up"]
 [connection signal="pressed" from="house/Node2D/Weapons" to="." method="_on_weapons_pressed"]
+[connection signal="pressed" from="house/Node2D/Health" to="." method="_on_health_list_pressed"]
 [connection signal="button_down" from="house/Node2D/weapons_list/w1" to="." method="_on_w_1_button_down"]
 [connection signal="button_up" from="house/Node2D/weapons_list/w1" to="." method="_on_w_1_button_up"]
-[connection signal="pressed" from="house/Node2D/weapons_list/w1" to="." method="_on_w_1_pressed"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w1" to="." method="_on_weapon1_pressed"]
 [connection signal="button_down" from="house/Node2D/weapons_list/w2" to="." method="_on_w_2_button_down"]
 [connection signal="button_up" from="house/Node2D/weapons_list/w2" to="." method="_on_w_2_button_up"]
-[connection signal="pressed" from="house/Node2D/weapons_list/w2" to="." method="_on_w_2_pressed"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w2" to="." method="_on_weapon2_pressed"]
 [connection signal="button_down" from="house/Node2D/weapons_list/w3" to="." method="_on_w_3_button_down"]
 [connection signal="button_up" from="house/Node2D/weapons_list/w3" to="." method="_on_w_3_button_up"]
-[connection signal="pressed" from="house/Node2D/weapons_list/w3" to="." method="_on_w_3_pressed"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w3" to="." method="_on_weapon3_pressed"]
 [connection signal="button_down" from="house/Node2D/weapons_list/w4" to="." method="_on_w_4_button_down"]
 [connection signal="button_up" from="house/Node2D/weapons_list/w4" to="." method="_on_w_4_button_up"]
-[connection signal="pressed" from="house/Node2D/weapons_list/w4" to="." method="_on_w_4_pressed"]
+[connection signal="pressed" from="house/Node2D/weapons_list/w4" to="." method="_on_weapon4_pressed"]
 [connection signal="button_down" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_button_down"]
 [connection signal="button_up" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_button_up"]
 [connection signal="pressed" from="house/Node2D/weapons_list/back2" to="." method="_on_back_2_pressed"]
@@ -2177,21 +2224,18 @@ limit_bottom = -1504
 [connection signal="button_down" from="house/Node2D/worker_info/back3" to="." method="_on_back_2_button_down"]
 [connection signal="button_up" from="house/Node2D/worker_info/back3" to="." method="_on_back_2_button_up"]
 [connection signal="pressed" from="house/Node2D/worker_info/back3" to="." method="_on_workers_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist2/w1" to="." method="_on_w_1_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist2/w2" to="." method="_on_w_2_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist2/w2" to="." method="_on_w_2_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist2/w2" to="." method="_on_w_2_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist2/w3" to="." method="_on_w_3_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist2/w3" to="." method="_on_w_3_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist2/w3" to="." method="_on_w_3_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist2/w4" to="." method="_on_w_4_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist2/w4" to="." method="_on_w_4_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist2/w4" to="." method="_on_w_4_pressed"]
-[connection signal="button_down" from="house/Node2D/wlist2/back2" to="." method="_on_back_2_button_down"]
-[connection signal="button_up" from="house/Node2D/wlist2/back2" to="." method="_on_back_2_button_up"]
-[connection signal="pressed" from="house/Node2D/wlist2/back2" to="." method="_on_back_2_pressed"]
-[connection signal="button_down" from="house/Node2D/add worker" to="." method="_on_add_worker_button_down"]
-[connection signal="button_up" from="house/Node2D/add worker" to="." method="_on_add_worker_button_up"]
-[connection signal="pressed" from="house/Node2D/add worker" to="." method="_on_add_pressed"]
+[connection signal="button_down" from="house/Node2D/health_list/regen" to="." method="_on_w_1_button_down"]
+[connection signal="button_up" from="house/Node2D/health_list/regen" to="." method="_on_w_1_button_up"]
+[connection signal="pressed" from="house/Node2D/health_list/regen" to="." method="_on_regen_pressed"]
+[connection signal="button_down" from="house/Node2D/health_list/heart" to="." method="_on_w_2_button_down"]
+[connection signal="button_up" from="house/Node2D/health_list/heart" to="." method="_on_w_2_button_up"]
+[connection signal="pressed" from="house/Node2D/health_list/heart" to="." method="_on_heart_pressed"]
+[connection signal="button_down" from="house/Node2D/health_list/w3" to="." method="_on_w_3_button_down"]
+[connection signal="button_up" from="house/Node2D/health_list/w3" to="." method="_on_w_3_button_up"]
+[connection signal="pressed" from="house/Node2D/health_list/w3" to="." method="_on_w_3_pressed"]
+[connection signal="button_down" from="house/Node2D/health_list/w4" to="." method="_on_w_4_button_down"]
+[connection signal="button_up" from="house/Node2D/health_list/w4" to="." method="_on_w_4_button_up"]
+[connection signal="pressed" from="house/Node2D/health_list/w4" to="." method="_on_w_4_pressed"]
+[connection signal="button_down" from="house/Node2D/health_list/back2" to="." method="_on_back_2_button_down"]
+[connection signal="button_up" from="house/Node2D/health_list/back2" to="." method="_on_back_2_button_up"]
+[connection signal="pressed" from="house/Node2D/health_list/back2" to="." method="_on_back_2_pressed"]

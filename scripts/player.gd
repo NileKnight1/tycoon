@@ -6,7 +6,7 @@ extends CharacterBody2D
 
 @onready var player = $ch
 
-var health = 3
+var health = global.player_health
 
 var no_move = 0
 

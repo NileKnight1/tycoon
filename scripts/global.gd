@@ -9,7 +9,10 @@ var font2 = load("res://temp.ttf")
 
 var player_speed = 150
 var player_boost = 3
-var currency: int = 2222
+var player_health = 3
+
+
+var currency: int = 5000
 
 var chest_small_time = 0.1
 

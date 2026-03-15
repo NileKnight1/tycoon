@@ -7,7 +7,6 @@ extends Node2D
 
 @onready var inventory = $gui/inventory
 @onready var currency_label = $gui/currency
-
 #@onready var timer1 = $map/chests/timer1
 #@onready var chest = $map/chests/chest
 
@@ -37,7 +36,7 @@ extends Node2D
 @onready var house_ = $house/Node2D
 
 @onready var house_0 = $house/Node2D/back/Label
-@onready var house_1 = $"house/Node2D/add worker/Label"
+@onready var house_1 = $"house/Node2D/workers/Label"
 @onready var house_2 = $"house/Node2D/Weapons/Label"
 
 @onready var w0 = $house/Node2D/weapons_list/back2/Label
@@ -49,9 +48,14 @@ extends Node2D
 @onready var weapons_list = $house/Node2D/weapons_list
 @onready var workers_list = $house/Node2D/workers_list
 @onready var worker_info = $house/Node2D/worker_info
+@onready var health_list = $house/Node2D/health_list
+
+
 @onready var houseb1 = $house/Node2D/back
 @onready var houseb2 = $house/Node2D/workers
 @onready var houseb3 = $house/Node2D/Weapons
+@onready var houseb4 = $house/Node2D/Health
+
 
 var play_pos
 var cats_num = 0
@@ -62,6 +66,7 @@ var killed_cats = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#cooldown.start()
+	refresh_health()
 	
 	
 	
@@ -128,7 +133,20 @@ func start_game():
 func add_worker():
 	start_game()
 	
+
+func refresh_health():
 	
+	for i in range(global.player_health):
+		
+		hearts.get_child(i).visible = 1
+		hearts.get_child(i).play("true")
+		
+		if(player.health <= i):
+			hearts.get_child(i).play("false")
+			
+	
+	
+
 
 
 
@@ -160,6 +178,7 @@ func _on_house_body_entered(body: Node2D) -> void:
 	player.no_move = 1
 	camera.enabled = 0
 	camera2.enabled = 1
+	click()
 
 func _on_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scripts/node_2d.tscn")
@@ -281,9 +300,10 @@ func player_hit():
 		
 	player.health -= 1
 	hearts_cooldown.start()
-	
-	for i in range(3-player.health):
-		hearts.get_child(i).play("false")
+	refresh_health()
+	#
+	#for i in range(3-player.health):
+		#hearts.get_child(i).play("false")
 
 func spawn_cat(x, y):
 	var new_cat = cat_scene.instantiate()
@@ -341,10 +361,14 @@ func _on_weapons_button_up() -> void:
 
 
 func _on_workers_pressed() -> void:
+	click()
 	houseb1.visible = 0
 	houseb2.visible = 0
 	houseb3.visible = 0
+	houseb4.visible = 0
+	
 	worker_info.visible = 0
+	health_list.visible = 0
 	workers_list.visible = 1
 	
 	for i in range(min(global.workers_count+1, 6)):
@@ -353,12 +377,12 @@ func _on_workers_pressed() -> void:
 		
 var current_worker_upgrade = 0
 
-func _on_worker1_pressed() -> void: worker_upgrades(0)
-func _on_worker2_pressed() -> void: worker_upgrades(1)
-func _on_worker3_pressed() -> void: worker_upgrades(2)
-func _on_worker4_pressed() -> void: worker_upgrades(3)
-func _on_worker5_pressed() -> void: worker_upgrades(4)
-func _on_worker6_pressed() -> void: worker_upgrades(5)
+func _on_worker1_pressed() -> void: worker_upgrades(0); click()
+func _on_worker2_pressed() -> void: worker_upgrades(1); click()
+func _on_worker3_pressed() -> void: worker_upgrades(2); click()
+func _on_worker4_pressed() -> void: worker_upgrades(3); click()
+func _on_worker5_pressed() -> void: worker_upgrades(4); click()
+func _on_worker6_pressed() -> void: worker_upgrades(5); click()
 
 func worker_upgrades(num):
 	current_worker_upgrade = num
@@ -390,19 +414,45 @@ func worker_upgrades(num):
 
 
 func _on_weapons_pressed() -> void:
+	click()
 	houseb1.visible = 0
 	houseb2.visible = 0
 	houseb3.visible = 0
+	houseb4.visible = 0
+	
 	weapons_list.visible = 1
 
+
+func _on_health_list_pressed() -> void:
+	click()
+	houseb1.visible = 0
+	houseb2.visible = 0
+	houseb3.visible = 0
+	houseb4.visible = 0
+	
+	health_list.visible = 1
+	
+	if(player.health == global.player_health):
+		health_list.get_child(0).disabled = 1
+	else:
+		health_list.get_child(0).disabled = 0
+	
+	if(global.player_health > 6):
+		health_list.get_child(1).disabled = 1
+
 func _on_back_2_pressed() -> void:
+	click()
 	houseb1.visible = 1
 	houseb2.visible = 1
 	houseb3.visible = 1
+	houseb4.visible = 1
+	
 	weapons_list.visible = 0
 	workers_list.visible = 0
+	health_list.visible = 0
 
 func _on_back_3_pressed() -> void:
+	click()
 	workers_list.visible = 1
 	worker_info.visible = 0
 
@@ -422,39 +472,49 @@ func _on_back_button_up() -> void: house_0.position.y = 580
 func _on_back_button_down() -> void: house_0.position.y = 610
 
 func _on_add_worker_pressed() -> void:
+	
 	if(global.currency >= 50):
+		upgrade()
 		global.update_currency(-50)
 		inventory.refresh_currency()
 		add_worker()
 		worker_upgrades(current_worker_upgrade)
+	else:
+		error()
 
 func _on_speed_worker_pressed() -> void:
 	if(global.currency >= 40):
+		upgrade()
 		global.update_currency(-50)
 		inventory.refresh_currency()
 		global.workers[current_worker_upgrade]["Time"] -= 15
 		worker_upgrades(current_worker_upgrade)
+	else: error()
 		
 
 func _on_capcity_worker_pressed() -> void:
 	if(global.currency >= 100):
+		upgrade()
 		global.update_currency(-100)
 		inventory.refresh_currency()
 		global.workers[current_worker_upgrade]["Capacity"] += 1
 		worker_upgrades(current_worker_upgrade)
-		
+	else: error()
 
 func _on_tier_worker_pressed() -> void: 
 	if(global.currency >= 200):
+		upgrade()
 		global.update_currency(-200)
 		inventory.refresh_currency()
 		global.workers[current_worker_upgrade]["Tier"] += 1
 		worker_upgrades(current_worker_upgrade)
-		
+	else: error()
 
 
-	
+
+
 func buy_w(num):
+	click()
 	match num:
 		1:
 			if global.currency >= 10:
@@ -477,11 +537,42 @@ func buy_w(num):
 				inventory.refresh_currency()
 				inventory._update_inventory("Axe", 1)
 		
-			
 
+func _on_weapon1_pressed() -> void: buy_w(1)
+func _on_weapon2_pressed() -> void: buy_w(2)
+func _on_weapon3_pressed() -> void: buy_w(3)
+func _on_weapon4_pressed() -> void: buy_w(4)
+
+
+
+func _on_regen_pressed() -> void:
+	if global.currency >= 50:
+		upgrade()
+		global.update_currency(-50)
+		inventory.refresh_currency()
 	
-	
+		player.health = global.player_health
+		refresh_health()
+		_on_health_list_pressed()
+	else: error()
+	#
+	#for i in range(3-player.health):
+		#hearts.get_child(i).play("false")
+	#
+	#print(player.health)
 
-
-func _on_capacity_worker_pressed() -> void:
-	pass # Replace with function body.
+func _on_heart_pressed() -> void:
+	if global.currency >= 500:
+		upgrade()
+		global.update_currency(-500)
+		inventory.refresh_currency()
+		
+		global.player_health += 1
+		player.health = global.player_health
+		refresh_health()
+		_on_health_list_pressed()
+	else: error()
+		
+func click(): $sounds/click.play()
+func error(): $sounds/error.play()
+func upgrade(): $sounds/upgrade.play()
