@@ -134,6 +134,8 @@ func _update_inventory(_name, amount, sell = 0):
 		refresh_inventory(0)
 	else:
 		refresh_inventory(1)
+		$"../../sounds/cash".play()
+
 	
 #
 #func update_inventory(i, case):

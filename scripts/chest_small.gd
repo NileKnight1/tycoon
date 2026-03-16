@@ -45,9 +45,11 @@ func open():
 	chest.play("open")
 	col2.set_deferred("disabled", 0)
 	
+	
 func close():
 	back = 0
 	game.get_chest(get_index())
+	chest2_sfx()
 	
 	#print("I came here")
 	
@@ -91,11 +93,11 @@ func _on_area_body_exited(body: Node2D) -> void:
 	label.visible = 0
 	inarea = 0
 	is_ready = inarea && is_open
-	
-
-
-
-		
 
 func _on_timer_timeout() -> void:
 	open()
+	chest_sfx()
+
+
+func chest_sfx(): $"../../../sounds/chest/".play()
+func chest2_sfx(): $"../../../sounds/chest2/".play()

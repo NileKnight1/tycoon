@@ -30,6 +30,16 @@
 [ext_resource type="AudioStream" uid="uid://b0u4njl4j7e82" path="res://assets/sfx/click.wav" id="28_suyxu"]
 [ext_resource type="AudioStream" uid="uid://1djsiglgodag" path="res://assets/sfx/error.wav" id="29_sgl2t"]
 [ext_resource type="AudioStream" uid="uid://cv4obpajpd45t" path="res://assets/sfx/upgrade.wav" id="30_sgl2t"]
+[ext_resource type="AudioStream" uid="uid://ctjxqdmpdcxgw" path="res://assets/sfx/chest.wav" id="31_qouja"]
+[ext_resource type="AudioStream" uid="uid://dyhttjd85b3g5" path="res://assets/sfx/chest2.mp3" id="32_wljb1"]
+[ext_resource type="AudioStream" uid="uid://mxbh15ocpyjm" path="res://assets/sfx/cash.mp3" id="33_v2yb1"]
+[ext_resource type="AudioStream" uid="uid://bdis0iwoyp5et" path="res://assets/sfx/bite.mp3" id="34_js0lu"]
+[ext_resource type="AudioStream" uid="uid://dj48owqft7aje" path="res://assets/sfx/whip.mp3" id="34_nepv3"]
+[ext_resource type="AudioStream" uid="uid://bumplcjjgpjpt" path="res://assets/sfx/raid.mp3" id="35_gxtfn"]
+[ext_resource type="AudioStream" uid="uid://bpq3v3gndk2kj" path="res://assets/sfx/hit.mp3" id="36_02fa5"]
+[ext_resource type="AudioStream" uid="uid://dotsx5cc0gqu1" path="res://assets/sfx/kill.mp3" id="37_nepv3"]
+[ext_resource type="AudioStream" uid="uid://dy3ei81pkq7wk" path="res://assets/sfx/countdown.mp3" id="39_7025r"]
+[ext_resource type="AudioStream" uid="uid://cm1ix7oumace7" path="res://assets/sfx/walk.mp3" id="40_m4url"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -424,7 +434,7 @@ sources/4 = SubResource("TileSetAtlasSource_sww3w")
 script = ExtResource("1_u5sy4")
 
 [node name="cats_att" type="Timer" parent="." unique_id=480667788]
-wait_time = 5.0
+wait_time = 120.0
 one_shot = true
 autostart = true
 
@@ -2151,6 +2161,37 @@ stream = ExtResource("29_sgl2t")
 
 [node name="upgrade" type="AudioStreamPlayer" parent="sounds" unique_id=2121697565]
 stream = ExtResource("30_sgl2t")
+
+[node name="chest" type="AudioStreamPlayer" parent="sounds" unique_id=1725509842]
+stream = ExtResource("31_qouja")
+
+[node name="chest2" type="AudioStreamPlayer" parent="sounds" unique_id=503630364]
+stream = ExtResource("32_wljb1")
+
+[node name="cash" type="AudioStreamPlayer" parent="sounds" unique_id=1735902932]
+stream = ExtResource("33_v2yb1")
+
+[node name="whip" type="AudioStreamPlayer" parent="sounds" unique_id=885845287]
+stream = ExtResource("34_nepv3")
+
+[node name="bite" type="AudioStreamPlayer" parent="sounds" unique_id=1557633149]
+stream = ExtResource("34_js0lu")
+
+[node name="raid" type="AudioStreamPlayer" parent="sounds" unique_id=1161327688]
+stream = ExtResource("35_gxtfn")
+
+[node name="hit" type="AudioStreamPlayer" parent="sounds" unique_id=2131185395]
+stream = ExtResource("36_02fa5")
+
+[node name="kill" type="AudioStreamPlayer" parent="sounds" unique_id=96210051]
+stream = ExtResource("37_nepv3")
+
+[node name="countdown" type="AudioStreamPlayer" parent="sounds" unique_id=332043034]
+stream = ExtResource("39_7025r")
+
+[node name="walk" type="AudioStreamPlayer" parent="sounds" unique_id=1231545420]
+stream = ExtResource("40_m4url")
+volume_db = -2.0
 
 [connection signal="timeout" from="cats_att" to="." method="_on_cats_att_timeout"]
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -74,7 +74,7 @@ var tiers = [
 ]
 
 var workers = [
-	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 3, "Capacity": 1, "Tier": 1},
 	{"Time": 60, "Capacity": 1, "Tier": 1},
 	{"Time": 60, "Capacity": 1, "Tier": 1},
 	{"Time": 60, "Capacity": 1, "Tier": 1},

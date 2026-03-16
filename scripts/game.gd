@@ -107,6 +107,10 @@ func _process(delta: float) -> void:
 	#if(rem < 119):
 		#title.hide()
 	#
+	
+	if (rem == 13):
+		$sounds/countdown.play()
+		
 	if(int(sec)>9):
 		cats_time_left.text = "0" + min + ":" + sec
 	else:
@@ -190,6 +194,8 @@ func _on_back_pressed() -> void:
 	player.no_move = 0
 	player.position.x = 76
 	player.position.y = -68
+	click()
+	
 	
 
 
@@ -211,7 +217,7 @@ func _input(event: InputEvent) -> void:
 		taskbar.get_child(2).button_pressed = 3
 		$player1/hand.texture = taskbar.get_child(2).get_child(0).texture
 			
-	if Input.is_action_just_pressed("action"):
+	if Input.is_action_just_pressed("action") and not get_viewport().gui_get_hovered_control():
 		check_hit_on_cats()
 		_hit()
 
@@ -256,6 +262,7 @@ func _on_button_3_toggled(toggled_on: bool) -> void:
 
 func _hit():
 	if cooldown.time_left: return
+	$sounds/whip.play()
 	
 	cooldown.start(0.5)
 	
@@ -294,6 +301,7 @@ func hit(cat):
 func player_hit():
 	
 	if hearts_cooldown.time_left: return
+	$sounds/bite.play()
 	if player.health == 0:
 		print("Dead")
 		return
@@ -316,6 +324,9 @@ func spawn_cat(x, y):
 
 func _on_cats_att_timeout() -> void:
 	cats_attack()
+	$sounds/raid.play()
+	
+	
 	
 func cats_attack():
 	cats_num += 2
@@ -336,9 +347,12 @@ func check_hit_on_cats():
 		if cat.hitbox:
 			for i in taskbar.get_children():
 				if i.button_pressed && i.get_child(1).text == "Weapon":
+					$sounds/hit.play()
+					
 					cat.health -= i.get_child(1).light_mask
 					if cat.health <= 0:
 						cat.queue_free()
+						$sounds/kill.play()
 						killed_cats_all += 1
 						killed_cats += 1
 						if killed_cats == cats_num:
@@ -514,28 +528,35 @@ func _on_tier_worker_pressed() -> void:
 
 
 func buy_w(num):
-	click()
 	match num:
 		1:
 			if global.currency >= 10:
+				upgrade()
 				global.update_currency(-10)
 				inventory.refresh_currency()
 				inventory._update_inventory("Stick", 1)
+			else: error()
 		2:
 			if global.currency >= 50:
+				upgrade()
 				global.update_currency(-50)
 				inventory.refresh_currency()
 				inventory._update_inventory("Knife", 1)
+			else: error()
 		3:
 			if global.currency >= 100:
+				upgrade()
 				global.update_currency(-100)
 				inventory.refresh_currency()
 				inventory._update_inventory("Small Axe", 1)
+			else: error()
 		4:
 			if global.currency >= 200:
+				upgrade()
 				global.update_currency(-200)
 				inventory.refresh_currency()
 				inventory._update_inventory("Axe", 1)
+			else: error()
 		
 
 func _on_weapon1_pressed() -> void: buy_w(1)
