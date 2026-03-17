@@ -156,6 +156,7 @@ func refresh_health():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	sell_button.visible = 1
+	click()
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	sell_button.visible = 0
@@ -228,7 +229,7 @@ func _on_sell_button_down() -> void:
 	pass
 	
 func _on_sell_button_up() -> void:
-	sell_button_text.position.y = 218
+	sell_button_text.position.y = 242
 	#print(sell_button_text.position.y)
 	pass
 	
@@ -304,7 +305,7 @@ func player_hit():
 	$sounds/bite.play()
 	if player.health == 0:
 		print("Dead")
-		return
+		get_tree().change_scene_to_file("res://scenes/game.tscn")
 		
 	player.health -= 1
 	hearts_cooldown.start()
@@ -358,7 +359,9 @@ func check_hit_on_cats():
 						if killed_cats == cats_num:
 							killed_cats = 0
 							cats_att.start()
-						
+							global.update_currency(30*cats_num)
+							inventory.refresh_currency()
+							
 					break
 			break
 	
@@ -531,28 +534,29 @@ func buy_w(num):
 	match num:
 		1:
 			if global.currency >= 10:
-				upgrade()
+				$sounds/stick.play()
 				global.update_currency(-10)
 				inventory.refresh_currency()
 				inventory._update_inventory("Stick", 1)
 			else: error()
 		2:
 			if global.currency >= 50:
-				upgrade()
+				$sounds/knife.play()
+
 				global.update_currency(-50)
 				inventory.refresh_currency()
 				inventory._update_inventory("Knife", 1)
 			else: error()
 		3:
 			if global.currency >= 100:
-				upgrade()
+				$sounds/small_axe.play()
 				global.update_currency(-100)
 				inventory.refresh_currency()
 				inventory._update_inventory("Small Axe", 1)
 			else: error()
 		4:
 			if global.currency >= 200:
-				upgrade()
+				$sounds/axe.play()
 				global.update_currency(-200)
 				inventory.refresh_currency()
 				inventory._update_inventory("Axe", 1)

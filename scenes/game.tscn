@@ -40,6 +40,11 @@
 [ext_resource type="AudioStream" uid="uid://dotsx5cc0gqu1" path="res://assets/sfx/kill.mp3" id="37_nepv3"]
 [ext_resource type="AudioStream" uid="uid://dy3ei81pkq7wk" path="res://assets/sfx/countdown.mp3" id="39_7025r"]
 [ext_resource type="AudioStream" uid="uid://cm1ix7oumace7" path="res://assets/sfx/walk.mp3" id="40_m4url"]
+[ext_resource type="AudioStream" uid="uid://bcs5bfhbyavl4" path="res://assets/sfx/bag.mp3" id="41_8ool0"]
+[ext_resource type="AudioStream" uid="uid://ck5ylqo3mucjn" path="res://assets/sfx/stick.ogg" id="42_oaba0"]
+[ext_resource type="AudioStream" uid="uid://bvsrx3uc8cuc8" path="res://assets/sfx/knife.ogg" id="43_458eo"]
+[ext_resource type="AudioStream" uid="uid://bbb06po0qgjo1" path="res://assets/sfx/small_axe.ogg" id="44_h3rex"]
+[ext_resource type="AudioStream" uid="uid://dgw5ydqeo3boq" path="res://assets/sfx/axe.ogg" id="45_fedci"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("1_lnu2h")
@@ -434,7 +439,7 @@ sources/4 = SubResource("TileSetAtlasSource_sww3w")
 script = ExtResource("1_u5sy4")
 
 [node name="cats_att" type="Timer" parent="." unique_id=480667788]
-wait_time = 120.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 
@@ -785,10 +790,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -306.00073
-offset_top = -190.84155
-offset_right = 526.9993
-offset_bottom = 210.15845
+offset_left = -306.00098
+offset_top = -191.73071
+offset_right = 526.9991
+offset_bottom = 209.26929
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7601523, 0.7601523)
@@ -2155,12 +2160,15 @@ limit_bottom = -1504
 
 [node name="click" type="AudioStreamPlayer" parent="sounds" unique_id=1454084826]
 stream = ExtResource("28_suyxu")
+max_polyphony = 3
 
 [node name="error" type="AudioStreamPlayer" parent="sounds" unique_id=1486861586]
 stream = ExtResource("29_sgl2t")
+max_polyphony = 3
 
 [node name="upgrade" type="AudioStreamPlayer" parent="sounds" unique_id=2121697565]
 stream = ExtResource("30_sgl2t")
+max_polyphony = 5
 
 [node name="chest" type="AudioStreamPlayer" parent="sounds" unique_id=1725509842]
 stream = ExtResource("31_qouja")
@@ -2192,6 +2200,25 @@ stream = ExtResource("39_7025r")
 [node name="walk" type="AudioStreamPlayer" parent="sounds" unique_id=1231545420]
 stream = ExtResource("40_m4url")
 volume_db = -2.0
+
+[node name="bag" type="AudioStreamPlayer" parent="sounds" unique_id=354872773]
+stream = ExtResource("41_8ool0")
+
+[node name="stick" type="AudioStreamPlayer" parent="sounds" unique_id=601850223]
+stream = ExtResource("42_oaba0")
+max_polyphony = 3
+
+[node name="knife" type="AudioStreamPlayer" parent="sounds" unique_id=2000479060]
+stream = ExtResource("43_458eo")
+max_polyphony = 3
+
+[node name="small_axe" type="AudioStreamPlayer" parent="sounds" unique_id=149554637]
+stream = ExtResource("44_h3rex")
+max_polyphony = 3
+
+[node name="axe" type="AudioStreamPlayer" parent="sounds" unique_id=1162337723]
+stream = ExtResource("45_fedci")
+max_polyphony = 3
 
 [connection signal="timeout" from="cats_att" to="." method="_on_cats_att_timeout"]
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]

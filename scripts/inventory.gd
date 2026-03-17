@@ -87,13 +87,14 @@ func _process(delta: float) -> void:
 			
 			refresh_inventory(0)
 			#inventorymanage.refresh_inventory()
-			
+			bag()
 			inventory_opened = 1
 			inventory.visible = 1
 			#print("i got here")
 			
 		elif(inventory_opened == 1):
 			#print("Im here now 1q")
+			bag()
 			
 			inventory_opened = 0
 			inventory.visible = 0
@@ -236,6 +237,8 @@ func refresh_inventory(case):
 		amount.text = str(int(inventory_items[i]["amount"]))
 		
 		icon.pressed.connect(func():
+			click()
+			
 			item_name.text = inventory_items[i]["name"]
 			item_price.text = str(inventory_items[i]["price"]) + "$"
 			item_order = i
@@ -409,6 +412,7 @@ func refresh_inventory(case):
 
 		
 		var select_all = func():
+			click()
 			amount_input.value = amount_input.max_value
 			#
 		button.pressed.connect(sell_press)
@@ -491,10 +495,16 @@ func _on_sell_pressed() -> void:
 	if(inventory_opened == 0):
 		inventory.visible = 1
 		inventory_opened = 2
+		click()
 		refresh_inventory(1)
 	elif(inventory_opened == 2):
 		inventory_opened = 0
 		inventory.visible = 0
+		click()
 	
 	#print("im not glitching")
 	#
+	
+func click(): $"../../sounds/click".play()
+func error(): $"../../sounds/error".play()
+func bag(): $"../../sounds/bag".play()

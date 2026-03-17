@@ -12,7 +12,7 @@ var player_boost = 3
 var player_health = 3
 
 
-var currency: int = 5000
+var currency: int = 0
 
 var chest_small_time = 0.1
 
@@ -74,12 +74,12 @@ var tiers = [
 ]
 
 var workers = [
-	{"Time": 3, "Capacity": 1, "Tier": 1},
-	{"Time": 60, "Capacity": 1, "Tier": 1},
-	{"Time": 60, "Capacity": 1, "Tier": 1},
-	{"Time": 60, "Capacity": 1, "Tier": 1},
-	{"Time": 60, "Capacity": 1, "Tier": 1},
-	{"Time": 60, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
 	
 ]
 
