@@ -508,3 +508,6 @@ func _on_sell_pressed() -> void:
 func click(): $"../../sounds/click".play()
 func error(): $"../../sounds/error".play()
 func bag(): $"../../sounds/bag".play()
+
+func win():
+	$"../../map/tilemaps/layer4".enabled = 0

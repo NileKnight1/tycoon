@@ -12,7 +12,7 @@ var player_boost = 3
 var player_health = 3
 
 
-var currency: int = 0
+var currency: int = 9995
 
 var chest_small_time = 0.1
 
@@ -26,11 +26,11 @@ var button_pressed = load("res://assets/ui/button_pressed.png")
 
 
 
-
 func update_currency(amount):
 	#print("I came hered")
 	currency += amount
 	#print(currency)
+	inventory.win()
 
 var items = [
 	# Weapons
@@ -74,7 +74,7 @@ var tiers = [
 ]
 
 var workers = [
-	{"Time": 40, "Capacity": 1, "Tier": 1},
+	{"Time": 1, "Capacity": 1, "Tier": 1},
 	{"Time": 40, "Capacity": 1, "Tier": 1},
 	{"Time": 40, "Capacity": 1, "Tier": 1},
 	{"Time": 40, "Capacity": 1, "Tier": 1},
