@@ -12,7 +12,7 @@ var player_boost = 3
 var player_health = 3
 
 
-var currency: int = 9995
+var currency: int = 0
 
 var chest_small_time = 0.1
 

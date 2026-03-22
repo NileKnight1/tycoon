@@ -7,6 +7,7 @@ extends Node2D
 @onready var speaker = $gui/nar/speaker
 @onready var speech = $gui/nar/speech
 
+var current_scene = 1
 
 func _ready() -> void:
 	refresh_health()

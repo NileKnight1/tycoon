@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://b0u4njl4j7e82" path="res://assets/sfx/click.wav" id="7_hxukt"]
 [ext_resource type="Script" uid="uid://bsag278fbvng8" path="res://scenes/scene_1.gd" id="7_jhek2"]
 [ext_resource type="AudioStream" uid="uid://1djsiglgodag" path="res://assets/sfx/error.wav" id="8_6chju"]
+[ext_resource type="PackedScene" uid="uid://prpgpwv4l41g" path="res://objects/rita_father.tscn" id="9_7uo60"]
 [ext_resource type="AudioStream" uid="uid://cv4obpajpd45t" path="res://assets/sfx/upgrade.wav" id="9_jhek2"]
 [ext_resource type="AudioStream" uid="uid://ctjxqdmpdcxgw" path="res://assets/sfx/chest.wav" id="10_lvn8r"]
 [ext_resource type="AudioStream" uid="uid://dyhttjd85b3g5" path="res://assets/sfx/chest2.mp3" id="11_1g233"]
@@ -452,7 +453,11 @@ pattern_6 = SubResource("TileMapPattern_f5sp3")
 pattern_7 = SubResource("TileMapPattern_6ldqi")
 pattern_8 = SubResource("TileMapPattern_wltmo")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7uo60"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jhek2"]
+radius = 16.27475
+height = 45.410522
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qouja"]
 atlas = ExtResource("33_csdd4")
@@ -506,19 +511,40 @@ tile_set = SubResource("TileSet_th5xy")
 [node name="scene1" type="Node" parent="." unique_id=1039048833]
 script = ExtResource("7_jhek2")
 
-[node name="princess" parent="scene1" unique_id=856157569 instance=ExtResource("6_6chju")]
+[node name="rita" parent="scene1" unique_id=856157569 instance=ExtResource("6_6chju")]
 position = Vector2(899.00006, 353.00003)
 scale = Vector2(1.2440869, 1.2440869)
 
-[node name="Area2D" type="Area2D" parent="scene1" unique_id=563694135]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene1/rita" unique_id=717002323]
+shape = SubResource("CircleShape2D_7uo60")
+
+[node name="rita father" parent="scene1" unique_id=36338767 instance=ExtResource("9_7uo60")]
+visible = false
+position = Vector2(-1688, -950)
+scale = Vector2(1.3199999, 1.3199999)
+
+[node name="scene1" type="Area2D" parent="scene1" unique_id=563694135]
 light_mask = 2
 visibility_layer = 2
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="scene1/Area2D" unique_id=933024805]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene1/scene1" unique_id=933024805]
 position = Vector2(899, 354)
 scale = Vector2(3.5082316, -0.8782466)
+shape = SubResource("CapsuleShape2D_jhek2")
+
+[node name="scene2" type="Area2D" parent="scene1" unique_id=1014037275]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(-2598, -1306)
+scale = Vector2(1.000946, 1.0566989)
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scene1/scene2" unique_id=651176765]
+position = Vector2(893.155, 336.89822)
+scale = Vector2(3.0152063, -1.2987354)
 shape = SubResource("CapsuleShape2D_jhek2")
 
 [node name="sounds" type="Node" parent="." unique_id=848235057]
@@ -589,7 +615,7 @@ max_polyphony = 3
 light_mask = 73
 visibility_layer = 73
 z_index = 2
-position = Vector2(977.99994, 346)
+position = Vector2(-1508, -933.99994)
 scale = Vector2(1.44, 1.44)
 collision_layer = 202
 collision_mask = 74
@@ -958,5 +984,36 @@ scale = Vector2(0.1, 0.1)
 theme_override_font_sizes/font_size = 230
 autowrap_mode = 3
 
-[connection signal="body_entered" from="scene1/Area2D" to="scene1" method="_on_area_2d_body_entered"]
+[node name="tasks" type="CanvasLayer" parent="gui" unique_id=606240293]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="gui/tasks" unique_id=259308928]
+offset_left = 1001.0
+offset_top = 62.000004
+offset_right = 1955.0
+offset_bottom = 190.40202
+scale = Vector2(0.25140136, 0.45170617)
+color = Color(0, 0, 0, 0.7176471)
+
+[node name="task" type="Label" parent="gui/tasks" unique_id=424827740]
+offset_left = 1021.0
+offset_top = 87.0
+offset_right = 3256.0
+offset_bottom = 496.0
+scale = Vector2(0.07685728, 0.07685728)
+theme_override_font_sizes/font_size = 228
+vertical_alignment = 1
+
+[node name="title" type="Label" parent="gui/tasks" unique_id=1458995196]
+offset_left = 1009.9999
+offset_top = 61.99999
+offset_right = 3245.0
+offset_bottom = 471.0
+scale = Vector2(0.07685728, 0.07685728)
+theme_override_font_sizes/font_size = 281
+text = "To do:"
+vertical_alignment = 1
+
+[connection signal="body_entered" from="scene1/scene1" to="scene1" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="scene1/scene2" to="scene1" method="_on_scene_2_body_entered"]
 [connection signal="pressed" from="gui/sell" to="gui/inventory" method="_on_sell_pressed"]
