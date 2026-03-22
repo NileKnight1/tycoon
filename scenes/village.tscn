@@ -823,6 +823,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="taskbar" type="HBoxContainer" parent="gui" unique_id=196044233]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -928,6 +929,34 @@ layout_mode = 0
 offset_left = -39.99997
 offset_right = 3.0517578e-05
 offset_bottom = 23.0
+
+[node name="nar" type="CanvasLayer" parent="gui" unique_id=771821666]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="gui/nar" unique_id=1279556673]
+offset_left = 163.0
+offset_top = 553.0
+offset_right = 1117.0
+offset_bottom = 720.0
+color = Color(0, 0, 0, 0.7176471)
+
+[node name="speaker" type="Label" parent="gui/nar" unique_id=370935535]
+offset_left = 193.0
+offset_top = 560.0
+offset_right = 1081.0
+offset_bottom = 969.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 300
+vertical_alignment = 1
+
+[node name="speech" type="Label" parent="gui/nar" unique_id=967737362]
+offset_left = 218.0
+offset_top = 605.00006
+offset_right = 9097.999
+offset_bottom = 1564.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 230
+autowrap_mode = 3
 
 [connection signal="body_entered" from="scene1/Area2D" to="scene1" method="_on_area_2d_body_entered"]
 [connection signal="pressed" from="gui/sell" to="gui/inventory" method="_on_sell_pressed"]

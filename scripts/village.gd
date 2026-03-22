@@ -4,11 +4,17 @@ extends Node2D
 @onready var hearts = $gui/hearts
 @onready var player = $player1
 @onready var taskbar = $gui/taskbar
-
+@onready var speaker = $gui/nar/speaker
+@onready var speech = $gui/nar/speech
 
 
 func _ready() -> void:
 	refresh_health()
+
+func sp(t1, t2):
+	speaker.text = t1
+	speech.text = t2
+	
 
 func refresh_health():
 	
@@ -33,7 +39,7 @@ func _input(event: InputEvent) -> void:
 	elif Input.is_action_just_pressed("t3"):
 		taskbar.get_child(2).button_pressed = 3
 		$player1/hand.texture = taskbar.get_child(2).get_child(0).texture
-		
+
 func _on_button_1_toggled(toggled_on: bool) -> void:
 	if toggled_on:
 		$player1/hand.texture = taskbar.get_child(0).get_child(0).texture
