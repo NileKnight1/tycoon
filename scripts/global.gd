@@ -7,12 +7,12 @@ var font1 = load("res://temp2.ttf")
 var font2 = load("res://temp.ttf")
 
 
-var player_speed = 350
-var player_boost = 3
+var player_speed = 130
+var player_boost = 2
 var player_health = 3
 var bonus_stick = 0
 
-var currency: int = 9995
+var currency: int = 0
 
 var chest_small_time = 0.1
 
@@ -82,7 +82,7 @@ var tiers = [
 ]
 
 var workers = [
-	{"Time": 1, "Capacity": 1, "Tier": 1},
+	{"Time": 40, "Capacity": 1, "Tier": 1},
 	{"Time": 40, "Capacity": 1, "Tier": 1},
 	{"Time": 40, "Capacity": 1, "Tier": 1},
 	{"Time": 40, "Capacity": 1, "Tier": 1},

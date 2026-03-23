@@ -16,22 +16,35 @@ var sceneNum = 0
 @onready var weapons_man = $"weapons man"
 @onready var weird = $weird
 @onready var black_screen = $"../gui/end"
-
+@onready var mobile = $"../gui/mobile"
 
 var weapons_man_scene = 0
 var heart_scene = 0
 var temp = 0
+var oss = 0
 
 func _ready() -> void:
+	task.text = str(OS.get_name)
 	#sceneNum = 20
 	#scene()
 	#v.current_scene =AAAsAAa 4
+	#var os_name = OS.get_name()
+	#print(os_name)
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		oss = 1
+			
+	mobile.visible = oss
+	
 	if global.currency >= 10000:
 		win()
 	else:
 		global.player_health = 3
 		v.current_scene = 1
 		task.text = "- Explore the village."
+		#if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+			#task.text = "1"
+		#else: task.text = "0"
+		
 		global.time = 0
 
 func _process(delta: float) -> void:
@@ -72,6 +85,7 @@ func win():
 	
 
 func scene():
+	mobile.visible = 0
 	sceneNum += 1
 	match v.current_scene:
 		1:
@@ -107,6 +121,7 @@ func scene():
 					task.text = "- Find Rita's house."
 					rita_father.visible = 1
 					sceneNum = 0
+					mobile.visible = oss
 		2: 
 			match sceneNum:
 				1:
@@ -141,6 +156,8 @@ func scene():
 					task.text = "- Get money."
 					weird.visible = 1
 					player.no_move = 0
+					mobile.visible = oss
+					
 		3: 
 			match sceneNum:
 				1:
@@ -169,6 +186,8 @@ func scene():
 					task.text = "- Explore the village or leave."
 					
 					player.no_move = 0
+					mobile.visible = oss
+					
 		4: 
 			match sceneNum:
 				1:
@@ -180,7 +199,7 @@ func scene():
 					
 				
 				_: 
-
+					mobile.visible = oss
 					get_tree().change_scene_to_file("res://scenes/game.tscn")
 		5:
 			match sceneNum:
@@ -242,6 +261,8 @@ func scene():
 					
 					
 				_:
+					mobile.visible = oss
+					
 					v.current_scene = temp
 					nar.visible = 0
 					tasks.visible = 1
@@ -255,6 +276,8 @@ func scene():
 					v.sp("Village Guard", "You can't leave the village kid.")
 					
 				_:
+					mobile.visible = oss
+					
 					v.current_scene = temp
 					nar.visible = 0
 					tasks.visible = 1
@@ -289,6 +312,8 @@ func scene():
 					
 					
 				_:
+					mobile.visible = oss
+					
 					v.current_scene = temp
 					nar.visible = 0
 					tasks.visible = 1

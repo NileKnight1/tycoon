@@ -70,6 +70,12 @@ func _ready() -> void:
 	
 	
 	
+	if OS.has_feature("web_android") or OS.has_feature("web_ios"):
+		$gui/mobile.visible = 1
+
+	
+	
+	
 	#print(workers)
 	#chests.start()
 	#print("bruhhhh")

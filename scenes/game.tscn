@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://crgqk2rw0amg5" path="res://scripts/worker1.gd" id="14_trtic"]
 [ext_resource type="Texture2D" uid="uid://cgnicxvhdljcl" path="res://assets/interior/TilesetInteriorFloor.png" id="15_264po"]
 [ext_resource type="Texture2D" uid="uid://85j02e472a4j" path="res://assets/ui/button_pressed.png" id="15_e1j6l"]
+[ext_resource type="Texture2D" uid="uid://cngnkddsmqrd2" path="res://assets/ui/ProgressWhite.png" id="15_fedci"]
 [ext_resource type="Texture2D" uid="uid://ca1csoby5ersx" path="res://assets/interior/TilesetWallSimple.png" id="16_1kice"]
 [ext_resource type="Texture2D" uid="uid://chkv8sarajmer" path="res://assets/ui/button_hover.png" id="16_pl11u"]
 [ext_resource type="Texture2D" uid="uid://dwn3h4eckr0bk" path="res://assets/interior/dungeon_.png" id="17_5newe"]
@@ -46,6 +47,8 @@
 [ext_resource type="AudioStream" uid="uid://bbb06po0qgjo1" path="res://assets/sfx/small_axe.ogg" id="44_h3rex"]
 [ext_resource type="AudioStream" uid="uid://dgw5ydqeo3boq" path="res://assets/sfx/axe.ogg" id="45_fedci"]
 [ext_resource type="PackedScene" uid="uid://04xugslol4e8" path="res://objects/weird.tscn" id="46_458eo"]
+[ext_resource type="Script" uid="uid://genxrksscxje" path="res://scripts/mobile.gd" id="47_8qswn"]
+[ext_resource type="Texture2D" uid="uid://756ldxnytt8" path="res://assets/ui/ProgressBlack.png" id="47_h3rex"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oaba0"]
 texture = ExtResource("1_lnu2h")
@@ -992,6 +995,85 @@ layout_mode = 0
 offset_left = -39.99997
 offset_right = 3.0517578e-05
 offset_bottom = 23.0
+
+[node name="mobile" type="CanvasLayer" parent="gui" unique_id=1023640838]
+visible = false
+script = ExtResource("47_8qswn")
+
+[node name="Control" type="Control" parent="gui/mobile" unique_id=1565307691]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(32.00545, 18.029236)
+mouse_filter = 2
+
+[node name="left" type="TouchScreenButton" parent="gui/mobile/Control" unique_id=969782892]
+position = Vector2(1.8121929, 30.00682)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+passby_press = true
+action = "left"
+visibility_mode = 1
+
+[node name="right" type="TouchScreenButton" parent="gui/mobile/Control" unique_id=502685357]
+position = Vector2(6.4988937, 30.00682)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+passby_press = true
+action = "right"
+visibility_mode = 1
+
+[node name="down" type="TouchScreenButton" parent="gui/mobile/Control" unique_id=558425720]
+position = Vector2(4.1555405, 33.112885)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+passby_press = true
+action = "down"
+visibility_mode = 1
+
+[node name="up" type="TouchScreenButton" parent="gui/mobile/Control" unique_id=1430769972]
+position = Vector2(4.1555443, 26.678894)
+scale = Vector2(0.13604799, 0.20144063)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+passby_press = true
+action = "up"
+visibility_mode = 1
+
+[node name="sprint" type="TouchScreenButton" parent="gui/mobile/Control" unique_id=551359719]
+position = Vector2(32.24451, 27.233545)
+scale = Vector2(0.3050595, 0.21426336)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+passby_press = true
+action = "sprint"
+visibility_mode = 1
+
+[node name="inventory" type="TextureButton" parent="gui/mobile/Control" unique_id=1408778500]
+layout_mode = 0
+offset_left = 35.275208
+offset_top = 33.667526
+offset_right = 75.27521
+offset_bottom = 73.667534
+scale = Vector2(0.08002439, 0.1184888)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+stretch_mode = 5
+
+[node name="inventory2" type="TextureButton" parent="gui/mobile/Control" unique_id=690044027]
+layout_mode = 0
+offset_left = 31.244682
+offset_top = 33.667526
+offset_right = 71.24468
+offset_bottom = 73.667534
+scale = Vector2(0.08002439, 0.1184888)
+texture_normal = ExtResource("47_h3rex")
+texture_pressed = ExtResource("15_fedci")
+stretch_mode = 5
 
 [node name="house" type="Node2D" parent="." unique_id=691408514]
 position = Vector2(828, -268)
@@ -2146,7 +2228,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="player2" parent="." unique_id=1692506950 instance=ExtResource("1_uwrxv")]
-position = Vector2(784, -279)
+position = Vector2(784, -283)
 scale = Vector2(3.84, 3.84)
 
 [node name="Camera2D" type="Camera2D" parent="player2" unique_id=76381083]
@@ -2240,6 +2322,8 @@ scale = Vector2(1.2, 1.2)
 [connection signal="toggled" from="gui/taskbar/button1" to="." method="_on_button_1_toggled"]
 [connection signal="toggled" from="gui/taskbar/button2" to="." method="_on_button_2_toggled"]
 [connection signal="toggled" from="gui/taskbar/button3" to="." method="_on_button_3_toggled"]
+[connection signal="pressed" from="gui/mobile/Control/inventory" to="gui/mobile" method="_on_inventory_pressed"]
+[connection signal="pressed" from="gui/mobile/Control/inventory2" to="gui/mobile" method="_on_interact_pressed"]
 [connection signal="button_down" from="house/Node2D/back" to="." method="_on_back_button_down"]
 [connection signal="button_up" from="house/Node2D/back" to="." method="_on_back_button_up"]
 [connection signal="pressed" from="house/Node2D/back" to="." method="_on_back_pressed"]
