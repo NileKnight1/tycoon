@@ -13,6 +13,7 @@ func _ready() -> void:
 	refresh_health()
 
 func sp(t1, t2):
+	$sounds/pop.play()
 	speaker.text = t1
 	speech.text = t2
 	

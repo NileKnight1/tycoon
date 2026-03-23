@@ -41,6 +41,7 @@ var test = 0
 
 func _ready() -> void:
 	global.inventory = self
+	if global.bonus_stick: _update_inventory("Stick", 1)
 	#
 	#_update_inventory("Knife", 1)
 	#_update_inventory("Axe", 1)
@@ -510,4 +511,4 @@ func error(): $"../../sounds/error".play()
 func bag(): $"../../sounds/bag".play()
 
 func win():
-	$"../../map/tilemaps/layer4".enabled = 0
+	get_tree().change_scene_to_file("res://scenes/village.tscn")

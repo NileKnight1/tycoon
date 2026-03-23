@@ -129,13 +129,21 @@ func start_game():
 		j.set_deferred("disabled", 0)
 		
 	houses.get_child(global.workers_count).enabled = 1
+	
+	global.workers_count = 1
 
-	global.workers_count +=1
 	
 
 
 func add_worker():
-	start_game()
+	chests.get_child(global.workers_count).start()
+	chests.get_child(global.workers_count).visible = 1
+	for j in chests.get_child(global.workers_count).cols:
+		j.set_deferred("disabled", 0)
+		
+	houses.get_child(global.workers_count).enabled = 1
+
+	global.workers_count += 1
 	
 
 func refresh_health():
@@ -303,11 +311,15 @@ func player_hit():
 	
 	if hearts_cooldown.time_left: return
 	$sounds/bite.play()
+	player.health -= 1
 	if player.health == 0:
 		print("Dead")
-		get_tree().change_scene_to_file("res://scenes/game.tscn")
+		global.workers_count = 0
+		global.currency = 0
 		
-	player.health -= 1
+		get_tree().change_scene_to_file("res://scenes/game.tscn")
+		return
+		
 	hearts_cooldown.start()
 	refresh_health()
 	#

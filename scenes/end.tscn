@@ -1,0 +1,216 @@
+[gd_scene format=4 uid="uid://clvrefvvim32g"]
+
+[ext_resource type="Script" uid="uid://g2pbdfnjccf2" path="res://scripts/end.gd" id="1_7il6q"]
+[ext_resource type="Texture2D" uid="uid://cgnicxvhdljcl" path="res://assets/interior/TilesetInteriorFloor.png" id="2_s1rt4"]
+[ext_resource type="Texture2D" uid="uid://ca1csoby5ersx" path="res://assets/interior/TilesetWallSimple.png" id="3_yqdrn"]
+[ext_resource type="Texture2D" uid="uid://dwn3h4eckr0bk" path="res://assets/interior/dungeon_.png" id="4_c5m3e"]
+[ext_resource type="Texture2D" uid="uid://uyv4v7un12xg" path="res://assets/interior/desertDungeon_.png" id="5_2iim0"]
+[ext_resource type="Texture2D" uid="uid://bqkmho5ybxqmd" path="res://assets/interior/dungeon_ (2).png" id="6_i75fg"]
+[ext_resource type="PackedScene" uid="uid://dwcsox3sb054a" path="res://objects/player_1.tscn" id="7_rvoii"]
+[ext_resource type="Texture2D" uid="uid://cpvvhwucou8ci" path="res://assets/ui/button_normal.png" id="8_srpts"]
+[ext_resource type="Texture2D" uid="uid://85j02e472a4j" path="res://assets/ui/button_pressed.png" id="9_t7f5n"]
+[ext_resource type="Texture2D" uid="uid://chkv8sarajmer" path="res://assets/ui/button_hover.png" id="10_gh54c"]
+[ext_resource type="Texture2D" uid="uid://dml6mju06vl4k" path="res://assets/ui/button_disabled.png" id="11_yhucb"]
+[ext_resource type="FontFile" uid="uid://cqf1yldi8ixyt" path="res://temp2.ttf" id="12_rhajk"]
+[ext_resource type="AudioStream" uid="uid://b0u4njl4j7e82" path="res://assets/sfx/click.wav" id="13_mdegm"]
+[ext_resource type="AudioStream" uid="uid://1djsiglgodag" path="res://assets/sfx/error.wav" id="14_8l46t"]
+[ext_resource type="AudioStream" uid="uid://cv4obpajpd45t" path="res://assets/sfx/upgrade.wav" id="15_7r0jp"]
+[ext_resource type="AudioStream" uid="uid://ctjxqdmpdcxgw" path="res://assets/sfx/chest.wav" id="16_plpok"]
+[ext_resource type="AudioStream" uid="uid://dyhttjd85b3g5" path="res://assets/sfx/chest2.mp3" id="17_t72tt"]
+[ext_resource type="AudioStream" uid="uid://mxbh15ocpyjm" path="res://assets/sfx/cash.mp3" id="18_cm5gx"]
+[ext_resource type="AudioStream" uid="uid://dj48owqft7aje" path="res://assets/sfx/whip.mp3" id="19_d1uq7"]
+[ext_resource type="AudioStream" uid="uid://bdis0iwoyp5et" path="res://assets/sfx/bite.mp3" id="20_goy17"]
+[ext_resource type="AudioStream" uid="uid://bumplcjjgpjpt" path="res://assets/sfx/raid.mp3" id="21_368ms"]
+[ext_resource type="AudioStream" uid="uid://bpq3v3gndk2kj" path="res://assets/sfx/hit.mp3" id="22_fl2kj"]
+[ext_resource type="AudioStream" uid="uid://dotsx5cc0gqu1" path="res://assets/sfx/kill.mp3" id="23_y71l6"]
+[ext_resource type="AudioStream" uid="uid://dy3ei81pkq7wk" path="res://assets/sfx/countdown.mp3" id="24_0rea6"]
+[ext_resource type="AudioStream" uid="uid://cm1ix7oumace7" path="res://assets/sfx/walk.mp3" id="25_vl1pm"]
+[ext_resource type="AudioStream" uid="uid://bcs5bfhbyavl4" path="res://assets/sfx/bag.mp3" id="26_y3qrf"]
+[ext_resource type="AudioStream" uid="uid://ck5ylqo3mucjn" path="res://assets/sfx/stick.ogg" id="27_gu8ig"]
+[ext_resource type="AudioStream" uid="uid://bvsrx3uc8cuc8" path="res://assets/sfx/knife.ogg" id="28_upv21"]
+[ext_resource type="AudioStream" uid="uid://bbb06po0qgjo1" path="res://assets/sfx/small_axe.ogg" id="29_8cws8"]
+[ext_resource type="AudioStream" uid="uid://dgw5ydqeo3boq" path="res://assets/sfx/axe.ogg" id="30_qbblq"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1nvso"]
+texture = ExtResource("2_s1rt4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gsp51"]
+texture = ExtResource("3_yqdrn")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r8uic"]
+texture = ExtResource("4_c5m3e")
+6:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+10:4/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_x1pfr"]
+texture = ExtResource("5_2iim0")
+3:4/0 = 0
+4:4/0 = 0
+4:5/0 = 0
+4:6/0 = 0
+3:5/0 = 0
+3:6/0 = 0
+5:4/0 = 0
+5:5/0 = 0
+5:6/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0tym"]
+texture = ExtResource("6_i75fg")
+3:0/0 = 0
+3:1/0 = 0
+3:2/0 = 0
+4:0/0 = 0
+4:1/0 = 0
+4:2/0 = 0
+5:0/0 = 0
+5:1/0 = 0
+5:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8jfef"]
+sources/0 = SubResource("TileSetAtlasSource_1nvso")
+sources/1 = SubResource("TileSetAtlasSource_gsp51")
+sources/2 = SubResource("TileSetAtlasSource_r8uic")
+sources/3 = SubResource("TileSetAtlasSource_x1pfr")
+sources/4 = SubResource("TileSetAtlasSource_n0tym")
+
+[node name="end" type="Node2D" unique_id=1443983509]
+script = ExtResource("1_7il6q")
+
+[node name="layer" type="TileMapLayer" parent="." unique_id=1595721770]
+tile_map_data = PackedByteArray("AAD+/wEAAgAKAAMAAAD//wEAAgAKAAMAAAD9/wEAAgAKAAMAAAAAAAEAAgAKAAMAAAABAAEAAgAKAAMAAAACAAEAAgAKAAMAAAADAAEAAgAKAAMAAAAEAAEAAgAKAAMAAAD8/wEAAgAKAAMAAAAFAAEAAgAKAAMAAAAGAAEAAgAKAAMAAAD6/wEAAgAKAAMAAAD7/wEAAgAKAAMAAAD6//7/BAAEAAEAAAD6////BAAEAAEAAAD6/wAABAAEAAEAAAD7//7/BAAEAAEAAAD7////BAAEAAEAAAD7/wAABAAEAAEAAAD7//v/BAAEAAEAAAD7//z/BAAEAAEAAAD7//3/BAAEAAEAAAD6//v/BAAEAAEAAAD6//z/BAAEAAEAAAD6//3/BAAEAAEAAAD8//v/BAAEAAEAAAD8//z/BAAEAAEAAAD8//3/BAAEAAEAAAD9//v/BAAEAAEAAAD9//z/BAAEAAEAAAD9//3/BAAEAAEAAAD8//7/BAAEAAEAAAD8////BAAEAAEAAAD8/wAABAAEAAEAAAD9//7/BAAEAAEAAAD9////BAAEAAEAAAD9/wAABAAEAAEAAAD+//v/BAAEAAEAAAD+//z/BAAEAAEAAAD+//3/BAAEAAEAAAD+//7/BAAEAAEAAAD+////BAAEAAEAAAD+/wAABAAEAAEAAAD///v/BAAEAAEAAAD///z/BAAEAAEAAAD///3/BAAEAAEAAAD///7/BAAEAAEAAAD/////BAAEAAEAAAD//wAABAAEAAEAAAAAAP7/BAAEAAEAAAABAP7/BAAEAAEAAAABAP3/BAAEAAEAAAABAPz/BAAEAAEAAAABAPv/BAAEAAEAAAAAAPv/BAAEAAEAAAAAAPz/BAAEAAEAAAAAAP3/BAAEAAEAAAABAP//BAAEAAEAAAABAAAABAAEAAEAAAAAAP//BAAEAAEAAAAAAAAABAAEAAEAAAACAPv/BAAEAAEAAAACAPz/BAAEAAEAAAACAP3/BAAEAAEAAAACAP7/BAAEAAEAAAACAP//BAAEAAEAAAACAAAABAAEAAEAAAADAPv/BAAEAAEAAAAEAPz/BAAEAAEAAAAEAP3/BAAEAAEAAAAFAP7/BAAEAAEAAAAFAP//BAAEAAEAAAAGAAAABAAEAAEAAAADAPz/BAAEAAEAAAADAP3/BAAEAAEAAAADAP7/BAAEAAEAAAADAP//BAAEAAEAAAADAAAABAAEAAEAAAAEAAAABAAEAAEAAAAFAAAABAAEAAEAAAAEAP//BAAEAAEAAAAEAP7/BAAEAAEAAAAEAPv/BAAEAAEAAAAFAPv/BAAEAAEAAAAGAPv/BAAEAAEAAAAGAPz/BAAEAAEAAAAGAP3/BAAEAAEAAAAGAP7/BAAEAAEAAAAGAP//BAAEAAEAAAAFAPz/BAAEAAEAAAAFAP3/BAAEAAEAAAAHAPv/BAAEAAEAAAAHAPz/BAAEAAEAAAAHAP3/BAAEAAEAAAAHAP7/BAAEAAEAAAAHAP//BAAEAAEAAAAHAAAABAAEAAEAAAAIAPv/BAAEAAEAAAAIAPz/BAAEAAEAAAAIAP3/BAAEAAEAAAAIAP7/BAAEAAEAAAAIAP//BAAEAAEAAAAIAAAABAAEAAEAAAAJAPv/BAAEAAEAAAAJAPz/BAAEAAEAAAAJAP3/BAAEAAEAAAAJAP7/BAAEAAEAAAAJAP//BAAEAAEAAAAJAAAABAAEAAEAAAAKAPv/BAAEAAEAAAAKAPz/BAAEAAEAAAAKAP3/BAAEAAEAAAAKAP7/BAAEAAEAAAAKAP//BAAEAAEAAAAKAAAABAAEAAEAAAAHAAEAAgAKAAMAAAAIAAEAAgAKAAMAAAAJAAEAAgAKAAMAAAAKAAEAAgAKAAMAAAD5/wEAAgAKAAMAAAD4/wEAAgAKAAMAAAD3/wEAAgAKAAMAAAD2/wEAAgAKAAMAAAD1/wEAAgAKAAMAAAAMAAEAAgAKAAMAAAANAAEAAgAKAAMAAAAOAAEAAgAKAAMAAAAPAAEAAgAKAAMAAAAQAAEAAgAKAAMAAAARAAEAAgAKAAMAAAALAAEAAgAKAAMAAAD1//f/BAAEAAEAAAD1//j/BAAEAAEAAAD1//n/BAAEAAEAAAD1//r/BAAEAAEAAAD1//v/BAAEAAEAAAD1//z/BAAEAAEAAAD1//3/BAAEAAEAAAD1//7/BAAEAAEAAAD1////BAAEAAEAAAD1/wAABAAEAAEAAAD2//f/BAAEAAEAAAD2//j/BAAEAAEAAAD2//n/BAAEAAEAAAD2//r/BAAEAAEAAAD2//v/BAAEAAEAAAD2//z/BAAEAAEAAAD2//3/BAAEAAEAAAD2//7/BAAEAAEAAAD2////BAAEAAEAAAD2/wAABAAEAAEAAAD3//f/BAAEAAEAAAD3//j/BAAEAAEAAAD3//n/BAAEAAEAAAD3//r/BAAEAAEAAAD3//v/BAAEAAEAAAD3//z/BAAEAAEAAAD3//3/BAAEAAEAAAD3//7/BAAEAAEAAAD3////BAAEAAEAAAD3/wAABAAEAAEAAAD4//f/BAAEAAEAAAD4//j/BAAEAAEAAAD4//n/BAAEAAEAAAD4//r/BAAEAAEAAAD4//v/BAAEAAEAAAD4//z/BAAEAAEAAAD4//3/BAAEAAEAAAD4//7/BAAEAAEAAAD4////BAAEAAEAAAD4/wAABAAEAAEAAAD5//f/BAAEAAEAAAD5//j/BAAEAAEAAAD5//n/BAAEAAEAAAD5//r/BAAEAAEAAAD5//v/BAAEAAEAAAD5//z/BAAEAAEAAAD5//3/BAAEAAEAAAD5//7/BAAEAAEAAAD5////BAAEAAEAAAD5/wAABAAEAAEAAAD6//f/BAAEAAEAAAD6//j/BAAEAAEAAAD6//n/BAAEAAEAAAD6//r/BAAEAAEAAAD7//f/BAAEAAEAAAD7//j/BAAEAAEAAAD7//n/BAAEAAEAAAD7//r/BAAEAAEAAAD8//f/BAAEAAEAAAD8//j/BAAEAAEAAAD8//n/BAAEAAEAAAD8//r/BAAEAAEAAAD9//f/BAAEAAEAAAD9//j/BAAEAAEAAAD9//n/BAAEAAEAAAD9//r/BAAEAAEAAAD+//f/BAAEAAEAAAD+//j/BAAEAAEAAAD+//n/BAAEAAEAAAD+//r/BAAEAAEAAAD///f/BAAEAAEAAAD///j/BAAEAAEAAAD///n/BAAEAAEAAAD///r/BAAEAAEAAAAAAPf/BAAEAAEAAAAAAPj/BAAEAAEAAAAAAPn/BAAEAAEAAAAAAPr/BAAEAAEAAAABAPf/BAAEAAEAAAABAPj/BAAEAAEAAAABAPn/BAAEAAEAAAABAPr/BAAEAAEAAAACAPf/BAAEAAEAAAACAPj/BAAEAAEAAAACAPn/BAAEAAEAAAACAPr/BAAEAAEAAAADAPf/BAAEAAEAAAADAPj/BAAEAAEAAAADAPn/BAAEAAEAAAADAPr/BAAEAAEAAAAEAPf/BAAEAAEAAAAEAPj/BAAEAAEAAAAEAPn/BAAEAAEAAAAEAPr/BAAEAAEAAAAFAPf/BAAEAAEAAAAFAPj/BAAEAAEAAAAFAPn/BAAEAAEAAAAFAPr/BAAEAAEAAAAGAPf/BAAEAAEAAAAGAPj/BAAEAAEAAAAGAPn/BAAEAAEAAAAGAPr/BAAEAAEAAAAHAPf/BAAEAAEAAAAHAPj/BAAEAAEAAAAHAPn/BAAEAAEAAAAHAPr/BAAEAAEAAAAIAPf/BAAEAAEAAAAIAPj/BAAEAAEAAAAIAPn/BAAEAAEAAAAIAPr/BAAEAAEAAAAJAPf/BAAEAAEAAAAJAPj/BAAEAAEAAAAJAPn/BAAEAAEAAAAJAPr/BAAEAAEAAAAKAPf/BAAEAAEAAAAKAPj/BAAEAAEAAAAKAPn/BAAEAAEAAAAKAPr/BAAEAAEAAAALAPf/BAAEAAEAAAALAPj/BAAEAAEAAAALAPn/BAAEAAEAAAALAPr/BAAEAAEAAAALAPv/BAAEAAEAAAALAPz/BAAEAAEAAAALAP3/BAAEAAEAAAALAP7/BAAEAAEAAAALAP//BAAEAAEAAAALAAAABAAEAAEAAAAMAPf/BAAEAAEAAAAMAPj/BAAEAAEAAAAMAPn/BAAEAAEAAAAMAPr/BAAEAAEAAAAMAPv/BAAEAAEAAAAMAPz/BAAEAAEAAAAMAP3/BAAEAAEAAAAMAP7/BAAEAAEAAAAMAP//BAAEAAEAAAAMAAAABAAEAAEAAAANAPf/BAAEAAEAAAANAPj/BAAEAAEAAAANAPn/BAAEAAEAAAANAPr/BAAEAAEAAAANAPv/BAAEAAEAAAANAPz/BAAEAAEAAAANAP3/BAAEAAEAAAANAP7/BAAEAAEAAAANAP//BAAEAAEAAAANAAAABAAEAAEAAAAOAPf/BAAEAAEAAAAOAPj/BAAEAAEAAAAOAPn/BAAEAAEAAAAOAPr/BAAEAAEAAAAOAPv/BAAEAAEAAAAOAPz/BAAEAAEAAAAOAP3/BAAEAAEAAAAOAP7/BAAEAAEAAAAOAP//BAAEAAEAAAAOAAAABAAEAAEAAAAPAPf/BAAEAAEAAAAPAPj/BAAEAAEAAAAPAPn/BAAEAAEAAAAPAPr/BAAEAAEAAAAPAPv/BAAEAAEAAAAPAPz/BAAEAAEAAAAPAP3/BAAEAAEAAAAPAP7/BAAEAAEAAAAPAP//BAAEAAEAAAAPAAAABAAEAAEAAAAQAPf/BAAEAAEAAAAQAPj/BAAEAAEAAAAQAPn/BAAEAAEAAAAQAPr/BAAEAAEAAAAQAPv/BAAEAAEAAAAQAPz/BAAEAAEAAAAQAP3/BAAEAAEAAAAQAP7/BAAEAAEAAAAQAP//BAAEAAEAAAAQAAAABAAEAAEAAAARAPf/BAAEAAEAAAARAPj/BAAEAAEAAAARAPn/BAAEAAEAAAARAPr/BAAEAAEAAAARAPv/BAAEAAEAAAARAPz/BAAEAAEAAAARAP3/BAAEAAEAAAARAP7/BAAEAAEAAAARAP//BAAEAAEAAAARAAAABAAEAAEAAAD1/wIAAgAKAAQAAAD1/wMAAgAKAAQAAAD1/wQAAgAKAAQAAAD1/wUAAgAKAAQAAAD2/wIAAgAKAAQAAAD2/wMAAgAKAAQAAAD2/wQAAgAKAAQAAAD2/wUAAgAKAAQAAAD3/wIAAgAKAAQAAAD3/wMAAgAKAAQAAAD3/wQAAgAKAAQAAAD3/wUAAgAKAAQAAAD4/wIAAgAKAAQAAAD4/wMAAgAKAAQAAAD4/wQAAgAKAAQAAAD4/wUAAgAKAAQAAAD5/wIAAgAKAAQAAAD5/wMAAgAKAAQAAAD5/wQAAgAKAAQAAAD5/wUAAgAKAAQAAAD6/wIAAgAKAAQAAAD6/wMAAgAKAAQAAAD6/wQAAgAKAAQAAAD6/wUAAgAKAAQAAAD7/wIAAgAKAAQAAAD7/wMAAgAKAAQAAAD7/wQAAgAKAAQAAAD7/wUAAgAKAAQAAAD8/wIAAgAKAAQAAAD8/wMAAgAKAAQAAAD8/wQAAgAKAAQAAAD8/wUAAgAKAAQAAAD9/wIAAgAKAAQAAAD9/wMAAgAKAAQAAAD9/wQAAgAKAAQAAAD9/wUAAgAKAAQAAAD+/wIAAgAKAAQAAAD+/wMAAgAKAAQAAAD+/wQAAgAKAAQAAAD+/wUAAgAKAAQAAAD//wIAAgAKAAQAAAD//wMAAgAKAAQAAAD//wQAAgAKAAQAAAD//wUAAgAKAAQAAAAAAAIAAgAKAAQAAAAAAAMAAgAKAAQAAAAAAAQAAgAKAAQAAAAAAAUAAgAKAAQAAAABAAIAAgAKAAQAAAABAAMAAgAKAAQAAAABAAQAAgAKAAQAAAABAAUAAgAKAAQAAAACAAIAAgAKAAQAAAACAAMAAgAKAAQAAAACAAQAAgAKAAQAAAACAAUAAgAKAAQAAAADAAIAAgAKAAQAAAADAAMAAgAKAAQAAAADAAQAAgAKAAQAAAADAAUAAgAKAAQAAAAEAAIAAgAKAAQAAAAEAAMAAgAKAAQAAAAEAAQAAgAKAAQAAAAEAAUAAgAKAAQAAAAFAAIAAgAKAAQAAAAFAAMAAgAKAAQAAAAFAAQAAgAKAAQAAAAFAAUAAgAKAAQAAAAGAAIAAgAKAAQAAAAGAAMAAgAKAAQAAAAGAAQAAgAKAAQAAAAGAAUAAgAKAAQAAAAHAAIAAgAKAAQAAAAHAAMAAgAKAAQAAAAHAAQAAgAKAAQAAAAHAAUAAgAKAAQAAAAIAAIAAgAKAAQAAAAIAAMAAgAKAAQAAAAIAAQAAgAKAAQAAAAIAAUAAgAKAAQAAAAJAAIAAgAKAAQAAAAJAAMAAgAKAAQAAAAJAAQAAgAKAAQAAAAJAAUAAgAKAAQAAAAKAAIAAgAKAAQAAAAKAAMAAgAKAAQAAAAKAAQAAgAKAAQAAAAKAAUAAgAKAAQAAAALAAIAAgAKAAQAAAALAAMAAgAKAAQAAAALAAQAAgAKAAQAAAALAAUAAgAKAAQAAAAMAAIAAgAKAAQAAAAMAAMAAgAKAAQAAAAMAAQAAgAKAAQAAAAMAAUAAgAKAAQAAAANAAIAAgAKAAQAAAANAAMAAgAKAAQAAAANAAQAAgAKAAQAAAANAAUAAgAKAAQAAAAOAAIAAgAKAAQAAAAOAAMAAgAKAAQAAAAOAAQAAgAKAAQAAAAOAAUAAgAKAAQAAAAPAAIAAgAKAAQAAAAPAAMAAgAKAAQAAAAPAAQAAgAKAAQAAAAPAAUAAgAKAAQAAAAQAAIAAgAKAAQAAAAQAAMAAgAKAAQAAAAQAAQAAgAKAAQAAAAQAAUAAgAKAAQAAAARAAIAAgAKAAQAAAARAAMAAgAKAAQAAAARAAQAAgAKAAQAAAARAAUAAgAKAAQAAAA=")
+tile_set = SubResource("TileSet_8jfef")
+
+[node name="player2" parent="." unique_id=419977870 instance=ExtResource("7_rvoii")]
+position = Vector2(-59.000008, -8)
+scale = Vector2(3.84, 3.84)
+
+[node name="Camera2D" type="Camera2D" parent="player2" unique_id=157089427]
+position = Vector2(19.010416, -4.947916)
+offset = Vector2(10.78, 0)
+zoom = Vector2(4, 4)
+limit_enabled = false
+limit_left = 1160
+limit_top = -1617
+limit_right = 1431
+limit_bottom = -1504
+
+[node name="start" type="TextureButton" parent="." unique_id=1323426095]
+anchors_preset = -1
+anchor_left = 0.91200006
+anchor_top = 0.44700003
+anchor_right = 0.91200006
+anchor_bottom = 0.44700003
+offset_left = 63.0
+offset_top = -54.0
+offset_right = 1097.782
+offset_bottom = 813.46106
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.092969745, 0.051474806)
+focus_mode = 0
+texture_normal = ExtResource("8_srpts")
+texture_pressed = ExtResource("9_t7f5n")
+texture_hover = ExtResource("10_gh54c")
+texture_disabled = ExtResource("11_yhucb")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="start" unique_id=1527422136]
+z_index = 2
+z_as_relative = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -357.776
+offset_top = -158.73053
+offset_right = 2236.9595
+offset_bottom = 242.26947
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.28232896, 0.6937903)
+theme_override_fonts/font = ExtResource("12_rhajk")
+theme_override_font_sizes/font_size = 300
+text = "Restart"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sounds" type="Node" parent="." unique_id=67505940]
+
+[node name="click" type="AudioStreamPlayer" parent="sounds" unique_id=2122477556]
+stream = ExtResource("13_mdegm")
+max_polyphony = 3
+
+[node name="error" type="AudioStreamPlayer" parent="sounds" unique_id=1347710941]
+stream = ExtResource("14_8l46t")
+max_polyphony = 3
+
+[node name="upgrade" type="AudioStreamPlayer" parent="sounds" unique_id=1522447272]
+stream = ExtResource("15_7r0jp")
+max_polyphony = 5
+
+[node name="chest" type="AudioStreamPlayer" parent="sounds" unique_id=1139681183]
+stream = ExtResource("16_plpok")
+
+[node name="chest2" type="AudioStreamPlayer" parent="sounds" unique_id=1454064117]
+stream = ExtResource("17_t72tt")
+
+[node name="cash" type="AudioStreamPlayer" parent="sounds" unique_id=786607453]
+stream = ExtResource("18_cm5gx")
+
+[node name="whip" type="AudioStreamPlayer" parent="sounds" unique_id=1240653344]
+stream = ExtResource("19_d1uq7")
+
+[node name="bite" type="AudioStreamPlayer" parent="sounds" unique_id=1368263789]
+stream = ExtResource("20_goy17")
+
+[node name="raid" type="AudioStreamPlayer" parent="sounds" unique_id=1075993400]
+stream = ExtResource("21_368ms")
+
+[node name="hit" type="AudioStreamPlayer" parent="sounds" unique_id=1879926647]
+stream = ExtResource("22_fl2kj")
+
+[node name="kill" type="AudioStreamPlayer" parent="sounds" unique_id=838061281]
+stream = ExtResource("23_y71l6")
+
+[node name="countdown" type="AudioStreamPlayer" parent="sounds" unique_id=1417034147]
+stream = ExtResource("24_0rea6")
+
+[node name="walk" type="AudioStreamPlayer" parent="sounds" unique_id=263588477]
+stream = ExtResource("25_vl1pm")
+volume_db = -2.0
+
+[node name="bag" type="AudioStreamPlayer" parent="sounds" unique_id=156883217]
+stream = ExtResource("26_y3qrf")
+
+[node name="stick" type="AudioStreamPlayer" parent="sounds" unique_id=1207701582]
+stream = ExtResource("27_gu8ig")
+max_polyphony = 3
+
+[node name="knife" type="AudioStreamPlayer" parent="sounds" unique_id=1129071761]
+stream = ExtResource("28_upv21")
+max_polyphony = 3
+
+[node name="small_axe" type="AudioStreamPlayer" parent="sounds" unique_id=644349810]
+stream = ExtResource("29_8cws8")
+max_polyphony = 3
+
+[node name="axe" type="AudioStreamPlayer" parent="sounds" unique_id=638841234]
+stream = ExtResource("30_qbblq")
+max_polyphony = 3
+
+[node name="Label" type="Label" parent="." unique_id=764722593]
+offset_left = -90.0
+offset_top = -108.0
+offset_right = 2187.0
+offset_bottom = 165.0
+scale = Vector2(0.1, 0.1)
+theme_override_font_sizes/font_size = 200
+text = "You finished in 00:00:00"
+
+[connection signal="pressed" from="start" to="." method="_on_start_pressed"]

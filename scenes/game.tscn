@@ -45,6 +45,7 @@
 [ext_resource type="AudioStream" uid="uid://bvsrx3uc8cuc8" path="res://assets/sfx/knife.ogg" id="43_458eo"]
 [ext_resource type="AudioStream" uid="uid://bbb06po0qgjo1" path="res://assets/sfx/small_axe.ogg" id="44_h3rex"]
 [ext_resource type="AudioStream" uid="uid://dgw5ydqeo3boq" path="res://assets/sfx/axe.ogg" id="45_fedci"]
+[ext_resource type="PackedScene" uid="uid://04xugslol4e8" path="res://objects/weird.tscn" id="46_458eo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oaba0"]
 texture = ExtResource("1_lnu2h")
@@ -390,13 +391,13 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e1j6l"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rm0al"]
 texture = ExtResource("15_264po")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pl11u"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i4re6"]
 texture = ExtResource("16_1kice")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bhx41"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pf7vy"]
 texture = ExtResource("17_5newe")
 6:3/0 = 0
 9:3/0 = 0
@@ -404,7 +405,7 @@ texture = ExtResource("17_5newe")
 11:3/0 = 0
 10:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qnb83"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o8ni1"]
 texture = ExtResource("18_37s47")
 3:4/0 = 0
 4:4/0 = 0
@@ -416,7 +417,7 @@ texture = ExtResource("18_37s47")
 5:5/0 = 0
 5:6/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sww3w"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3hbvx"]
 texture = ExtResource("19_bt5mj")
 3:0/0 = 0
 3:1/0 = 0
@@ -429,17 +430,17 @@ texture = ExtResource("19_bt5mj")
 5:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_suyxu"]
-sources/0 = SubResource("TileSetAtlasSource_e1j6l")
-sources/1 = SubResource("TileSetAtlasSource_pl11u")
-sources/2 = SubResource("TileSetAtlasSource_bhx41")
-sources/3 = SubResource("TileSetAtlasSource_qnb83")
-sources/4 = SubResource("TileSetAtlasSource_sww3w")
+sources/0 = SubResource("TileSetAtlasSource_rm0al")
+sources/1 = SubResource("TileSetAtlasSource_i4re6")
+sources/2 = SubResource("TileSetAtlasSource_pf7vy")
+sources/3 = SubResource("TileSetAtlasSource_o8ni1")
+sources/4 = SubResource("TileSetAtlasSource_3hbvx")
 
 [node name="game" type="Node2D" unique_id=1891911055]
 script = ExtResource("1_u5sy4")
 
 [node name="cats_att" type="Timer" parent="." unique_id=480667788]
-wait_time = 300.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 
@@ -653,7 +654,7 @@ shape = SubResource("CapsuleShape2D_kvuet")
 
 [node name="player1" parent="." unique_id=463820932 instance=ExtResource("1_uwrxv")]
 z_index = 2
-position = Vector2(-199.00003, -65)
+position = Vector2(232.00009, 75.000015)
 scale = Vector2(1.44, 1.44)
 collision_layer = 202
 collision_mask = 74
@@ -2223,6 +2224,10 @@ max_polyphony = 3
 [node name="axe" type="AudioStreamPlayer" parent="sounds" unique_id=1162337723]
 stream = ExtResource("45_fedci")
 max_polyphony = 3
+
+[node name="weird" parent="." unique_id=856157569 instance=ExtResource("46_458eo")]
+position = Vector2(253, 24)
+scale = Vector2(1.2, 1.2)
 
 [connection signal="timeout" from="cats_att" to="." method="_on_cats_att_timeout"]
 [connection signal="body_entered" from="map/Area2D" to="." method="_on_area_2d_body_entered"]

@@ -7,16 +7,17 @@ var font1 = load("res://temp2.ttf")
 var font2 = load("res://temp.ttf")
 
 
-var player_speed = 150
+var player_speed = 350
 var player_boost = 3
 var player_health = 3
+var bonus_stick = 0
 
-
-var currency: int = 0
+var currency: int = 9995
 
 var chest_small_time = 0.1
 
 var workers_count = 0
+
 
 var button_normal = load("res://assets/ui/button_normal.png")
 var button_hover = load("res://assets/ui/button_hover.png")
@@ -24,13 +25,20 @@ var button_disabled = load("res://assets/ui/button_disabled.png")
 var button_pressed = load("res://assets/ui/button_pressed.png")
 
 
+var time := 0.0
+var running := 1
+
+func _process(delta):
+	if running:
+		time += delta
 
 
 func update_currency(amount):
 	#print("I came hered")
 	currency += amount
 	#print(currency)
-	inventory.win()
+	if currency >= 10000:
+		inventory.win()
 
 var items = [
 	# Weapons
