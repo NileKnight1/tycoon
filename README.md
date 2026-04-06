@@ -18,3 +18,5 @@ A game made by Godot Engine.
 - Previous chat: right click
 #### Phone
 - You have buttons for each actions except for previousa chat
+
+<img width="1077" height="521" alt="Untitled design" src="https://github.com/user-attachments/assets/b7c685b1-95bf-4bc2-b4e5-ba6b4544b836" />
