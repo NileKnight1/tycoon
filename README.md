@@ -28,5 +28,5 @@ A game made by Godot Engine.
 4. Then talk to him again when you're ready to leave.
 
 ## Easter Eags
-1. If you talked to the weird man then went back to Rita, you'll gain an additional heart.
+1. If you talked to the weird man then went back to Rita (area `2`), you'll gain an additional heart.
 2. If you went to area number `4`, you'll get a stick.
